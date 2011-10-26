@@ -1,0 +1,39 @@
+light game
+
+* game
+* move objects
+* light
+* extra monster
+* needed
+** movement
+** scene
+** interaction
+*** objects
+*** lights
+
+* stuff
+
+** collisions
+
+** movement
+
+** objects
+
+** lights
+
+*** moving
+
+*** switching
+
+*** 
+
+** Person
+
+*** health
+
+*** position
+
+*** picking up
+
+*** switching
+
