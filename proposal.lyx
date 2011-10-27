@@ -1,0 +1,146 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Light Game
+\end_layout
+
+\begin_layout Author
+Zack Bush - Alex Wardi - Joseph Wright
+\end_layout
+
+\begin_layout Standard
+Light Game will be a basic first person puzzle game.
+ The player will try to find cubes in the level and place them into the
+ goals.
+ The player will depend on lighting to navigate the level.
+ Being away from light will make it harder for the player to see and make
+ them more susceptible to the 
+\begin_inset Quotes eld
+\end_inset
+
+monster
+\begin_inset Quotes erd
+\end_inset
+
+ which can kill the player, restarting the level.
+ Levels will have walls as obstacles.
+ 
+\end_layout
+
+\begin_layout Standard
+A level may include multiple lights.
+ A light may be able to be moved by a player or may be stationary.
+ Sets of lights may be toggled by switches by some unknown logic function.
+ Game props may be color coded and light switches may alter the color compositio
+n of lights confusing the player.
+ 
+\end_layout
+
+\begin_layout Standard
+The player will be able to pick up cubes and lights and carry them
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Only one thing at a time may be held.
+\end_layout
+
+\end_inset
+
+ wherever he goes.
+ The player will be able to toggle light switches.
+ Movable lights will be on a post.
+ Picking objects up or putting objects down will be achieved by standing
+ in front of the target object and pressing 
+\noun on
+spacebar
+\noun default
+.
+ Switch toggling will be done the same way.
+\end_layout
+
+\begin_layout Standard
+The goal of the game will be to place the colored cube into the matching
+ bin.
+ When all cubes are in their correct bin the level is solved.
+\end_layout
+
+\begin_layout Standard
+Since levels are 2 dimensional maps of walls and starting positions of objects
+ they can be represented in text files and levels can be loaded from them.
+\end_layout
+
+\begin_layout Section*
+Order
+\end_layout
+
+\begin_layout Standard
+Order of importance of features:
+\end_layout
+
+\begin_layout Itemize
+3D world with walls controlled with a first person view
+\end_layout
+
+\begin_layout Itemize
+Picking up cubes and placing them in bins
+\end_layout
+
+\begin_layout Itemize
+Light switches
+\end_layout
+
+\begin_layout Itemize
+Movable lights
+\end_layout
+
+\begin_layout Itemize
+Loadable levels from text files
+\end_layout
+
+\begin_layout Itemize
+Monster that seeks you out when your in darkness
+\end_layout
+
+\end_body
+\end_document
