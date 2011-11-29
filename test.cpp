@@ -68,7 +68,7 @@ void bounce(void)
       g=(float)rand()/(float)RAND_MAX;
       b=(float)rand()/(float)RAND_MAX;
       dy *= -1.00; 
-    }singleb
+    }
   glutSetWindow(doubleb);
   glutPostRedisplay();
 }
