@@ -2,12 +2,15 @@
 #include <iostream>
 #include <cstdlib>
 
-using namespace std;
-
-int main(int argc, char** argv)
+class Switch : Object
 {
+  public:
+    Switch(double x, double y, double z, double r, double g, double b, double link, bool state)
+    {
+    
+    }
 
+  private:
 
+};
 
-  return 0;
-}
