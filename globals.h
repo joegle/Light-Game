@@ -8,7 +8,6 @@ double world_time=0;
 // Try running and pressing j/k/u/i keys
 
 
-
 struct Object {
   double x;
   double y;

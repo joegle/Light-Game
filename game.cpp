@@ -87,8 +87,7 @@ void drawObjects() {
 
   light();
 
-  world.drawFloor();
-  world.drawWalls();
+  world.drawWorld();
 
   tests();
 }

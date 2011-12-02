@@ -63,11 +63,14 @@ private:
 
 void world::drawWorld()
 {
-  drawLights();
+  drawFloor();
   drawWalls();
+  /*
+  drawLights();
   drawSwitches();
   drawBoxes();
   drawBins();
+  */
 }
 
 void world::setDimensions(int xx,int yy)
@@ -82,7 +85,6 @@ void world::drawFloor()
 
   glTranslatef(x * 10, 0 ,y * 10);
   glScalef(x * 10, 0 , y * 10);
-
   
   glColor3f(1,0,1);
 
