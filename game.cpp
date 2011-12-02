@@ -7,13 +7,15 @@
 #include <iostream>
 #include <cstring>
 #include <GL/glut.h>
+
 #include "globals.h"
+#include "utils.cpp"
 #include "controls.cpp"
 #include "objects.cpp"
 using namespace std;
 
 
-GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.0 };
+
 
 // http://fly.cc.fer.hr/~unreal/theredbook/chapter03.html
 
@@ -38,10 +40,6 @@ void init() {
 
 }
 
-float f(float a){
-  return a*3.14/180;
-}
-
 
 void initTransformation() {
   glMatrixMode (GL_PROJECTION); //set the matrix to projection
@@ -51,14 +49,6 @@ void initTransformation() {
   glMatrixMode( GL_MODELVIEW);
   glLoadIdentity();
 
-}
-
-void light()
-{
-  light_position[1]=sin(f(world_time*100));
-  light_position[0]=cos(f(world_time*100));
-  light_position[2]=cos(f(world_time*100)+75);
-  glLightfv(GL_LIGHT0, GL_POSITION, light_position);
 }
 
 

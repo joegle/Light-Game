@@ -1,3 +1,6 @@
+
+GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.0 };
+
 double world_time=0;
 
 struct Object {

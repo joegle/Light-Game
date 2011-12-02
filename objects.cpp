@@ -1,4 +1,13 @@
 
+// Places light
+void light()
+{
+  light_position[1]=sin(f(world_time*100));
+  light_position[0]=cos(f(world_time*100));
+  light_position[2]=cos(f(world_time*100)+75);
+  glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+}
+
 
 void floor(){
   GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
