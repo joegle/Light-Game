@@ -122,7 +122,9 @@ void drawWall(double x1,double y1, double x2, double y2)
   y2*=20;
   
   glColor3f(0,0,1);
+
   int h=4; // height of wall
+
   glBegin(GL_QUADS);
     glVertex3f(x1,h,y1);     
     glVertex3f(x1,0,y1);     
@@ -149,8 +151,12 @@ void world::drawWalls()
 	if(box & 2 )
 	  drawWall(i,j,i+1,j);
 
-	if(box & 3 )
+	if(box & 4 )
 	  drawWall(i+1,j+1,i+1,j);
+
+	if(box & 8 )
+	  drawWall(i+1,j+1,i,j+1);
+
       }
 
 

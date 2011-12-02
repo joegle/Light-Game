@@ -8,10 +8,12 @@
 #include <cstring>
 #include <GL/glut.h>
 
+#include "utils.cpp"
 #include "world.cpp"
+#include "dude.cpp"
 #include "globals.h"
 
-#include "utils.cpp"
+
 #include "init.cpp"   // this will process the input.in and initilize globals (input.cpp)
 #include "controls.cpp"
 #include "objects.cpp"
@@ -38,9 +40,6 @@ void init() {
 
   processfile();
 
-  player.x=0;
-  player.y=0;
-  player.z=1;
 
   glShadeModel(GL_SMOOTH); //set the shader to smooth shader
 
@@ -58,15 +57,14 @@ void initTransformation() {
 
 
 void tests(){
-  drawWall(0,0,0,.5);
-  drawWall(0,0,1,1);
-  drawWall(.5,0,1.5,0);
+  //  drawWall(0,0,0,.5);
+  //drawWall(0,0,1,1);
+  //drawWall(.5,0,1.5,0);
 
   post(0,0);
   post(1,1);
   post(0.5,0.5);
   post(2,0.5);
-
  
   teapot(10,10);
   table(-20,20);
@@ -76,14 +74,8 @@ void tests(){
 }
 
 void drawObjects() {
-  
 
-  // polar coords
-  gluLookAt(player.x,player.z,player.y,
-	    player.x+sin(f(player.o))*cos(f(player.s)),
-	    player.z+sin(f(player.s)),
-	    player.y+cos(f(player.o))*cos(f(player.s)),
-	    0,1,0);
+  dude.look();
 
   light();
 
@@ -121,8 +113,8 @@ int main(int argc, char **argv) {
 
   glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
   
-  glutInitWindowSize(500,500);       // Set the size of the window here.
-  glutInitWindowPosition(150,50);    // Upper left corner of window.
+  glutInitWindowSize(500, 500);       // Set the size of the window here.
+  glutInitWindowPosition(150, 50);    // Upper left corner of window.
 
   glutCreateWindow("Game"); // Title displayed in window title bar.
 
