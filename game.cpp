@@ -3,6 +3,7 @@
 #include <stdlib.h>         /* For _MAX_PATH definition */
 #include <stdio.h>
 #include <cstdlib>
+#include <stdlib.h>
 #include <cmath>
 #include <iostream>
 #include <cstring>
@@ -22,7 +23,6 @@ using namespace std;
 
 
 
-
 // http://fly.cc.fer.hr/~unreal/theredbook/chapter03.html
 
 
@@ -37,6 +37,8 @@ void init() {
   glEnable(GL_LIGHTING); //enable the lighting
   glEnable(GL_LIGHT0); //enable LIGHT0, our Diffuse Light
   //glEnable(GL_LIGHT1); //enable LIGHT1, our Ambient Light
+
+  srand(time(NULL));
 
   processfile();
 
@@ -70,6 +72,8 @@ void tests(){
   table(-20,20);
 
   table(10,10);
+  //  cout<<randomColor().r;
+
 
 }
 
@@ -78,6 +82,8 @@ void drawObjects() {
   dude.look();
 
   light();
+
+  cube.draw();
 
   world.drawWorld();
 

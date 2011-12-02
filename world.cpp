@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include "boxes.cpp"
 
 using namespace std;
 
@@ -18,16 +19,11 @@ public:
   void draw(){cout<<"draw switch";};
 };
 
-class boxes
-{
-public:
-  void draw(){cout<<"draw box";};
-};
 
 class bins
 {
 public:
-  void draw(){cout<<"draw bin";};
+  void draw(){cout<<"draw switch";};
 };
 
 
@@ -46,7 +42,7 @@ public:
   void addLight(lights light);
   //  void addWall();
   void addSwitch(switches newSwitch);
-  void addBox(boxes box);
+  void addBox(box box);
   void addBin(bins bin);
 
   int x;
@@ -57,7 +53,7 @@ public:
 private:
   vector<lights> _lights;
   vector<switches> _switches;
-  vector<boxes> _boxes;
+  vector<box> _boxes;
   vector<bins> _bins;
 };
 
@@ -139,22 +135,22 @@ void drawWall(double x1,double y1, double x2, double y2)
 
 void world::drawWalls()
 {
-  int box;
+  int part;
   for(int i=0;i<x;i++)
     for(int j=0;j<y;j++)
       {
-	box=walls[i][j];
+	part=walls[i][j];
 
-	if(box & 1 )
+	if(part & 1 )
 	  drawWall(i,j,i,j+1);
 
-	if(box & 2 )
+	if(part & 2 )
 	  drawWall(i,j,i+1,j);
 
-	if(box & 4 )
+	if(part & 4 )
 	  drawWall(i+1,j+1,i+1,j);
 
-	if(box & 8 )
+	if(part & 8 )
 	  drawWall(i+1,j+1,i,j+1);
 
       }
@@ -199,7 +195,7 @@ void world::addSwitch(switches newSwitch)
 	_switches.push_back(newSwitch);
 }
 
-void world::addBox(boxes box)
+void world::addBox(box box)
 {
 	_boxes.push_back(box);
 }

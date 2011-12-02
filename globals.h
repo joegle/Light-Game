@@ -6,5 +6,6 @@ double world_time=0;
 
 world world;
 dude dude(&world);
+box cube(0.25,0.5);
 
 
