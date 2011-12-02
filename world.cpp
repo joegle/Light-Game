@@ -3,34 +3,36 @@
 
 using namespace std;
 
+class wall
+{
+public:
+	void draw(){cout<<"draw wall";};
+};
+
+
 class lights
 {
 public:
-	void draw();
+  void draw(){cout<<"draw light";};
 };
 
-class walls
-{
-public:
-	void draw();
-};
 
 class switches
 {
 public:
-	void draw();
+	void draw(){cout<<"draw switch";};
 };
 
 class boxes
 {
 public:
-	void draw();
+	void draw(){cout<<"draw box";};
 };
 
 class bins
 {
 public:
-	void draw();
+	void draw(){cout<<"draw bin";};
 };
 
 
@@ -46,14 +48,14 @@ public:
 	void drawFloorCeiling();
 
 	void addLight(lights light);
-	void addWall(walls wall);
+	void addWall(wall w);
 	void addSwitch(switches newSwitch);
 	void addBox(boxes box);
 	void addBin(bins bin);
 
 private:
 	vector<lights> _lights;
-	vector<walls> _walls;
+	vector<wall> _walls;
 	vector<switches> _switches;
 	vector<boxes> _boxes;
 	vector<bins> _bins;
@@ -80,7 +82,7 @@ void world::drawLights()
 {
 	for(int i = 0; i < _lights.size(); i++)
 	{
-		_lights[i].draw();
+	  _lights[i].draw();
 	}
 }
 
@@ -121,9 +123,9 @@ void world::addLight(lights light)
 	_lights.push_back(light);
 }
 
-void world::addWall(walls wall)
+void world::addWall(wall w)
 {
-	_walls.push_back(wall);
+	_walls.push_back(w);
 }
 
 void world::addSwitch(switches newSwitch)

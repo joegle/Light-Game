@@ -1,6 +1,5 @@
 // Globals will be here
 
-
 GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.0 };
 
 double world_time=0;
@@ -21,6 +20,7 @@ struct Object {
 
 Object player;
 
+world world;
 
 // Stores the walls
 int walls[30][30];  // [row][col]

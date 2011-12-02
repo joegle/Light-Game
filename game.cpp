@@ -8,7 +8,9 @@
 #include <cstring>
 #include <GL/glut.h>
 
+#include "world.cpp"
 #include "globals.h"
+
 #include "utils.cpp"
 #include "init.cpp"   // this will process the input.in and initilize globals (input.cpp)
 #include "controls.cpp"
@@ -70,6 +72,7 @@ void tests(){
   table(-20,20);
 
   table(10,10);
+
 }
 
 void drawObjects() {
