@@ -1,4 +1,9 @@
 LIBS = -lglut -lGLU
 
-game: 
-	g++ -o game $(LIBS) game.cpp controls.h objects.h
+
+game: game.cpp globals.h controls.cpp objects.cpp
+	g++ -o game $(LIBS) game.cpp 
+
+test:
+	g++ -o test $(LIBS) test.cpp
+
