@@ -20,7 +20,7 @@ void floor(){
   
   glColor3f(1,0,1);
 
-  glBegin(GL_QUADS);                      
+  glBegin(GL_QUADS);
   glTexCoord2f(-1.0, 1.0);   glVertex3f(-1.0f,0, 1.0f);     
   glTexCoord2f( 1.0, 1.0);   glVertex3f( 1.0f,0, 1.0f);     
   glTexCoord2f( 1.0,-1.0);   glVertex3f( 1.0f,0,-1.0f);     
@@ -49,9 +49,24 @@ void post(double x,double y){
 // draw wall from (x1,y2) to (x2,y2)
 void wall(double x1,double y1, double x2, double y2)
 {
-   glPushMatrix();
+  glPushMatrix();
+  
+  // This is how it is. It works
+  x1*=20;
+  x2*=20;
+  y1*=20;
+  y2*=20;
+  
+  glColor3f(0,0,1);
+  int h=4;
+  glBegin(GL_QUADS);
+    glVertex3f(x1,h,y1);     
+    glVertex3f(x1,0,y1);     
+    glVertex3f(x2,0,y2);     
+    glVertex3f(x2,h,y2);     
+  glEnd();   
 
-   glPopMatrix();
+  glPopMatrix();
 
 }
 

@@ -68,6 +68,10 @@ void drawObjects() {
   post(0.5,0.5);
   post(2,0.5);
 
+  wall(0,0,0,.5);
+  wall(0,0,1,1);
+  wall(.5,0,1.5,0);
+
   teapot(10,10);
   table(-20,20);
 
