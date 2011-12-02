@@ -58,7 +58,7 @@ void wall(double x1,double y1, double x2, double y2)
   y2*=20;
   
   glColor3f(0,0,1);
-  int h=4;
+  int h=4; // height of wall
   glBegin(GL_QUADS);
     glVertex3f(x1,h,y1);     
     glVertex3f(x1,0,y1);     

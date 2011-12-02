@@ -20,3 +20,8 @@ struct Object {
 };
 
 Object player;
+
+
+// Stores the walls
+char  walls[30][30];  // [row][col]
+

@@ -10,8 +10,10 @@
 
 #include "globals.h"
 #include "utils.cpp"
+#include "init.cpp"   // this will process the input.in and initilize globals (input.cpp)
 #include "controls.cpp"
 #include "objects.cpp"
+
 using namespace std;
 
 
@@ -32,8 +34,10 @@ void init() {
   glEnable(GL_LIGHT0); //enable LIGHT0, our Diffuse Light
   //glEnable(GL_LIGHT1); //enable LIGHT1, our Ambient Light
 
-  player.x=10;
-  player.y=10;
+  processfile();
+
+  player.x=0;
+  player.y=0;
   player.z=-40;
 
   glShadeModel(GL_SMOOTH); //set the shader to smooth shader
@@ -54,10 +58,11 @@ void initTransformation() {
 
 void drawObjects() {
 
+
   gluLookAt(player.x,player.y,player.z,
 	    player.x+sin(f(player.s))*cos(f(player.o)),
-	     player.y+sin(f(player.s))*sin(f(player.o)),
-	     player.z+cos(f(player.s)),
+	    player.y+sin(f(player.s))*sin(f(player.o)),
+	    player.z+cos(f(player.s)),
 	    0,1,0);
 
   light();
