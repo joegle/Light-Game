@@ -58,9 +58,9 @@ void initTransformation() {
 
 
 void tests(){
-  wall(0,0,0,.5);
-  wall(0,0,1,1);
-  wall(.5,0,1.5,0);
+  drawWall(0,0,0,.5);
+  drawWall(0,0,1,1);
+  drawWall(.5,0,1.5,0);
 
   post(0,0);
   post(1,1);
@@ -86,8 +86,9 @@ void drawObjects() {
 	    0,1,0);
 
   light();
-  floor();
-  drawWalls();
+
+  world.drawFloor();
+  world.drawWalls();
 
   tests();
 }

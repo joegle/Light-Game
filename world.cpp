@@ -3,11 +3,6 @@
 
 using namespace std;
 
-class wall
-{
-public:
-	void draw(){cout<<"draw wall";};
-};
 
 
 class lights
@@ -20,61 +15,88 @@ public:
 class switches
 {
 public:
-	void draw(){cout<<"draw switch";};
+  void draw(){cout<<"draw switch";};
 };
 
 class boxes
 {
 public:
-	void draw(){cout<<"draw box";};
+  void draw(){cout<<"draw box";};
 };
 
 class bins
 {
 public:
-	void draw(){cout<<"draw bin";};
+  void draw(){cout<<"draw bin";};
 };
 
 
 class world
 {
 public:
-	void drawWorld();
-	void drawLights();
-	void drawWalls();
-	void drawSwitches();
-	void drawBoxes();
-	void drawBins();
-	void drawFloorCeiling();
+  void drawWorld();
+  void setDimensions(int xx,int yy);
+  void drawLights();
+  void drawWalls();
+  void drawSwitches();
+  void drawBoxes();
+  void drawBins();
+  void drawFloor();
+  
+  void addLight(lights light);
+  //  void addWall();
+  void addSwitch(switches newSwitch);
+  void addBox(boxes box);
+  void addBin(bins bin);
 
-	void addLight(lights light);
-	void addWall(wall w);
-	void addSwitch(switches newSwitch);
-	void addBox(boxes box);
-	void addBin(bins bin);
+  int x;
+  int y;
+  int walls[30][30];  // [row][col]
 
+  
 private:
-	vector<lights> _lights;
-	vector<wall> _walls;
-	vector<switches> _switches;
-	vector<boxes> _boxes;
-	vector<bins> _bins;
-	int x;
-	int y;
+  vector<lights> _lights;
+  vector<switches> _switches;
+  vector<boxes> _boxes;
+  vector<bins> _bins;
 };
 
 void world::drawWorld()
 {
-	drawFloorCeiling();
-	drawLights();
-	drawWalls();
-	drawSwitches();
-	drawBoxes();
-	drawBins();
+  drawLights();
+  drawWalls();
+  drawSwitches();
+  drawBoxes();
+  drawBins();
 }
 
-void world::drawFloorCeiling()
+void world::setDimensions(int xx,int yy)
 {
+  x=xx;
+  y=yy;
+}
+
+void world::drawFloor()
+{
+  glPushMatrix();
+
+  glTranslatef(x * 10, 0 ,y * 10);
+  glScalef(x * 10, 0 , y * 10);
+
+  
+  glColor3f(1,0,1);
+
+  glBegin(GL_QUADS);
+  glTexCoord2f(-1.0, 1.0);   glVertex3f(-1.0f,0, 1.0f);     
+  glTexCoord2f( 1.0, 1.0);   glVertex3f( 1.0f,0, 1.0f);     
+  glTexCoord2f( 1.0,-1.0);   glVertex3f( 1.0f,0,-1.0f);     
+  glTexCoord2f(-1.0,-1.0);   glVertex3f(-1.0f,0,-1.0f);     
+  glEnd();   
+
+  glPopMatrix();
+
+
+
 	//draw an appropriate floor here
 }
 
@@ -86,12 +108,51 @@ void world::drawLights()
 	}
 }
 
+// draw wall from (x1,y2) to (x2,y2)
+void drawWall(double x1,double y1, double x2, double y2)
+{
+  glPushMatrix();
+  
+  // This is how it is. It works
+  x1*=20;
+  x2*=20;
+  y1*=20;
+  y2*=20;
+  
+  glColor3f(0,0,1);
+  int h=4; // height of wall
+  glBegin(GL_QUADS);
+    glVertex3f(x1,h,y1);     
+    glVertex3f(x1,0,y1);     
+    glVertex3f(x2,0,y2);     
+    glVertex3f(x2,h,y2);     
+  glEnd();   
+
+  glPopMatrix();
+}
+
+
+
 void world::drawWalls()
 {
-	for(int i = 0; i < _lights.size(); i++)
-	{
-		_walls[i].draw();
-	}
+  int box;
+  for(int i=0;i<x;i++)
+    for(int j=0;j<y;j++)
+      {
+	box=walls[i][j];
+
+	if(box & 1 )
+	  drawWall(i,j,i,j+1);
+
+	if(box & 2 )
+	  drawWall(i,j,i+1,j);
+
+	if(box & 3 )
+	  drawWall(i+1,j+1,i+1,j);
+      }
+
+
+
 }
 
 void world::drawSwitches()
@@ -123,10 +184,7 @@ void world::addLight(lights light)
 	_lights.push_back(light);
 }
 
-void world::addWall(wall w)
-{
-	_walls.push_back(w);
-}
+
 
 void world::addSwitch(switches newSwitch)
 {

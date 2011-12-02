@@ -6,8 +6,7 @@ double world_time=0;
 
 // This is the size of the whole level
 // Try running and pressing j/k/u/i keys
-int world_x=1;
-int world_y=1;
+
 
 
 struct Object {
@@ -23,5 +22,5 @@ Object player;
 world world;
 
 // Stores the walls
-int walls[30][30];  // [row][col]
+//int walls[30][30];  // [row][col]
 

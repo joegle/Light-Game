@@ -9,27 +9,6 @@ void light()
 }
 
 
-void floor(){
-
-
-  glPushMatrix();
-
-  glTranslatef(world_x * 10, 0 , world_y * 10);
-  glScalef(world_x * 10, 0 , world_y * 10);
-
-  
-  glColor3f(1,0,1);
-
-  glBegin(GL_QUADS);
-  glTexCoord2f(-1.0, 1.0);   glVertex3f(-1.0f,0, 1.0f);     
-  glTexCoord2f( 1.0, 1.0);   glVertex3f( 1.0f,0, 1.0f);     
-  glTexCoord2f( 1.0,-1.0);   glVertex3f( 1.0f,0,-1.0f);     
-  glTexCoord2f(-1.0,-1.0);   glVertex3f(-1.0f,0,-1.0f);     
-  glEnd();   
-
-  glPopMatrix();
-
-}
 
 // draw post at (x,y)
 void post(double x,double y){
@@ -46,47 +25,8 @@ void post(double x,double y){
   
 }
 
-// draw wall from (x1,y2) to (x2,y2)
-void wall(double x1,double y1, double x2, double y2)
-{
-  glPushMatrix();
-  
-  // This is how it is. It works
-  x1*=20;
-  x2*=20;
-  y1*=20;
-  y2*=20;
-  
-  glColor3f(0,0,1);
-  int h=4; // height of wall
-  glBegin(GL_QUADS);
-    glVertex3f(x1,h,y1);     
-    glVertex3f(x1,0,y1);     
-    glVertex3f(x2,0,y2);     
-    glVertex3f(x2,h,y2);     
-  glEnd();   
-
-  glPopMatrix();
-}
 
 // Draw all the walls from the data in 'walls' in globals.h
-void drawWalls(){
-  int box;
-  for(int i=0;i<world_x;i++)
-    for(int j=0;j<world_y;j++)
-      {
-	box=walls[i][j];
-
-	if(box & 1 )
-	  wall(i,j,i,j+1);
-
-	if(box & 2 )
-	  wall(i,j,i+1,j);
-
-	if(box & 3 )
-	  wall(i+1,j+1,i+1,j);
-      }
-}
 
 void teapot(double x,double y){
   GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };

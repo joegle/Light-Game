@@ -36,11 +36,9 @@ void keyboard(unsigned char key, int x, int y) {
      glutPostRedisplay();
    }
    else if (key == 'j') {
-     world_y++;
      glutPostRedisplay();
    }
    else if (key == 'k') {
-     world_y--;
      glutPostRedisplay();
    }
 
