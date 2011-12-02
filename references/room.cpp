@@ -158,13 +158,13 @@ void LoadGLTextures() {
 
 
 	//load picture from file
-	if (!ImageLoad("img/floor.bmp", image1)) 
+	if (!ImageLoad("floor.bmp", image1)) 
 	{
 		exit(1);
 	}
 
 	//load picture from file
-	if (!ImageLoad("img/metal.bmp", image2)) 
+	if (!ImageLoad("floor.bmp", image2)) 
 	{
 		exit(1);
 	} 

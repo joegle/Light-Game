@@ -6,3 +6,12 @@ How to run
 ==========
 $ make
 $ ./game
+
+Controls
+-------
+Up/Down    :: Move forward and back
+Left/Right :: turn
+A/Z        :: changes height
+S/X        :: looks up and down
+
+Check controls.cpp for more

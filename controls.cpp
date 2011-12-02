@@ -12,27 +12,27 @@ void keyboard(unsigned char key, int x, int y) {
    if (key == 27)
       exit(0);
    else if (key == 'a') {
-     player.y+=10;
+     player.z+=10;
      glutPostRedisplay();
    }
    else if (key == 'z') {
-     player.y-=10;
+     player.z-=10;
       glutPostRedisplay();
    }
    else if (key == 'q') {
-     player.s+=10;
+     player.o+=10;
      glutPostRedisplay();
    }
    else if (key == 'w') {
-     player.s-=10;
+     player.o-=10;
      glutPostRedisplay();
    }
-   else if (key == 'u') {
-     world_x++;
+   else if (key == 's') {
+     player.s+=5;
      glutPostRedisplay();
    }
-   else if (key == 'i') {
-     world_x--;
+   else if (key == 'x') {
+     player.s-=5;
      glutPostRedisplay();
    }
    else if (key == 'j') {
@@ -49,22 +49,26 @@ void keyboard(unsigned char key, int x, int y) {
 
 void special(int key, int x, int y) {
    if (key == GLUT_KEY_LEFT) {
-     player.x+= 10;
+     player.o+= 10;
      glutPostRedisplay();
    }
    else if (key == GLUT_KEY_RIGHT) {
-     player.x-= 10;
+     player.o-= 10;
      glutPostRedisplay();
    }
    else if (key == GLUT_KEY_UP) {
-     player.z+= 10;
+     player.y+= cos(f(player.o));
+     player.x+= sin(f(player.o));
      glutPostRedisplay();
    }
    else if (key == GLUT_KEY_DOWN) {
-     player.z-= 10;
+     player.y-= cos(f(player.o));
+     player.x-= sin(f(player.o));
+
      glutPostRedisplay();
    }
-   else if (key == GLUT_KEY_HOME) {
+   else if (key == GLUT_KEY_END) {
+     player.s += 5;
      glutPostRedisplay();
    }
 }
