@@ -67,6 +67,7 @@ void drawObjects() {
 
   light();
   floor();
+  drawWalls();
 
   post(0,0);
   post(1,1);

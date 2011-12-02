@@ -67,7 +67,25 @@ void wall(double x1,double y1, double x2, double y2)
   glEnd();   
 
   glPopMatrix();
+}
 
+// Draw all the walls from the data in 'walls' in globals.h
+void drawWalls(){
+  int box;
+  for(int i=0;i<world_x;i++)
+    for(int j=0;j<world_y;j++)
+      {
+	box=walls[i][j];
+
+	if(box & 1 )
+	  wall(i,j,i,j+1);
+
+	if(box & 2 )
+	  wall(i,j,i+1,j);
+
+	if(box & 3 )
+	  wall(i+1,j+1,i+1,j);
+      }
 }
 
 void teapot(double x,double y){

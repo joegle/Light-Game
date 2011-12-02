@@ -18,7 +18,8 @@ void processfile(){
     for(int i=0;i<world_x;i++)
       for(int j=0;j<world_y;j++)
 	  level_file >> walls[i][j];
-      
+
+
 
     level_file.close();
   }
