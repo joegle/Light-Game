@@ -34,7 +34,7 @@ void init() {
 
   player.x=10;
   player.y=10;
-  player.z=0;
+  player.z=-40;
 
   glShadeModel(GL_SMOOTH); //set the shader to smooth shader
 
@@ -48,7 +48,6 @@ void initTransformation() {
   
   glMatrixMode( GL_MODELVIEW);
   glLoadIdentity();
-
 }
 
 
@@ -60,8 +59,14 @@ void drawObjects() {
 	     player.y+sin(f(player.s))*sin(f(player.o)),
 	     player.z+cos(f(player.s)),
 	    0,1,0);
+
   light();
   floor();
+
+  post(0,0);
+  post(1,1);
+  post(0.5,0.5);
+  post(2,0.5);
 
   teapot(10,10);
   table(-20,20);

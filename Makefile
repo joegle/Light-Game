@@ -1,7 +1,7 @@
 LIBS = -lglut -lGLU
 
 
-game: game.cpp globals.h controls.cpp objects.cpp
+game: game.cpp globals.h controls.cpp objects.cpp 
 	g++ -o game $(LIBS) game.cpp 
 
 test:

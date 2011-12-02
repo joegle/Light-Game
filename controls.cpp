@@ -27,6 +27,22 @@ void keyboard(unsigned char key, int x, int y) {
      player.s-=10;
      glutPostRedisplay();
    }
+   else if (key == 'u') {
+     world_x++;
+     glutPostRedisplay();
+   }
+   else if (key == 'i') {
+     world_x--;
+     glutPostRedisplay();
+   }
+   else if (key == 'j') {
+     world_y++;
+     glutPostRedisplay();
+   }
+   else if (key == 'k') {
+     world_y--;
+     glutPostRedisplay();
+   }
 
 }	    
 

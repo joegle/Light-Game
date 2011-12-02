@@ -10,36 +10,52 @@ void light()
 
 
 void floor(){
-  GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-  GLfloat mat_ambient[] = { 1.0, 1.0, 1.0, 1.0 };
-  //  GLfloat mat_emission[] = { .2,0.1, 0.0, 1.0 };
-  GLfloat mat_shininess[] = { 50.0 };
 
-  glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-  glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
-  glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-  //glMaterialfv(GL_FRONT, GL_EMISSION, mat_emission);
 
+  glPushMatrix();
+
+  glTranslatef(world_x * 10, 0 , world_y * 10);
+  glScalef(world_x * 10, 0 , world_y * 10);
+
+  
+  glColor3f(1,0,1);
+
+  glBegin(GL_QUADS);                      
+  glTexCoord2f(-1.0, 1.0);   glVertex3f(-1.0f,0, 1.0f);     
+  glTexCoord2f( 1.0, 1.0);   glVertex3f( 1.0f,0, 1.0f);     
+  glTexCoord2f( 1.0,-1.0);   glVertex3f( 1.0f,0,-1.0f);     
+  glTexCoord2f(-1.0,-1.0);   glVertex3f(-1.0f,0,-1.0f);     
+  glEnd();   
+
+  glPopMatrix();
+
+}
+
+// draw post at (x,y)
+void post(double x,double y){
+
+  glPushMatrix();
+
+  glTranslated(x*20,0,y*20);
+
+  glColor3f(0,0,1);
+  glutSolidTeapot(1);
+
+  glPopMatrix();
+
+  
+}
+
+// draw wall from (x1,y2) to (x2,y2)
+void wall(double x1,double y1, double x2, double y2)
+{
    glPushMatrix();
-   glTranslatef(0,0,0);
-   glScalef(60,60,60);
-
-   glColor3f(1,0,1);
-
-
-   glBegin(GL_QUADS);                      
-   glTexCoord2f(-1.0, 1.0);   glVertex3f(-1.0f,0, 1.0f);     
-   glTexCoord2f(1.0, 1.0);   glVertex3f( 1.0f,0, 1.0f);     
-   glTexCoord2f(1.0, -1.0);   glVertex3f( 1.0f,0,-1.0f);     
-   glTexCoord2f(-1.0, -1.0);   glVertex3f(-1.0f,0,-1.0f);     
-
-   glEnd();   
 
    glPopMatrix();
 
 }
 
-void teapot(int x,int y){
+void teapot(double x,double y){
   GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
   GLfloat mat_shininess[] = { 50.0 };
 
@@ -55,7 +71,7 @@ void teapot(int x,int y){
    glPopMatrix();
 }
 
-void table(int x,int y){
+void table(double x,double y){
 
   GLfloat mat_specular[] = { 0.0, 1.0, 1.0, 1.0 };
   GLfloat mat_shininess[] = { 50.0 };
