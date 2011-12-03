@@ -51,12 +51,13 @@ public:
   int walls[30][30];  // [row][col]
   double time;
 
-  
-private:
   vector<lights> _lights;
   vector<switches> _switches;
   vector<box> _boxes;
   vector<bins> _bins;
+ 
+private:
+
 };
 
 

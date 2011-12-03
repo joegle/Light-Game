@@ -14,15 +14,11 @@ void light()
 void post(double x,double y){
 
   glPushMatrix();
-
   glTranslated(x*20,0,y*20);
-
   glColor3f(0,0,1);
   glutSolidTeapot(1);
-
   glPopMatrix();
-
-  
+ 
 }
 
 

@@ -13,5 +13,6 @@ Up/Down    :: Move forward and back
 Left/Right :: turn
 A/Z        :: changes height
 S/X        :: looks up and down
+Space      :: pick up or drop object; flick switches
 
 Check controls.cpp for more

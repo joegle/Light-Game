@@ -37,8 +37,11 @@ void keyboard(unsigned char key, int x, int y) {
    else if (key == 'j') {
      glutPostRedisplay();
    }
-   else if (key == 'k') {
+   else if (key == ' ') {
+     cout<<"space";
+     dude.doSomething();
      glutPostRedisplay();
+     
    }
 
 }	    

@@ -42,7 +42,6 @@ void init() {
 
   processfile();
 
-
   glShadeModel(GL_SMOOTH); //set the shader to smooth shader
 
 }
@@ -73,8 +72,6 @@ void tests(){
 
   table(10,10);
   //  cout<<randomColor().r;
-
-
 }
 
 void drawObjects() {
