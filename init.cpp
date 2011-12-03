@@ -40,10 +40,16 @@ void processfile(){
     world.syncBinsBoxes();
 
 
+    int num_toggles;
 
+    level_file >> num_toggles;
+    for(int i=0; i<box_num; i++)
+      {
+	level_file >> x >> y;
+	world.addToggle( toggle(x,y) );
+      }
     
     
-
 
     level_file.close();
   }
