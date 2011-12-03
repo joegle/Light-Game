@@ -39,12 +39,6 @@ void processfile(){
     
     world.syncBinsBoxes();
 
-
-
-    
-    
-
-
     level_file.close();
   }
   else cout << "Unable to open level.txt which stores the level information";
