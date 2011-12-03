@@ -6,7 +6,7 @@
 #include "boxes.h"
 #include "bins.h"
 #include "lights.h"
-#include "switch.h"
+//#include "switch.h"
 
 using namespace std;
 
