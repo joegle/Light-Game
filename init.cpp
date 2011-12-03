@@ -39,8 +39,6 @@ void processfile(){
     
     world.syncBinsBoxes();
 
-<<<<<<< HEAD
-
     int num_toggles;
 
     level_file >> num_toggles;
@@ -49,11 +47,10 @@ void processfile(){
 	level_file >> x >> y;
 	world.addToggle( toggle(x,y) );
       }
-    
-    
 
-=======
->>>>>>> aa43e6069f8f4b815d0f30a7948ce1e50ad36a5c
+
+
+    
     level_file.close();
   }
   else cout << "Unable to open level.txt which stores the level information";

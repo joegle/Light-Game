@@ -4,7 +4,7 @@
 #include <GL/glut.h>
 #include "utils.h"
 
-class toggles
+class toggle
 {
 public:
   toggle(double,double);
