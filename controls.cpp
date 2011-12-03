@@ -1,3 +1,8 @@
+#ifndef CONTROLS
+#define CONTROLS
+
+#include <GL/glut.h>
+#include "globals.h"
 
 using namespace std;
 void foo()
@@ -72,20 +77,6 @@ void special(int key, int x, int y) {
      dude.s += 5;
      glutPostRedisplay();
    }
-
-
-  void mouse(int button, int state, int x, int y)
-  {
-
-  
-
-  }
-
-  void mouseMotion(int x, int y)
-  {
-    
-  
-  }
 }
 
-void specMouse
+#endif

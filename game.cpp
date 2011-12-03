@@ -1,27 +1,21 @@
 //   g++ -o test -lglut -lGLU lab4_start.cpp
 
+
 #include <stdlib.h>         /* For _MAX_PATH definition */
+#include <GL/glut.h>
 #include <stdio.h>
-#include <cstdlib>
-#include <stdlib.h>
 #include <cmath>
 #include <iostream>
-#include <cstring>
-#include <GL/glut.h>
+#include <string>
 
-#include "utils.cpp"
-#include "world.cpp"
-#include "dude.cpp"
 #include "globals.h"
-
-
-#include "init.cpp"   // this will process the input.in and initilize globals (input.cpp)
-#include "controls.cpp"
-#include "objects.cpp"
+#include "time.h"
+#include "utils.h"
+#include "init.h"
+#include "objects.h"
+#include "controls.h"
 
 using namespace std;
-
-
 
 // http://fly.cc.fer.hr/~unreal/theredbook/chapter03.html
 
@@ -132,4 +126,6 @@ int main(int argc, char **argv) {
   
   init();
   glutMainLoop();
+
+  return 0;
 }
