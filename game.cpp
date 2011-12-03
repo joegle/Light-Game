@@ -83,7 +83,7 @@ void drawObjects() {
 
   light();
 
-  cube.draw();
+  //  cube.draw();
 
   world.drawWorld();
 
@@ -100,7 +100,7 @@ void display() {
 }
 
 void idle() {
-  world_time += 0.001;
+  world.tick();
   glutPostRedisplay();
 }
 

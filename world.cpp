@@ -38,6 +38,7 @@ public:
   void drawBoxes();
   void drawBins();
   void drawFloor();
+  void tick();
   
   void addLight(lights light);
   //  void addWall();
@@ -48,6 +49,7 @@ public:
   int x;
   int y;
   int walls[30][30];  // [row][col]
+  double time;
 
   
 private:
@@ -57,14 +59,16 @@ private:
   vector<bins> _bins;
 };
 
+
 void world::drawWorld()
 {
   drawFloor();
   drawWalls();
+  drawBoxes();
+
   /*
   drawLights();
   drawSwitches();
-  drawBoxes();
   drawBins();
   */
 }
@@ -169,7 +173,7 @@ void world::drawSwitches()
 
 void world::drawBoxes()
 {
-	for(int i = 0; i < _lights.size(); i++)
+	for(int i = 0; i <_boxes.size(); i++)
 	{
 		_boxes[i].draw();
 	}
@@ -195,9 +199,11 @@ void world::addSwitch(switches newSwitch)
 	_switches.push_back(newSwitch);
 }
 
-void world::addBox(box box)
+void world::addBox(box b)
 {
-	_boxes.push_back(box);
+	_boxes.push_back(b);
+	//	cout<<" "<<b.x<<" "<<b.y<<endl;
+		
 }
 
 void world::addBin(bins bin)
@@ -206,3 +212,7 @@ void world::addBin(bins bin)
 }
 
 
+void world::tick()
+{
+  time += 0.001;
+}

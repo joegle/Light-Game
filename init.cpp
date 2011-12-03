@@ -19,6 +19,15 @@ void processfile(){
       for(int j=0;j<world.y;j++)
 	  level_file >> world.walls[i][j];
 
+    int box_num;
+    double x,y;
+    level_file >> box_num;
+    for(int i=0; i<box_num; i++)
+      {
+	level_file >> x >> y;
+	world.addBox( box(x, y) );
+
+      }
 
 
     level_file.close();
