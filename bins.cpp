@@ -8,17 +8,20 @@ public:
 
   double x;
   double y;
+  bool filled;
 
   color c;
 };
 
 
 
-bin::bin(double xx,double yy)
+bin::bin(double xx, double yy)
 {
-  x=xx;
-  y=yy;
-  c=randomColor();
+  filled = false;
+  x = xx;
+
+  y = yy;
+  c = randomColor();
 }
 
 
@@ -33,7 +36,11 @@ void bin::draw()
   glRotated(-90,1,0,0);
   glScaled(0.25,0.25,0.25);
   glTranslated(0,1,0);
-  glColor3f(c.r,c.g,c.b);
+
+  if(!filled)
+    glColor3f(c.r,c.g,c.b);
+  else
+    glColor3f(0,0,0);
 
   gluCylinder( myQuad, 2.0, 2.0, 3.0, 20, 2 );
   //  glutSolidTeapot(1);

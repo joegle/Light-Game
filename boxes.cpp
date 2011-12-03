@@ -8,6 +8,7 @@ public:
   void drawHeld();
   
   bool dude; //does the dude have it
+  bool placed;
   double x;
   double y;
   double z;
@@ -20,6 +21,7 @@ box::box(){}
 
 box::box(double xx,double yy)
 {
+  placed=false;
   dude=false;
   x=xx;
   y=yy;
@@ -42,7 +44,7 @@ void box::drawHeld()
 
 void box::draw()
 {
-  if(!dude)
+  if(!dude && !placed)
     {
       glPushMatrix();
       glTranslated(x*20,0,y*20);

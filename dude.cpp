@@ -103,9 +103,10 @@ void dude::drop()
 	      w->_boxes[i].angle=load.angle;
 
 	      w->_boxes[i].dude=false;
+	      w->checkBins();
 	    }
 	}
-      
+      w->checkWin();
     }
 }
 
@@ -118,19 +119,20 @@ void dude::doSomething(){
   cout<<"doSomething"<<endl;
 
   // Parameters for activation zone
-  double radius=0.06;
+  double radius=0.1;
   double dis=1;
   double rangeX = (x + dis*sin(f(o)))/20;
   double rangeY = (y + dis*cos(f(o)))/20;
 
   // Uncomment this to see where the center of the activation circle is
-  //   w->addBox(box(rangeX,rangeY));
+  //w->addBox(box(rangeX,rangeY));
 
   if(!carrying)
     {
-      for(int i=0;i<w->_boxes.size();i++)
+      for(int i=0; !carrying && i<w->_boxes.size();i++)
 	{
-	  if(distance(rangeX,rangeY,w->_boxes[i].x, w->_boxes[i].y)<radius)
+	  if( !(w->_boxes[i].placed) && 
+	     distance(rangeX,rangeY,w->_boxes[i].x, w->_boxes[i].y) < radius)
 	    {
 	      //	      w->_boxes[i].c=randomColor();
 	      w->_boxes[i].dude = true;
@@ -144,6 +146,7 @@ void dude::doSomething(){
   else // currently has load
     {
       drop();
+      
     }
 }
 

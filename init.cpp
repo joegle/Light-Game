@@ -36,6 +36,10 @@ void processfile(){
 	level_file >> x >> y;
 	world.addBin( bin(x,y) );
       }
+    
+    world.syncBinsBoxes();
+
+
 
     
     

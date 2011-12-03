@@ -34,6 +34,9 @@ public:
   void drawBins();
   void drawFloor();
   void tick();
+  void syncBinsBoxes();
+  void checkBins();
+  void checkWin();
   
   void addLight(lights light);
   //  void addWall();
@@ -65,14 +68,13 @@ void world::drawWorld()
   /*
   drawLights();
   drawSwitches();
-
   */
 }
 
 void world::setDimensions(int xx,int yy)
 {
-  x=xx;
-  y=yy;
+  x = xx;
+  y = yy;
 }
 
 void world::drawFloor()
@@ -93,9 +95,60 @@ void world::drawFloor()
 
   glPopMatrix();
 
+}
+
+// Checks if each bin has its bin and sets the bin and box with its filled or placed value
+void world::checkBins()
+{
+  // distance margin of error
+  double radius=0.05;
+  for(int i = 0; i <_bins.size(); i++)
+    {
+
+      // This line will put all boxes in their bins
+      // _boxes[i].x=_bins[i].x;      _boxes[i].y=_bins[i].y;
 
 
-	//draw an appropriate floor here
+      if(distance(_boxes[i].x,
+		  _boxes[i].y, 
+		  _bins[i].x,
+		  _bins[i].y) < radius)
+	{
+	  _bins[i].filled = true;
+	  _boxes[i].placed = true;
+	}
+      else
+	{
+	  _bins[i].filled = false;
+	  _boxes[i].placed = false;
+
+	}
+    }
+
+}
+
+void world::checkWin()
+{
+  
+  for(int i = 0; i <_bins.size(); i++)
+    {
+      if(!_boxes[i].placed)
+	cout<<0;
+      else
+	cout<<1;
+    }
+  cout<<endl;  
+
+}
+
+// makes bins and boxes match colors
+//  _bins[X] goes with _boxes[X]
+void world::syncBinsBoxes()
+{
+  for(int i = 0; i <_boxes.size(); i++)
+    {
+      _boxes[i].c=_bins[i].c;
+    }
 }
 
 void world::drawLights()
