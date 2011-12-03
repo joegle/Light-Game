@@ -12,6 +12,7 @@ toggle::toggle(double xx,double yy)
 
 void toggle::draw()
 {
+<<<<<<< HEAD
       glPushMatrix();
       glTranslated(x*20,0,y*20);
       glRotated(0, 0, 1, 0);
@@ -19,7 +20,19 @@ void toggle::draw()
       glTranslated(0,1,0);
       glColor3f(1,1,0);
       glutSolidTeapot(1);
+=======
+    glPushMatrix();
+        glTranslated(x*20,0,y*20);
+        glScalef(0.25,1.5,0.25);
+        glutSolidCube(1.0);
+>>>>>>> 020779f40fa9ca8ba4dd676cd2c7b2101cc50ed0
       glPopMatrix();
 
-  
+    glPushMatrix();
+      glColor3f(1,0,0);
+      glTranslated(x*20, 0.78, y*20);
+      glColor3f(1,0,0);
+      glScalef(0.15,0.15,0.15);
+      glutSolidCube(0.5);
+    glPopMatrix(); 
 }
