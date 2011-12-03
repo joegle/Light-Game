@@ -122,6 +122,7 @@ int main(int argc, char **argv) {
   
   glutKeyboardFunc(keyboard); 
   glutSpecialFunc(special);   
+  glutPassiveMotionFunc(mouseMove);
   glutIdleFunc(idle);         
   
   init();
