@@ -115,6 +115,14 @@ void dude::doSomething(){
     }
 }
 
+void dude::strafeLeft() {
+  this->x += 0.50;
+}
+
+void dude::strafeRight() {
+ this->x -= 0.50;
+}
+
 void dude::goForward(){
 
   int wall = w-> walls[(int)x/20][(int)y/20];
@@ -125,8 +133,8 @@ void dude::goForward(){
   int ox =x;
   int oy =y;
 
-  y+= forward_step*cos(f(o));
-  x+= forward_step*sin(f(o));
+  y-= forward_step*cos(f(o));
+  x-= forward_step*sin(f(o));
 
   signed int dx=fx-(int)x/20;
   signed int dy=fy-(int)y/20;
@@ -160,6 +168,6 @@ void dude::goForward(){
 
 // Wall detection not implemented here yet
 void dude::goBackward(){
-  y += -1*backward_step*cos(f(o));
-  x += -1*backward_step*sin(f(o));
+  y += backward_step*cos(f(o));
+  x += backward_step*sin(f(o));
 }

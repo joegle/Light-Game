@@ -14,6 +14,8 @@ public:
   void foo();
   void wf();
   void look();
+  void strafeLeft();
+  void strafeRight();
   void goForward();
   void goBackward();
   void doSomething();
