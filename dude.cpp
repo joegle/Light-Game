@@ -27,7 +27,7 @@ public:
   double s; //side angle; tilt of head
   
 private:
-  vector<bins> _bins;
+  vector<bin> _bins;
   double forward_step;
   double backward_step;
   world* w;
@@ -190,8 +190,8 @@ void dude::goForward(){
 
 }
 
-
+// Wall detection not implemented here yet
 void dude::goBackward(){
-  y+= -1*backward_step*cos(f(o));
-  x+= -1*backward_step*sin(f(o));
+  y += -1*backward_step*cos(f(o));
+  x += -1*backward_step*sin(f(o));
 }

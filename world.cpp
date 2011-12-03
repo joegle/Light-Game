@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "boxes.cpp"
+#include "bins.cpp"
 
 using namespace std;
 
@@ -20,12 +21,6 @@ public:
 };
 
 
-class bins
-{
-public:
-  void draw(){cout<<"draw switch";};
-};
-
 
 class world
 {
@@ -44,7 +39,7 @@ public:
   //  void addWall();
   void addSwitch(switches newSwitch);
   void addBox(box box);
-  void addBin(bins bin);
+  void addBin(bin b);
 
   int x;
   int y;
@@ -54,7 +49,7 @@ public:
   vector<lights> _lights;
   vector<switches> _switches;
   vector<box> _boxes;
-  vector<bins> _bins;
+  vector<bin> _bins;
  
 private:
 
@@ -66,11 +61,11 @@ void world::drawWorld()
   drawFloor();
   drawWalls();
   drawBoxes();
-
+  drawBins();
   /*
   drawLights();
   drawSwitches();
-  drawBins();
+
   */
 }
 
@@ -182,7 +177,7 @@ void world::drawBoxes()
 
 void world::drawBins()
 {
-	for(int i = 0; i < _lights.size(); i++)
+	for(int i = 0; i < _bins.size(); i++)
 	{
 		_bins[i].draw();
 	}
@@ -207,12 +202,13 @@ void world::addBox(box b)
 		
 }
 
-void world::addBin(bins bin)
+void world::addBin(bin b)
 {
-	_bins.push_back(bin);
+	_bins.push_back(b);
 }
 
 
+// Make time proceed
 void world::tick()
 {
   time += 0.001;
