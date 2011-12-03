@@ -1,11 +1,10 @@
 //   g++ -o test -lglut -lGLU lab4_start.cpp
 
-
-#include <cstdlib>
+#include <GL/glut.h>
 #include <cmath>
 #include <iostream>
-#include <cstring>
-#include <GL/glut.h>
+#include <string>
+
 using namespace std;
 
 const int milliseconds_per_frame = 100;  // Time you would LIKE per frame

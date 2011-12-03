@@ -1,19 +1,4 @@
-
-class bin
-{
-public:
-  bin(double,double);
-  
-  void draw();
-
-  double x;
-  double y;
-  bool filled;
-
-  color c;
-};
-
-
+#include "bins.h"
 
 bin::bin(double xx, double yy)
 {

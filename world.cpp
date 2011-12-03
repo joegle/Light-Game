@@ -1,63 +1,4 @@
-#include <iostream>
-#include <vector>
-#include "boxes.cpp"
-#include "bins.cpp"
-
-using namespace std;
-
-
-
-class lights
-{
-public:
-  void draw(){cout<<"draw light";};
-};
-
-
-class switches
-{
-public:
-  void draw(){cout<<"draw switch";};
-};
-
-
-
-class world
-{
-public:
-  void drawWorld();
-  void setDimensions(int xx,int yy);
-  void drawLights();
-  void drawWalls();
-  void drawSwitches();
-  void drawBoxes();
-  void drawBins();
-  void drawFloor();
-  void tick();
-  void syncBinsBoxes();
-  void checkBins();
-  void checkWin();
-  
-  void addLight(lights light);
-  //  void addWall();
-  void addSwitch(switches newSwitch);
-  void addBox(box box);
-  void addBin(bin b);
-
-  int x;
-  int y;
-  int walls[30][30];  // [row][col]
-  double time;
-
-  vector<lights> _lights;
-  vector<switches> _switches;
-  vector<box> _boxes;
-  vector<bin> _bins;
- 
-private:
-
-};
-
+#include "world.h"
 
 void world::drawWorld()
 {
@@ -65,10 +6,10 @@ void world::drawWorld()
   drawWalls();
   drawBoxes();
   drawBins();
-  /*
-  drawLights();
-  drawSwitches();
-  */
+  
+  //drawLights();
+  //drawSwitches();
+  
 }
 
 void world::setDimensions(int xx,int yy)
@@ -150,7 +91,7 @@ void world::syncBinsBoxes()
       _boxes[i].c=_bins[i].c;
     }
 }
-
+/*
 void world::drawLights()
 {
 	for(int i = 0; i < _lights.size(); i++)
@@ -158,7 +99,7 @@ void world::drawLights()
 	  _lights[i].draw();
 	}
 }
-
+*/
 // draw wall from (x1,y2) to (x2,y2)
 void drawWall(double x1,double y1, double x2, double y2)
 {
@@ -211,14 +152,14 @@ void world::drawWalls()
 
 
 }
-
+/*
 void world::drawSwitches()
 {
 	for(int i = 0; i < _lights.size(); i++)
 	{
 		_switches[i].draw();
 	}
-}
+}*/
 
 void world::drawBoxes()
 {
@@ -235,18 +176,18 @@ void world::drawBins()
 		_bins[i].draw();
 	}
 }
-
-void world::addLight(lights light)
+/*
+void world::addLight(Lights light)
 {
 	_lights.push_back(light);
-}
+}*/
 
 
-
+/*
 void world::addSwitch(switches newSwitch)
 {
 	_switches.push_back(newSwitch);
-}
+}*/
 
 void world::addBox(box b)
 {

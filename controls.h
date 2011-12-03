@@ -1,18 +1,20 @@
+#ifndef CONTROLS
+#define CONTROLS
 
-using namespace std;
-void foo()
-{
-  cout<<"foo";
-}
-
-
+#include <GL/glut.h>
+#include "globals.h"
 
 void keyboard(unsigned char key, int x, int y) {
    if (key == 27)
       exit(0);
    else if (key == 'a') {
-     dude.z+=10;
+     //dude.z+=10;
+     dude.strafeLeft();
      glutPostRedisplay();
+   }
+   else if (key == 'd') {
+    dude.strafeRight();
+    glutPostRedisplay();
    }
    else if (key == 'z') {
      dude.z-=10;
@@ -23,11 +25,13 @@ void keyboard(unsigned char key, int x, int y) {
      glutPostRedisplay();
    }
    else if (key == 'w') {
-     dude.o-=10;
+     //dude.o-=10;
+     dude.goForward();
      glutPostRedisplay();
    }
    else if (key == 's') {
-     dude.s+=5;
+     //dude.s+=5;
+     dude.goBackward();
      glutPostRedisplay();
    }
    else if (key == 'x') {
@@ -42,14 +46,12 @@ void keyboard(unsigned char key, int x, int y) {
    }
 
    else if (key == ' ') {
-     cout<<"space";
      dude.doSomething();
      glutPostRedisplay();
      
    }
 
 }	    
-
 
 void special(int key, int x, int y) {
    if (key == GLUT_KEY_LEFT) {
@@ -72,4 +74,13 @@ void special(int key, int x, int y) {
      dude.s += 5;
      glutPostRedisplay();
    }
+   
 }
+
+void mouseMove(int x, int y)
+{
+ dude.o = -x;
+ dude.s = y;
+}
+
+#endif

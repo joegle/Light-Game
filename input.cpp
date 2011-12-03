@@ -1,3 +1,6 @@
+#ifndef INPUT
+#define INPUT
+
 #include <iostream>
 
 using namespace std;
@@ -192,3 +195,5 @@ input file should be as follows
 1 1 0 1 1 1 0				switch details: x y z r g b linkedToBinId
 
 */
+
+#endif

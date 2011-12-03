@@ -1,21 +1,4 @@
-
-class box
-{
-public:
-  box(double,double);
-  box();
-  void draw();
-  void drawHeld();
-  
-  bool dude; //does the dude have it
-  bool placed;
-  double x;
-  double y;
-  double z;
-  double angle;
-
-  color c;
-};
+#include "boxes.h"
 
 box::box(){}
 
@@ -55,6 +38,5 @@ void box::draw()
       glutSolidTeapot(1);
       glPopMatrix();
   }
-  
   
 }

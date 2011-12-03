@@ -1,7 +1,11 @@
+#ifndef INIT
+#define INIT
+
+#include <GL/glut.h>
+#include "globals.h"
 #include <fstream>
 
 using namespace std;
-
 
 // This temp for testing
 void processfile(){
@@ -39,22 +43,15 @@ void processfile(){
     
     world.syncBinsBoxes();
 
-<<<<<<< HEAD
 
-    int num_toggles;
 
-    level_file >> num_toggles;
-    for(int i=0; i<box_num; i++)
-      {
-	level_file >> x >> y;
-	world.addToggle( toggle(x,y) );
-      }
     
     
 
-=======
->>>>>>> aa43e6069f8f4b815d0f30a7948ce1e50ad36a5c
+
     level_file.close();
   }
   else cout << "Unable to open level.txt which stores the level information";
 }
+
+#endif
