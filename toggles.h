@@ -1,0 +1,21 @@
+#ifndef TOGGLES
+#define TOGGLES
+
+#include <GL/glut.h>
+#include "utils.h"
+
+class toggles
+{
+public:
+  toggle(double,double);
+  toggle();
+  void draw();
+
+  bool state;
+  double x;
+  double y;
+  //  color c;
+};
+
+#include "toggles.cpp"
+#endif
