@@ -24,9 +24,9 @@ void toggle::draw()
   cout<<"pop"<<endl;
 
     glPushMatrix();
-        glTranslated(x*20,0,y*20);
-        glScalef(0.25,1.5,0.25);
-        glutSolidCube(1.0);
+      glTranslated(x*20,0,y*20);
+      glScalef(0.25,1.5,0.25);
+      glutSolidCube(1.0);
     glPopMatrix();
 
     glPushMatrix();

@@ -49,4 +49,11 @@ double distance(double x1,double y1,double x2,double y2)
   return sqrt(dx*dx + dy*dy);
 }
 
+struct Image 
+{
+	unsigned long sizeX;
+	unsigned long sizeY;
+	GLubyte *data;
+};
+
 #endif

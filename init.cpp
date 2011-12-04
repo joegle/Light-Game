@@ -1,6 +1,4 @@
-#include <fstream>
-
-using namespace std;
+#include "init.h"
 
 
 // This temp for testing
@@ -39,18 +37,6 @@ void processfile(){
     
     world.syncBinsBoxes();
 
-    int num_toggles;
-
-    level_file >> num_toggles;
-    cout<<num_toggles;
-    for(int i=0; i<num_toggles; i++)
-      {
-	level_file >> x >> y;
-	world.addToggle( toggle(x,y) );
-
-      }
-
-    
     level_file.close();
   }
   else cout << "Unable to open level.txt which stores the level information";

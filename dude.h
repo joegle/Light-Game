@@ -20,7 +20,6 @@ public:
   void goBackward();
   void doSomething();
   void drop();
-  
   void turn(double x);
   void setPosition(double a,double b,double c);
 
@@ -31,6 +30,7 @@ public:
   
   double o; //overhead angle like compass direction
   double s; //side angle; tilt of head
+  bool mouseWarp;
   
 private:
   vector<bin> _bins;

@@ -84,6 +84,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="init.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="input.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -106,6 +109,7 @@
     <ClInclude Include="controls.h" />
     <ClInclude Include="dude.h" />
     <ClInclude Include="globals.h" />
+    <ClInclude Include="init.h" />
     <ClInclude Include="lights.h" />
     <ClInclude Include="objects.h" />
     <ClInclude Include="switch.h" />

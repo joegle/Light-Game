@@ -10,6 +10,7 @@ void keyboard(unsigned char key, int x, int y) {
    else if (key == 'a') {
      //dude.z+=10;
      dude.strafeLeft();
+     cout << dude.o << endl;
      glutPostRedisplay();
    }
    else if (key == 'd') {
@@ -74,13 +75,37 @@ void special(int key, int x, int y) {
      dude.s += 5;
      glutPostRedisplay();
    }
-   
 }
 
 void mouseMove(int x, int y)
 {
- dude.o = -x;
- dude.s = y;
+    //dude.o = -x * .3;
+    // dude.s = y * .3;
+    
+	if(!dude.mouseWarp)
+		{
+			int centerX = width / 2;
+			int centerY = height / 2;
+
+			int deltaX = -1 * (x - centerX);
+			int deltaY = -1 * (y - centerY);
+		
+			dude.o += deltaX;
+			if(dude.s + deltaY > -90 && dude.s + deltaY < 90)
+      {
+				dude.s += deltaY;
+        //dude.x = cos(dude.o);
+        cout << "o val: " << dude.o << endl;
+      }
+			dude.mouseWarp = true;
+			glutWarpPointer(centerX, centerY);
+		}
+		else
+		{
+		    dude.mouseWarp = false;
+		}
+	glutPostRedisplay();
 }
+
 
 #endif
