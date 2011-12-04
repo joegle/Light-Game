@@ -9,7 +9,7 @@ using namespace std;
 class light
 {
  public:
-  light(int n,double,double,double);
+  light(int n, GLfloat, GLfloat, GLfloat);
   
   void draw();
   GLenum getLightEnum(int n);
@@ -18,7 +18,7 @@ class light
   int sy;
   
   int lightNum;
-  double position[4];
+  GLfloat position[4];
   GLfloat diffuse[4];
   GLfloat ambient[4];
   GLfloat specular[4];

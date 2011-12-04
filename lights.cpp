@@ -1,6 +1,6 @@
 #include "lights.h"
 
-light::light(int n,double x, double y, double z)
+light::light(int n, GLfloat x, GLfloat y, GLfloat z)
 {
   
   // random coord of the circuit matrix
@@ -36,37 +36,25 @@ light::light(int n,double x, double y, double z)
 
 void light::draw() 
 {
-  /*
-   GLfloat position[] = { 1.0, 0.0, 1.0, 1.0 };
-   GLfloat ambient[] = { 1.0, 1.0, 1.0, 1.0 };
-   GLfloat diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
-   GLfloat spec[] = { 1.0, 1.0, 1.0, 1.0 }; 
-
   glPushMatrix();
    glLightfv(getLightEnum(lightNum), GL_POSITION, position);
    glLightfv(getLightEnum(lightNum), GL_DIFFUSE, diffuse);
    glLightfv(getLightEnum(lightNum), GL_AMBIENT, ambient);
    glLightfv(getLightEnum(lightNum), GL_SPECULAR, specular);
-  */
-
-
-    cout<<"drawLight";
+  glPopMatrix();
   //  glPushMatrix();
 
    double x=position[0];
    double y=position[1];
 
-      glPushMatrix();
-      glTranslated(x*20,0,y*20);
-      glRotated(0, 0, 1, 0);
-      //glScaled(.25,.25,.25);
-      glTranslated(0,1,0);
-      glColor3f(diffuse[0],diffuse[1],diffuse[2]);
-      glutSolidTeapot(1);
-      glPopMatrix();
-
-
-      //  glPopMatrix();
+  glPushMatrix();
+    glTranslated(x*20,0,y*20);
+    glRotated(0, 0, 1, 0);
+    //glScaled(.25,.25,.25);
+    glTranslated(0,1,0);
+    glColor3f(diffuse[0],diffuse[1],diffuse[2]);
+    glutWireSphere(1, 20, 20);
+   glPopMatrix();
 
 }
 

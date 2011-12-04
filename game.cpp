@@ -57,24 +57,6 @@ void initTransformation() {
   glLoadIdentity();
 }
 
-
-void tests(){
-  //  drawWall(0,0,0,.5);
-  //drawWall(0,0,1,1);
-  //drawWall(.5,0,1.5,0);
-
-  post(0,0);
-  post(1,1);
-  post(0.5,0.5);
-  post(2,0.5);
- 
-  teapot(10,10);
-  table(-20,20);
-
-  table(10,10);
-  //  cout<<randomColor().r;
-}
-
 void drawObjects() {
 
   dude.look();
@@ -85,7 +67,6 @@ void drawObjects() {
 
   world.drawWorld();
 
-  tests();
 }
 
 void display() {
@@ -122,7 +103,7 @@ int main(int argc, char **argv) {
 
   glutCreateWindow("Game"); // Title displayed in window title bar.
 
-  glutFullScreen();   
+  //glutFullScreen();   
  
   glutDisplayFunc(display);
   glutReshapeFunc(reshape);

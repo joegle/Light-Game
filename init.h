@@ -46,9 +46,6 @@ void processfile(){
     
     world.syncBinsBoxes();
 
-
-
-
     int toggle_num;
     level_file >> toggle_num;
 
@@ -71,7 +68,6 @@ void processfile(){
 
       }
     
-
 
     level_file.close();
   }
