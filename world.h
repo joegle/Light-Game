@@ -5,8 +5,9 @@
 #include <vector>
 #include "boxes.h"
 #include "bins.h"
-#include "toggles.h"
 #include "lights.h"
+#include "switch.h" 
+
 using namespace std;
 
 class world
@@ -14,9 +15,13 @@ class world
 public:
   void drawWorld();
   void setDimensions(int xx,int yy);
+  unsigned int world::getint(FILE *fp);
+  unsigned short getshort(FILE* fp);
+  int ImageLoad(char *filename, Image *image);
+  void LoadGLTextures();
   //void drawLights();
   void drawWalls();
-  void drawToggles();
+  //void drawSwitches();
   void drawBoxes();
   void drawBins();
   void drawFloor();
@@ -27,17 +32,19 @@ public:
   
   //void addLight(Lights light);
   //  void addWall();
-  void addToggle(toggle t);
+  //void addSwitch(switches newSwitch);
   void addBox(box box);
   void addBin(bin b);
+  void drawWall(double x1,double y1, double x2, double y2);
 
   int x;
   int y;
   int walls[30][30];  // [row][col]
   double time;
+  GLuint texture[3];
 
   //vector<Lights> _lights;
-  vector<toggle> _toggles;
+  //vector<switches> _switches;
   vector<box> _boxes;
   vector<bin> _bins;
  

@@ -19,11 +19,6 @@ using namespace std;
 
 // http://fly.cc.fer.hr/~unreal/theredbook/chapter03.html
 
-
-int width;   // Current width of window; value is maintained by reshape().
-int height;  // Current height of window; value is maintained by reshape().
-
-
 // This function inits things like the globals
 void init() {
   glEnable(GL_COLOR_MATERIAL);
@@ -32,9 +27,16 @@ void init() {
   glEnable(GL_LIGHT0); //enable LIGHT0, our Diffuse Light
   //glEnable(GL_LIGHT1); //enable LIGHT1, our Ambient Light
 
+  glutSetCursor(GLUT_CURSOR_NONE); 
+  processfile();
+
+  glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
+  glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+  world.LoadGLTextures();
+  glEnable(GL_TEXTURE_2D);
   srand(time(NULL));
 
-  processfile();
+  
 
   glShadeModel(GL_SMOOTH); //set the shader to smooth shader
 
@@ -115,8 +117,8 @@ int main(int argc, char **argv) {
 
   glutCreateWindow("Game"); // Title displayed in window title bar.
 
-  // glutFullScreen();   
-
+  glutFullScreen();   
+ 
   glutDisplayFunc(display);
   glutReshapeFunc(reshape);
   

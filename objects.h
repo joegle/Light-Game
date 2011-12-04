@@ -11,7 +11,16 @@ void light()
   light_position[1]=sin(f(world.time*100));
   light_position[0]=cos(f(world.time*100));
   light_position[2]=cos(f(world.time*100)+75);
+  GLfloat light_ambient[] = { 1, 1, 1, 1 };
+  GLfloat light_diffuse[] = { 1, 1, 1, 1 };
+  GLfloat light_specular[] = { 1, 1, 1, 1};
+  
+  glDisable(GL_TEXTURE_2D);
   glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+  glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+  glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
+  glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
+  glEnable(GL_TEXTURE_2D);
 }
 
 // draw post at (x,y)
@@ -44,7 +53,6 @@ void teapot(double x,double y){
 }
 
 void table(double x,double y){
-
   GLfloat mat_specular[] = { 0.0, 1.0, 1.0, 1.0 };
   GLfloat mat_shininess[] = { 50.0 };
 
@@ -94,8 +102,6 @@ void table(double x,double y){
 
     glPopMatrix();
     glPopMatrix();
-
-
 }
 
 #endif

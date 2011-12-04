@@ -31,6 +31,7 @@ public:
   
   double o; //overhead angle like compass direction
   double s; //side angle; tilt of head
+  bool mouseWarp;
   
 private:
   vector<bin> _bins;

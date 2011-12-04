@@ -79,8 +79,28 @@ void special(int key, int x, int y) {
 
 void mouseMove(int x, int y)
 {
- dude.o = -x;
- dude.s = y;
+    //dude.o = -x * .3;
+    // dude.s = y * .3;
+    
+	if(!dude.mouseWarp)
+		{
+			int centerX = width / 2;
+			int centerY = height / 2;
+
+			int deltaX = -1 * (x - centerX);
+			int deltaY = -1 * (y - centerY);
+		
+			dude.o += deltaX;
+			if(dude.s + deltaY > -90 && dude.s + deltaY < 90)
+				dude.s += deltaY;
+			dude.mouseWarp = true;
+			glutWarpPointer(centerX, centerY);
+		}
+		else
+		{
+		    dude.mouseWarp = false;
+		}
+	glutPostRedisplay();
 }
 
 #endif

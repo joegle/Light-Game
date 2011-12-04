@@ -4,11 +4,12 @@ dude::dude(world* ww)
 {
   x = 0.5;
   y = 0.5;
-  z = 1;
+  z = 2;
   forward_step = 1;
   backward_step = 1;
   w = ww;
   carrying = false;
+  mouseWarp = false;
 }
 
 void dude::setPosition(double a,double b,double c)
@@ -84,7 +85,7 @@ void dude::doSomething(){
   cout<<"doSomething"<<endl;
 
   // Parameters for activation zone
-  double radius=0.1;
+  double radius=0.3;
   double dis=1;
   double rangeX = (x + dis*sin(f(o)))/20;
   double rangeY = (y + dis*cos(f(o)))/20;
@@ -117,6 +118,7 @@ void dude::doSomething(){
 
 void dude::strafeLeft() {
   this->x += 0.50;
+  //x+sin(f(o))*cos(f(s))
 }
 
 void dude::strafeRight() {
@@ -133,8 +135,8 @@ void dude::goForward(){
   int ox =x;
   int oy =y;
 
-  y-= forward_step*cos(f(o));
-  x-= forward_step*sin(f(o));
+  y+= forward_step*cos(f(o));
+  x+= forward_step*sin(f(o));
 
   signed int dx=fx-(int)x/20;
   signed int dy=fy-(int)y/20;
@@ -168,6 +170,6 @@ void dude::goForward(){
 
 // Wall detection not implemented here yet
 void dude::goBackward(){
-  y += backward_step*cos(f(o));
-  x += backward_step*sin(f(o));
+  y -= backward_step*cos(f(o));
+  x -= backward_step*sin(f(o));
 }
