@@ -5,8 +5,9 @@ void world::drawWorld()
   drawFloor();
   drawWalls();
   drawBoxes();
-  drawBins();
   drawToggles();
+  drawBins();
+
   
   //drawLights();
 
@@ -156,9 +157,11 @@ void world::drawWalls()
 
 void world::drawToggles()
 {
+
 	for(int i = 0; i < _toggles.size(); i++)
 	{
-		_toggles[i].draw();
+
+	  _toggles[i].draw();
 	}
 }
 
@@ -166,7 +169,7 @@ void world::drawBoxes()
 {
 	for(int i = 0; i <_boxes.size(); i++)
 	{
-		_boxes[i].draw();
+	  _boxes[i].draw();
 	}
 }
 

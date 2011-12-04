@@ -5,8 +5,8 @@
 #include <vector>
 #include "boxes.h"
 #include "bins.h"
-#include "lights.h"
 #include "toggles.h"
+#include "lights.h"
 
 using namespace std;
 

@@ -42,13 +42,13 @@ void processfile(){
     int num_toggles;
 
     level_file >> num_toggles;
-    for(int i=0; i<box_num; i++)
+    cout<<num_toggles;
+    for(int i=0; i<num_toggles; i++)
       {
 	level_file >> x >> y;
 	world.addToggle( toggle(x,y) );
+
       }
-
-
 
     
     level_file.close();
