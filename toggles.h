@@ -17,7 +17,6 @@ public:
   bool state;
   double x;
   double y;
-  //  color c;
 };
 
 #include "toggles.cpp"

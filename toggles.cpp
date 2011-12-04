@@ -7,7 +7,6 @@ toggle::toggle(double xx,double yy)
   state=false;
   x=xx;
   y=yy;
-  //  c=randomColor();
 }
 
 void toggle::flick()

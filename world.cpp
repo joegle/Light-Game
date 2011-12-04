@@ -28,6 +28,7 @@ void world::setDimensions(int xx,int yy)
 
 void world::drawFloor()
 {
+  glEnable(GL_TEXTURE_2D);
 	GLfloat floorAmbient[] = {.3,.3,.3,1};
 	GLfloat floorSpec[] = { .3,.3,.3,1};
 	GLfloat floorDiff[] = { .3,.3,.3,1};
@@ -45,6 +46,7 @@ void world::drawFloor()
       glTexCoord2f(-1.0,-1.0);   glVertex3f(-1.0f,0,-1.0f);  
    glEnd();
   glPopMatrix();
+  glDisable(GL_TEXTURE_2D);
 }
 
 void world::drawCeiling()
@@ -140,9 +142,11 @@ void world::syncBinsBoxes()
 // draw wall from (x1,y2) to (x2,y2)
 void world::drawWall(double x1,double y1, double x2, double y2)
 {
-    GLfloat floorAmbient[] = {.3,.3,.3,1};
-    GLfloat floorSpec[] = { .3,.3,.3,1};
-    GLfloat floorDiff[] = { .3,.3,.3,1};
+  glEnable(GL_TEXTURE_2D);
+  GLfloat floorAmbient[] = {.3,.3,.3,1};
+  GLfloat floorSpec[] = { .3,.3,.3,1};
+  GLfloat floorDiff[] = { .3,.3,.3,1};
+  
   glPushMatrix();
   
   // This is how it is. It works
@@ -156,18 +160,15 @@ void world::drawWall(double x1,double y1, double x2, double y2)
   glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,floorAmbient);
   glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,floorSpec);
   glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,floorDiff);
-  glBindTexture(GL_TEXTURE_2D, texture[1]);
+  glBindTexture(GL_TEXTURE_2D, texture[2]);
   glBegin(GL_QUADS);
-    glTexCoord2f(-1.0, 1.0); 
-	  glTexCoord2f( 1.0, 1.0);
-	  glTexCoord2f( 1.0,-1.0);
-	  glTexCoord2f(-1.0,-1.0);  
-    glVertex3f(x1,h,y1);     
-    glVertex3f(x1,0,y1);     
-    glVertex3f(x2,0,y2);     
-    glVertex3f(x2,h,y2);    
+    glTexCoord2f(0, 0 ); glVertex3f(x1,h,y1); 
+	  glTexCoord2f( 1, 0); glVertex3f(x1,0,y1);
+	  glTexCoord2f( 1,1); glVertex3f(x2,0,y2);
+	  glTexCoord2f(0,1);  glVertex3f(x2,h,y2);
   glEnd();   
   glPopMatrix();
+  glDisable(GL_TEXTURE_2D);
 }
 
 void world::drawWalls()
