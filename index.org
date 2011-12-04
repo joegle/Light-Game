@@ -1,0 +1,127 @@
+CMPSC457 Final project: Light Game
+
+#+CAPTION: A beam of white light enters a prism in space and refracts out Nyan kitty.
+[[./Window.png]]
+
+* Background
+  The final project was supposed to put all the things we learned about OpenGL into one big cool project.
+** The minimum criteria
+  + Animation
+  + 3-D Hierarchal 
+  + Perspective
+  + Illumination and Shading
+  + Textures
+  + Interaction
+* Light Game
+  [[./Nyan.png][Image output]]
+
+** Source Code
+   You can download and browse the source code on github.com at [[twhttps://github.com/joegle/Light-Game][joegle/Light-Game]]
+   Run 'make' or compile:
+   :  gcc -lglut -lGLU game.cpp -o game
+
+   You can also [[./docs/lab1.html][browse the source online]].
+
+** How it was created
+*** Drawing the sky
+    Draw a rectangle to cover frame. Activating GL_SMOOTH lets us create gradients when we color the top vertices different from the bottom one.
+#+begin_src c
+    glBegin(GL_TRIANGLE_STRIP);        
+
+    glColor3f(0,0.07843,0.16078);
+
+    glVertex2f(-1, 1);        
+    glVertex2f(1, 1);   
+    glVertex2f(-1, .5);   
+
+    glColor3f(0,0.2,0.4);
+
+    glVertex2f(1, y);        
+    glVertex2f(-1, y);        
+    glEnd();
+#+end_src
+*** Drawing the stars
+    Stars (and sprinkles) are random points. The formula for random float ranges is from [[http://stackoverflow.com/questions/686353/c-random-float/686376#686376][John at stackoverflow]].
+#+begin_src c
+  glBegin(GL_POINTS);
+  for(i=0; i <= numStars; i++){
+    sx = (2*(float)rand()/(float)RAND_MAX)-1;
+    sy = (2*(float)rand()/(float)RAND_MAX)-1;
+
+    glVertex2f(sx,sy);
+  }
+  glEnd();
+#+end_src
+*** The Prism and light rays
+    The prism is just a equilateral triangle but we had to compensate for the frame skewness with 'r' since the frame is 800:500 and the coordinates range from -1 to 1 for both x and y ranges. The variable 'r' will be used through out the rest of the code. 
+#+begin_src c
+    glBegin(GL_LINE_LOOP);
+    glColor3f (1.0, 1.0, 1.0);
+    glVertex2f( px, py );    
+    glVertex2f( px+side_length, py  ); // Base line
+    glVertex2f( px+(side_length/2.0), py+side_length*-0.866*r);
+    glEnd();
+#+end_src 
+Computing intersections of light rays and heights required a lot of trigonometry and geometry. Most things were computed with parameters so you can change a variable and things will still line up correctly.
+*** Rainbow
+    The rainbow is a sequence of small GL_QUAD_STRIPs. At each level of the strip the color is changed in a ROYGBIV pattern to give smooth rainbow shading. At the end of each loop the y position of the strip is adjusted with Sine() to give a wave effect.
+#+begin_src c
+  for(i=0;i<50;i++)
+    {
+      glBegin(GL_QUAD_STRIP);
+
+      glColor3f(1,0,0); //Red
+      glVertex2f(dx,dy);
+      glVertex2f(dx+w,dy);
+
+      glColor3f(1,0.6,0); //Orange
+      glVertex2f(dx,dy-step);
+      glVertex2f(dx+w,dy-step);
+
+      glColor3f(1,1,0);//Yellow
+      glVertex2f(dx,dy-step*2);
+      glVertex2f(dx+w,dy-step*2);
+
+      glColor3f(0.2,1,0); //Green
+      glVertex2f(dx,dy-step*3);
+      glVertex2f(dx+w,dy-step*3);
+
+      glColor3f(0,0.6,1); //Blue
+      glVertex2f(dx,dy-step*4);
+      glVertex2f(dx+w,dy-step*4);
+
+      glColor3f(0.4,0.2,1); //Purple
+      glVertex2f(dx,dy-step*5);
+      glVertex2f(dx+w,dy-step*5);
+      glEnd();
+
+      dx+=w;
+      dy+=0.01*sin(i*3.14/5.0);
+    }
+#+end_src    
+*** Face and paws
+    Most parts of the face and paws are drawn as ellipse with the pattern based on (radius*cos(i),radius*sin(i)). We use 'r' to correct skewness to get circles instead of ovals.
+#+begin_src c
+  glBegin(GL_TRIANGLE_FAN);
+  for(i=0;i<=180;i=i+6*3.14)
+    glVertex2f(fx+fr*cos(i),fy+fr*sin(i)*r);
+  glEnd();
+#+end_src
+* Lessons learned
+** Graphics takes math
+   Instead of hard coding everything, I kept positions and ratios relative to some initial parameters. This requires figuring out formulas to compute where points should be (like lines intersecting or x,y offsets and scaling constants). Drawing waves and ovals required trigonometry and geometry.
+** Avoid constants
+   I've learned this lesson before but really applies to this class well. You want to avoid constants because if you ever need to change something you will have recompute everything by hand. So let the computer do the work and keep your code portable. 
+   I started off following this advice fine but as the project finished I used more shortcuts that broke portability.
+** Variable names
+   Avoiding constants implies using variables and I found it tricky to come up with meaningful, short variable names. Each shape kind of had its own local parameters that kept things organized until I reused old variables. I'll have to develop a good practice for these graphical coding issues.
+
+
+
+
+#+AUTHOR: Joseph Wright
+#+EMAIL: jmw5473@psu.edu
+#+OPTIONS: ^:{} num:nil
+#+LINK_UP: http://joegle.com/code/graphics/
+#+LINK_HOME: http://joegle.com
+
