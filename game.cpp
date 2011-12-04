@@ -22,26 +22,22 @@ using namespace std;
 // This function inits things like the globals
 void init() {
 
+  // GLfloat b[] = { 0, 0, 0, 1 };
+  // glLightModelfv(GL_LIGHT_MODEL_AMBIENT, b);
   glEnable(GL_COLOR_MATERIAL);
   glEnable(GL_DEPTH_TEST); //enable the depth testing
   glEnable(GL_LIGHTING); //enable the lighting
   glEnable(GL_LIGHT0); //enable LIGHT0, our Diffuse Light
-  //glEnable(GL_LIGHT1); //enable LIGHT1, our Ambient Light
+  glEnable(GL_LIGHT1); //enable LIGHT1, our Ambient Light
 
   glutSetCursor(GLUT_CURSOR_NONE); 
 
   srand(time(NULL));
   processfile();
-
-
-
   glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
   glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
   world.LoadGLTextures();
   glEnable(GL_TEXTURE_2D);
-
-
-  
 
   glShadeModel(GL_SMOOTH); //set the shader to smooth shader
 
@@ -61,16 +57,12 @@ void drawObjects() {
 
   dude.look();
 
-  placelight();
-
-  //  cube.draw();
-
   world.drawWorld();
 
 }
 
 void display() {
-  glClearColor(0,1,1,1); 
+  glClearColor(0,0,0,1); 
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);   
   initTransformation();           // Setup projection and view.
   drawObjects();
@@ -90,8 +82,6 @@ void reshape(int new_width, int new_height) {
    height = new_height;
    width = new_width;
 }
-
-
 
 int main(int argc, char **argv) {
   glutInit(&argc,argv);

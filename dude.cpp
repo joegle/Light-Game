@@ -117,7 +117,6 @@ void dude::doSomething(){
 	  if( distance(rangeX,rangeY,w->_toggles[i].x, w->_toggles[i].y) < radius )
 	    {
 	      w->_toggles[i].flick();
-	      w->updateCircuit();
 	    }
 	}
 

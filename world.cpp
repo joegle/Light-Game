@@ -3,15 +3,16 @@
 world::world()
 {
   for(int i=0;i<30;i++)
-    {
+  {
       circuit[0][i]=((int)r(0,20))%2;
-    }
+  }
   //updateCircuit(); // this will make segfault
 }
 
 void world::drawWorld()
 {
   drawFloor();
+  drawCeiling();
   drawWalls();
   drawBoxes();
   drawToggles();
@@ -31,30 +32,27 @@ void world::drawFloor()
 	GLfloat floorSpec[] = { .3,.3,.3,1};
 	GLfloat floorDiff[] = { .3,.3,.3,1};
   glPushMatrix();
-
-  glTranslatef(x * 10, 0 ,y * 10);
-  glScalef(x * 10, 0 , y * 10);
-  
-  //glColor3f(1,0,1);
-
-  glBegin(GL_QUADS);
-  glEnable(GL_TEXTURE_GEN_S);
-  glEnable(GL_TEXTURE_GEN_T);
-  glBindTexture(GL_TEXTURE_2D, texture[0]);
-
-  glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,floorAmbient);
-  glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,floorSpec);
-  glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,floorDiff);
-  glTexCoord2f(-1.0, 1.0);   glVertex3f(-1.0f,0, 1.0f);     
-  glTexCoord2f( 1.0, 1.0);   glVertex3f( 1.0f,0, 1.0f);     
-  glTexCoord2f( 1.0,-1.0);   glVertex3f( 1.0f,0,-1.0f);     
-  glTexCoord2f(-1.0,-1.0);   glVertex3f(-1.0f,0,-1.0f);  
-  glDisable(GL_TEXTURE_GEN_S);
-  glDisable(GL_TEXTURE_GEN_T);
-  glEnd();   
-
+    glTranslatef(x * 10, 0 ,y * 10);
+    glScalef(x * 10, 0 , y * 10);
+    glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,floorAmbient);
+    glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,floorSpec);
+    glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,floorDiff);  
+    glBindTexture(GL_TEXTURE_2D, texture[0]);
+    glBegin(GL_QUADS);
+      glTexCoord2f(-1.0, 1.0);   glVertex3f(-1.0f,0, 1.0f);     
+      glTexCoord2f( 1.0, 1.0);   glVertex3f( 1.0f,0, 1.0f);     
+      glTexCoord2f( 1.0,-1.0);   glVertex3f( 1.0f,0,-1.0f);     
+      glTexCoord2f(-1.0,-1.0);   glVertex3f(-1.0f,0,-1.0f);  
+   glEnd();
   glPopMatrix();
+}
 
+void world::drawCeiling()
+{
+  glPushMatrix();
+    glTranslatef(0, 4, 0);
+    drawFloor();
+  glPopMatrix();
 }
 
 // Checks if each bin has its bin and sets the bin and box with its filled or placed value
@@ -69,8 +67,8 @@ void world::checkBins()
       // _boxes[i].x=_bins[i].x;      _boxes[i].y=_bins[i].y;
 
 
-      if(distance(_boxes[i].x,
-		  _boxes[i].y, 
+   if(distance(_boxes[i].x,
+	    _boxes[i].y, 
 		  _bins[i].x,
 		  _bins[i].y) < radius)
 	{
@@ -154,30 +152,23 @@ void world::drawWall(double x1,double y1, double x2, double y2)
   y2*=20;
   
   int h=4; // height of wall
-
+  
+  glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,floorAmbient);
+  glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,floorSpec);
+  glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,floorDiff);
+  glBindTexture(GL_TEXTURE_2D, texture[1]);
   glBegin(GL_QUADS);
-    glEnable(GL_TEXTURE_GEN_S);
-	glEnable(GL_TEXTURE_GEN_T);
-    glBindTexture(GL_TEXTURE_2D, texture[1]);
-    glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,floorAmbient);
-    glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,floorSpec);
-    glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,floorDiff);
-	glTexCoord2f(-1.0, 1.0); 
-	glTexCoord2f( 1.0, 1.0);
-	glTexCoord2f( 1.0,-1.0);
-	glTexCoord2f(-1.0,-1.0);  
+    glTexCoord2f(-1.0, 1.0); 
+	  glTexCoord2f( 1.0, 1.0);
+	  glTexCoord2f( 1.0,-1.0);
+	  glTexCoord2f(-1.0,-1.0);  
     glVertex3f(x1,h,y1);     
     glVertex3f(x1,0,y1);     
     glVertex3f(x2,0,y2);     
     glVertex3f(x2,h,y2);    
-	glDisable(GL_TEXTURE_GEN_S);
-	glDisable(GL_TEXTURE_GEN_T);
   glEnd();   
-
   glPopMatrix();
 }
-
-
 
 void world::drawWalls()
 {
@@ -219,14 +210,15 @@ void world::drawBoxes()
 void world::drawLights()
 {
   for(int i = 0; i < _lights.size(); i++)
-    {
-      cout<< circuit[_lights[i].sx][_lights[i].sy];
-      if(!circuit[_lights[i].sx][_lights[i].sy])
-	{
-	  _lights[i].draw();
-	}
+  {
+    if(_toggles[i].state)
+	   {
+	      _lights[i].draw();
+        cout << "state of the toggle in world.cpp: " << _toggles[i].state << endl;
+	   }
+     _lights[i].toggleLight(i, _toggles[i].state);
+  }
 
-    }
   cout<<endl;
 }
 

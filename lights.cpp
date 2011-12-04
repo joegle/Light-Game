@@ -10,26 +10,26 @@ light::light(int n, GLfloat x, GLfloat y, GLfloat z)
   position[0] = x;
   position[1] = y;
   position[2] = z;
-  position[3] = 1; // I don't know whats the 4th dimension
+  position[3] = 0; // 0 = directional light, 1 = positional light
 
   // Random colorize
   color c=randomColor();
-  diffuse[0] = c.r;
-  diffuse[1] = c.g;
-  diffuse[2] = c.b;
-  diffuse[3] = c.a;
+  diffuse[0] = 0.7;
+  diffuse[1] = 0.7; 
+  diffuse[2] = 0.7;
+  diffuse[3] = 0.7;
 
   c=randomColor();
-  ambient[0] = c.r;
-  ambient[1] = c.g;
-  ambient[2] = c.b;
-  ambient[3] = c.a;
+  ambient[0] = 0.7;
+  ambient[1] = 0.7;
+  ambient[2] = 0.7;
+  ambient[3] = 0.7;
 
   c=randomColor();
-  specular[0] = c.r;
-  specular[1] = c.g;
-  specular[2] = c.b;
-  specular[3] = c.a;
+  specular[0] = 0.7;
+  specular[1] = 0.7;
+  specular[2] = 0.7;
+  specular[3] = 0.7;
 
   lightNum = n;
 }
@@ -42,20 +42,9 @@ void light::draw()
    glLightfv(getLightEnum(lightNum), GL_AMBIENT, ambient);
    glLightfv(getLightEnum(lightNum), GL_SPECULAR, specular);
   glPopMatrix();
-  //  glPushMatrix();
 
-   double x=position[0];
-   double y=position[1];
-
-  glPushMatrix();
-    glTranslated(x*20,0,y*20);
-    glRotated(0, 0, 1, 0);
-    //glScaled(.25,.25,.25);
-    glTranslated(0,1,0);
-    glColor3f(diffuse[0],diffuse[1],diffuse[2]);
-    glutWireSphere(1, 20, 20);
-   glPopMatrix();
-
+  double x=position[0];
+  double y=position[1];
 }
 
 GLenum light::getLightEnum(int n)
@@ -89,4 +78,15 @@ GLenum light::getLightEnum(int n)
     default:
       return GL_LIGHT0;
     }
+}
+
+void light::toggleLight(int n, bool state)
+{
+  if (state)
+  {
+    glEnable(getLightEnum(n));
+  }
+  else
+    glDisable(getLightEnum(n));
+
 }

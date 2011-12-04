@@ -27,6 +27,7 @@ public:
   void drawBoxes();
   void drawBins();
   void drawFloor();
+  void drawCeiling();
   void updateCircuit();
   void tick();
   void syncBinsBoxes();

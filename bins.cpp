@@ -22,10 +22,10 @@ void bin::draw()
   glScaled(0.25,0.25,0.25);
   glTranslated(0,1,0);
 
-  if(!filled)
+  /*if(!filled)
     glColor3f(c.r,c.g,c.b);
   else
-    glColor3f(0,0,0);
+    glColor3f(0,0,0);*/
 
   gluCylinder( myQuad, 2.0, 2.0, 3.0, 20, 2 );
   //  glutSolidTeapot(1);

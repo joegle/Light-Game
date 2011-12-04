@@ -3,6 +3,7 @@
 
 #include <GL/glut.h>
 #include "utils.h"
+#include "globals.h"
 
 class toggle
 {
@@ -12,7 +13,7 @@ public:
 
   void draw();
   void flick();
-
+  
   bool state;
   double x;
   double y;
