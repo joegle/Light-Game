@@ -61,14 +61,11 @@ void processfile(){
     level_file >> num_lights;
 
     for(int i=0; i<num_lights; i++)
-      {
-	level_file >> x >> y;
-	//world.addBox( box(x,y) );
-	world.addLight( light(i,x,y,1) );
-
-      }
-    
-
+    {
+	    level_file >> x >> y;
+	    //world.addBox( box(x,y) );
+	    world.addLight( light(i,x,y,1) );
+    }
     level_file.close();
   }
   else cout << "Unable to open level.txt which stores the level information";
