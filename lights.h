@@ -6,20 +6,24 @@
 #include <string>
 
 using namespace std;
-class Lights
+class light
 {
-  public:
-    Lights(int n, GLfloat pos[], GLfloat diff[], GLfloat amb[], GLfloat spec[]);
-
-    void draw();
-    GLenum getLightEnum(int n);
+ public:
+  light(int n,double,double,double);
   
-  private:
-    int lightNum;
-    GLfloat position[4];
-    GLfloat diffuse[4];
-    GLfloat ambient[4];
-    GLfloat specular[4];
+  void draw();
+  GLenum getLightEnum(int n);
+  
+  int sx;
+  int sy;
+  
+  int lightNum;
+  GLfloat position[4];
+  GLfloat diffuse[4];
+  GLfloat ambient[4];
+  GLfloat specular[4];
+
+ private:
 };
 
 #include "lights.cpp"

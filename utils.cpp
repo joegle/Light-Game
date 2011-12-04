@@ -27,6 +27,7 @@ color randomColor(){
   c.r=(float)rand()/(float)RAND_MAX;
   c.b=(float)rand()/(float)RAND_MAX;
   c.g= (float)rand()/(float)RAND_MAX;
+  c.a= (float)rand()/(float)RAND_MAX;
 
 
   return c;

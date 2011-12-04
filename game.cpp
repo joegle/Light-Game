@@ -21,6 +21,7 @@ using namespace std;
 
 // This function inits things like the globals
 void init() {
+
   glEnable(GL_COLOR_MATERIAL);
   glEnable(GL_DEPTH_TEST); //enable the depth testing
   glEnable(GL_LIGHTING); //enable the lighting
@@ -28,13 +29,16 @@ void init() {
   //glEnable(GL_LIGHT1); //enable LIGHT1, our Ambient Light
 
   glutSetCursor(GLUT_CURSOR_NONE); 
+
+  srand(time(NULL));
   processfile();
+
 
   glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
   glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
   world.LoadGLTextures();
   glEnable(GL_TEXTURE_2D);
-  srand(time(NULL));
+
 
   
 
@@ -117,7 +121,7 @@ int main(int argc, char **argv) {
 
   glutCreateWindow("Game"); // Title displayed in window title bar.
 
-  //glutFullScreen();   
+  glutFullScreen();   
  
   glutDisplayFunc(display);
   glutReshapeFunc(reshape);

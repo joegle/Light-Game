@@ -23,7 +23,8 @@ void processfile(){
     for(int i=0; i<box_num; i++)
       {
 	level_file >> x >> y;
-	world.addBox( box(x, y) );
+	world.addBox( box(x,y) );
+
       }
 
 
@@ -33,9 +34,33 @@ void processfile(){
       {
 	level_file >> x >> y;
 	world.addBin( bin(x,y) );
+
       }
     
     world.syncBinsBoxes();
+
+
+    // Read in toggles
+    int num_toggles;
+    level_file >> num_toggles;
+
+    for(int i=0; i<num_toggles; i++)
+      {
+	level_file >> x >> y;
+	world.addToggle( toggle(x,y) );
+      }
+    
+
+    // Read in lights
+    int num_lights;
+    level_file >> num_lights;
+
+    for(int i=0; i<num_lights; i++)
+      {
+	level_file >> x >> y;
+	world.addLight( light(i,x,y,0) );
+      }
+
 
     level_file.close();
   }

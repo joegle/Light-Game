@@ -1,15 +1,22 @@
 #include "world.h"
 
+world::world()
+{
+  for(int i=0;i<30;i++)
+    {
+      circuit[0][i]=((int)r(0,20))%2;
+    }
+  //updateCircuit(); // this will make segfault
+}
+
 void world::drawWorld()
 {
   drawFloor();
   drawWalls();
   drawBoxes();
+  drawToggles();
   drawBins();
-  
-  //drawLights();
-  //drawSwitches();
-  
+  drawLights();
 }
 
 void world::setDimensions(int xx,int yy)
@@ -80,6 +87,34 @@ void world::checkBins()
 
 }
 
+void world::updateCircuit()
+{
+  // (p + q + r + q r) mod 2
+  for(int i=0;i<30;i++)
+    circuit[0][i]= _toggles[i].state;
+
+  bool p,q,r;
+  for(int i=1;i<29;i++)
+    {
+      for(int j=0;j<30;j++)
+	{
+	  p = circuit[i-1][(j-1)%30];
+	  q = circuit[i-1][(j)];
+	  r = circuit[i-1][(j+1)%30];
+	  circuit[i][j] = (p + q + r + q*r) %2;
+	}
+    }
+
+  for(int i=0;i<30;i++)
+    {
+    for(int j=0;j<30;j++)
+      {
+	cout<<circuit[i][j]<< " ";
+      }
+    cout<<endl;
+    }
+}
+
 void world::checkWin()
 {
   
@@ -103,21 +138,13 @@ void world::syncBinsBoxes()
       _boxes[i].c=_bins[i].c;
     }
 }
-/*
-void world::drawLights()
-{
-	for(int i = 0; i < _lights.size(); i++)
-	{
-	  _lights[i].draw();
-	}
-}
-*/
+
 // draw wall from (x1,y2) to (x2,y2)
 void world::drawWall(double x1,double y1, double x2, double y2)
 {
-	GLfloat floorAmbient[] = {.3,.3,.3,1};
-	GLfloat floorSpec[] = { .3,.3,.3,1};
-	GLfloat floorDiff[] = { .3,.3,.3,1};
+    GLfloat floorAmbient[] = {.3,.3,.3,1};
+    GLfloat floorSpec[] = { .3,.3,.3,1};
+    GLfloat floorDiff[] = { .3,.3,.3,1};
   glPushMatrix();
   
   // This is how it is. It works
@@ -177,14 +204,6 @@ void world::drawWalls()
 
 
 }
-/*
-void world::drawSwitches()
-{
-	for(int i = 0; i < _lights.size(); i++)
-	{
-		_switches[i].draw();
-	}
-}*/
 
 void world::drawBoxes()
 {
@@ -194,6 +213,21 @@ void world::drawBoxes()
 	}
 }
 
+void world::drawLights()
+{
+  cout<<_lights.size();
+	for(int i = 0; i < _lights.size(); i++)
+	  {
+	    cout<<"lights"<<endl;
+	  if(circuit[_lights[i].sx][_lights[i].sy])
+	    {
+		_lights[i].draw();
+		cout<<"drawLight"<<endl;
+	    }
+	  }
+}
+
+
 void world::drawBins()
 {
 	for(int i = 0; i < _bins.size(); i++)
@@ -201,6 +235,17 @@ void world::drawBins()
 		_bins[i].draw();
 	}
 }
+
+void world::drawToggles()
+{
+
+  for(int i = 0; i < _toggles.size(); i++)
+    {
+      _toggles[i].draw();
+    }
+  
+}
+
 /*
 void world::addLight(Lights light)
 {
@@ -208,11 +253,11 @@ void world::addLight(Lights light)
 }*/
 
 
-/*
-void world::addSwitch(switches newSwitch)
+
+void world::addToggle(toggle t)
 {
-	_switches.push_back(newSwitch);
-}*/
+	_toggles.push_back(t);
+}
 
 void world::addBox(box b)
 {

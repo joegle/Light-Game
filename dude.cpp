@@ -43,7 +43,7 @@ void dude::look()
 
       load.x=holdX;
       load.y=holdY;
-      load.z = 0.4 + sin(f(s));
+      load.z = 1 + sin(f(s));
 
       load.angle=o;
       load.drawHeld();
@@ -85,7 +85,7 @@ void dude::doSomething(){
   cout<<"doSomething"<<endl;
 
   // Parameters for activation zone
-  double radius=0.3;
+  double radius=0.2;
   double dis=1;
   double rangeX = (x + dis*sin(f(o)))/20;
   double rangeY = (y + dis*cos(f(o)))/20;
@@ -95,6 +95,8 @@ void dude::doSomething(){
 
   if(!carrying)
     {
+
+      // look for boxes to carry
       for(int i=0; !carrying && i<w->_boxes.size();i++)
 	{
 	  if( !(w->_boxes[i].placed) && 
@@ -108,6 +110,17 @@ void dude::doSomething(){
 	      carrying = true;
 	    }
 	}
+
+      // look for toggles to flick
+      for(int i=0; !carrying && i<w->_toggles.size();i++)
+	{
+	  if( distance(rangeX,rangeY,w->_toggles[i].x, w->_toggles[i].y) < radius )
+	    {
+	      w->_toggles[i].flick();
+	      w->updateCircuit();
+	    }
+	}
+
     }
   else // currently has load
     {

@@ -10,6 +10,7 @@ using namespace std;
 // This temp for testing
 void processfile(){
 
+
   ifstream level_file ("level.txt");
   if (level_file.is_open())
   {
@@ -30,6 +31,7 @@ void processfile(){
       {
 	level_file >> x >> y;
 	world.addBox( box(x, y) );
+
       }
 
 
@@ -45,7 +47,16 @@ void processfile(){
 
 
 
-    
+
+    int toggle_num;
+    level_file >> toggle_num;
+
+    for(int i=0; i<toggle_num; i++)
+      {
+	level_file >> x >> y;
+	world.addToggle( toggle(x,y) );
+      }
+
     
 
 
