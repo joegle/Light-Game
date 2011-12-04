@@ -1,5 +1,5 @@
 #include "world.h"
-
+  
 void world::drawWorld()
 {
   drawFloor();
@@ -7,11 +7,7 @@ void world::drawWorld()
   drawBoxes();
   drawToggles();
   drawBins();
-
-  
   //drawLights();
-
-  
 }
 
 void world::setDimensions(int xx,int yy)
