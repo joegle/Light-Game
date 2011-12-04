@@ -6,9 +6,10 @@ void world::drawWorld()
   drawWalls();
   drawBoxes();
   drawBins();
+  drawToggles();
   
   //drawLights();
-  //drawSwitches();
+
   
 }
 
@@ -151,14 +152,14 @@ void world::drawWalls()
 
 
 }
-/*
-void world::drawSwitches()
+
+void world::drawToggles()
 {
-	for(int i = 0; i < _lights.size(); i++)
+	for(int i = 0; i < _toggles.size(); i++)
 	{
-		_switches[i].draw();
+		_toggles[i].draw();
 	}
-}*/
+}
 
 void world::drawBoxes()
 {
@@ -182,11 +183,11 @@ void world::addLight(Lights light)
 }*/
 
 
-/*
-void world::addSwitch(switches newSwitch)
+
+void world::addToggle(toggle t)
 {
-	_switches.push_back(newSwitch);
-}*/
+	_toggles.push_back(t);
+}
 
 void world::addBox(box b)
 {

@@ -7,8 +7,11 @@
 #include "bins.h"
 #include "lights.h"
 #include "toggles.h"
+<<<<<<< HEAD
 
 //#include "switch.h"
+=======
+>>>>>>> 83edf926e6f43964a3a63557b372efef746837cb
 
 using namespace std;
 
@@ -19,7 +22,7 @@ public:
   void setDimensions(int xx,int yy);
   //void drawLights();
   void drawWalls();
-  //void drawSwitches();
+  void drawToggles();
   void drawBoxes();
   void drawBins();
   void drawFloor();
@@ -30,7 +33,7 @@ public:
   
   //void addLight(Lights light);
   //  void addWall();
-  //void addSwitch(switches newSwitch);
+  void addToggle(toggle t);
   void addBox(box box);
   void addBin(bin b);
 
@@ -40,7 +43,7 @@ public:
   double time;
 
   //vector<Lights> _lights;
-  //vector<switches> _switches;
+  vector<toggle> _toggles;
   vector<box> _boxes;
   vector<bin> _bins;
  
