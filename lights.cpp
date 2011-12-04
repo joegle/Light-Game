@@ -36,7 +36,7 @@ light::light(int n,double x, double y, double z)
 
 void light::draw() 
 {
-
+  /*
    GLfloat position[] = { 1.0, 0.0, 1.0, 1.0 };
    GLfloat ambient[] = { 1.0, 1.0, 1.0, 1.0 };
    GLfloat diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
@@ -47,20 +47,25 @@ void light::draw()
    glLightfv(getLightEnum(lightNum), GL_DIFFUSE, diffuse);
    glLightfv(getLightEnum(lightNum), GL_AMBIENT, ambient);
    glLightfv(getLightEnum(lightNum), GL_SPECULAR, specular);
+  */
+
+
+    cout<<"drawLight";
+  //  glPushMatrix();
 
    int x=position[0];
    int y=position[1];
       glPushMatrix();
       glTranslated(x*20,0,y*20);
       glRotated(0, 0, 1, 0);
-      glScaled(0.25,0.25,0.25);
+      //glScaled(.25,.25,.25);
       glTranslated(0,1,0);
-      glColor3f(diffuse[0],diffuse[1],diffuse[2]);
+      //   glColor3f(diffuse[0],diffuse[1],diffuse[2]);
       glutSolidTeapot(1);
       glPopMatrix();
 
 
-  glPopMatrix();
+      //  glPopMatrix();
 
 }
 

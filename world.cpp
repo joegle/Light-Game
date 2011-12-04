@@ -209,22 +209,26 @@ void world::drawBoxes()
 {
 	for(int i = 0; i <_boxes.size(); i++)
 	{
-		_boxes[i].draw();
+	  _boxes[i].draw();
 	}
 }
 
 void world::drawLights()
 {
-  cout<<_lights.size();
-	for(int i = 0; i < _lights.size(); i++)
-	  {
-	    cout<<"lights"<<endl;
-	  if(circuit[_lights[i].sx][_lights[i].sy])
-	    {
-		_lights[i].draw();
-		cout<<"drawLight"<<endl;
-	    }
-	  }
+  for(int i = 0; i < _lights.size(); i++)
+    {
+      cout<< circuit[_lights[i].sx][_lights[i].sy];
+      if(!circuit[_lights[i].sx][_lights[i].sy])
+	{
+
+	  //	  cout<<0;
+	  _lights[i].draw();
+	}
+
+	//	cout<<1;
+	
+	}
+  cout<<endl;
 }
 
 
@@ -246,12 +250,12 @@ void world::drawToggles()
   
 }
 
-/*
-void world::addLight(Lights light)
-{
-	_lights.push_back(light);
-}*/
 
+void world::addLight(light l)
+{
+
+	_lights.push_back(l);
+}
 
 
 void world::addToggle(toggle t)

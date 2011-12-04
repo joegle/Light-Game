@@ -33,6 +33,7 @@ void init() {
   srand(time(NULL));
   processfile();
 
+  world.addLight( light(0,1,1,1) );
 
   glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
   glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
@@ -78,7 +79,7 @@ void drawObjects() {
 
   dude.look();
 
-  light();
+  placelight();
 
   //  cube.draw();
 

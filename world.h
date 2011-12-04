@@ -33,8 +33,7 @@ public:
   void checkBins();
   void checkWin();
   
-  //void addLight(Lights light);
-  //  void addWall();
+  void addLight(light l);
   void addToggle(toggle t);
   void addBox(box box);
   void addBin(bin b);

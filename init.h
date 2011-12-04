@@ -8,6 +8,7 @@
 using namespace std;
 
 // This temp for testing
+
 void processfile(){
 
 
@@ -57,6 +58,18 @@ void processfile(){
 	world.addToggle( toggle(x,y) );
       }
 
+
+    // Read in lights
+    int num_lights;
+    level_file >> num_lights;
+
+    for(int i=0; i<num_lights; i++)
+      {
+	level_file >> x >> y;
+	//world.addBox( box(x,y) );
+	world.addLight( light(i,x,y,1) );
+
+      }
     
 
 

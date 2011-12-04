@@ -85,7 +85,7 @@ void dude::doSomething(){
   cout<<"doSomething"<<endl;
 
   // Parameters for activation zone
-  double radius=0.2;
+  double radius=0.1;
   double dis=1;
   double rangeX = (x + dis*sin(f(o)))/20;
   double rangeY = (y + dis*cos(f(o)))/20;
