@@ -24,15 +24,11 @@ void toggle::draw()
   cout<<"pop"<<endl;
 
     glPushMatrix();
-<<<<<<< HEAD
       glTranslated(x*20,0,y*20);
       glScalef(0.25,1.5,0.25);
       glutSolidCube(1.0);
     glPopMatrix();
-=======
-        glTranslated(x*20,0,y*20);
-        glScalef(0.25,1.5,0.25);
-        glutSolidCube(1.0);
+
     glPushMatrix();
       glColor3f(1,0,0);
       glTranslated(x*20, 0.78, y*20);
