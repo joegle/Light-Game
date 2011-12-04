@@ -6,7 +6,7 @@
 #include "boxes.h"
 #include "bins.h"
 #include "lights.h"
-#include "switch.h" 
+#include "toggles.h" 
 
 using namespace std;
 
@@ -15,7 +15,7 @@ class world
 public:
   void drawWorld();
   void setDimensions(int xx,int yy);
-  unsigned int world::getint(FILE *fp);
+  unsigned int getint(FILE *fp);
   unsigned short getshort(FILE* fp);
   int ImageLoad(char *filename, Image *image);
   void LoadGLTextures();
