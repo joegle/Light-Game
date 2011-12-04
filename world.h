@@ -5,14 +5,8 @@
 #include <vector>
 #include "boxes.h"
 #include "bins.h"
-#include "lights.h"
 #include "toggles.h"
-<<<<<<< HEAD
-
-//#include "switch.h"
-=======
->>>>>>> 83edf926e6f43964a3a63557b372efef746837cb
-
+#include "lights.h"
 using namespace std;
 
 class world
