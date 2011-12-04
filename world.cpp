@@ -6,7 +6,6 @@ world::world()
   {
       circuit[0][i]=((int)r(0,20))%2;
   }
-  //updateCircuit(); // this will make segfault
 }
 
 void world::drawWorld()
