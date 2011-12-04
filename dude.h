@@ -20,7 +20,6 @@ public:
   void goBackward();
   void doSomething();
   void drop();
-  
   void turn(double x);
   void setPosition(double a,double b,double c);
 

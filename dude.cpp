@@ -112,17 +112,19 @@ void dude::doSomething(){
   else // currently has load
     {
       drop();
-      
     }
 }
 
 void dude::strafeLeft() {
-  this->x += 0.50;
-  //x+sin(f(o))*cos(f(s))
+  this->o += 90;
+  goForward();
+  this->o -= 90;
 }
 
 void dude::strafeRight() {
- this->x -= 0.50;
+  this->o -= 90;
+  goForward();
+  this->o += 90;
 }
 
 void dude::goForward(){
