@@ -56,11 +56,11 @@ void keyboard(unsigned char key, int x, int y) {
 
 void special(int key, int x, int y) {
    if (key == GLUT_KEY_LEFT) {
-     dude.turn(10);
+     dude.strafeLeft();
      glutPostRedisplay();
    }
    else if (key == GLUT_KEY_RIGHT) {
-     dude.turn(-10);
+     dude.strafeRight();
      glutPostRedisplay();
    }
    else if (key == GLUT_KEY_UP) {
