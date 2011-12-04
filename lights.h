@@ -18,7 +18,7 @@ class light
   int sy;
   
   int lightNum;
-  GLfloat position[4];
+  double position[4];
   GLfloat diffuse[4];
   GLfloat ambient[4];
   GLfloat specular[4];

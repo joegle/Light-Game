@@ -53,14 +53,15 @@ void light::draw()
     cout<<"drawLight";
   //  glPushMatrix();
 
-   int x=position[0];
-   int y=position[1];
+   double x=position[0];
+   double y=position[1];
+
       glPushMatrix();
       glTranslated(x*20,0,y*20);
       glRotated(0, 0, 1, 0);
       //glScaled(.25,.25,.25);
       glTranslated(0,1,0);
-      //   glColor3f(diffuse[0],diffuse[1],diffuse[2]);
+      glColor3f(diffuse[0],diffuse[1],diffuse[2]);
       glutSolidTeapot(1);
       glPopMatrix();
 

@@ -220,14 +220,10 @@ void world::drawLights()
       cout<< circuit[_lights[i].sx][_lights[i].sy];
       if(!circuit[_lights[i].sx][_lights[i].sy])
 	{
-
-	  //	  cout<<0;
 	  _lights[i].draw();
 	}
 
-	//	cout<<1;
-	
-	}
+    }
   cout<<endl;
 }
 
