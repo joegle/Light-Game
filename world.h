@@ -6,6 +6,8 @@
 #include "boxes.h"
 #include "bins.h"
 #include "lights.h"
+#include "toggles.h"
+
 //#include "switch.h"
 
 using namespace std;

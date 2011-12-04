@@ -105,8 +105,7 @@ void drawWall(double x1,double y1, double x2, double y2)
 {
   glPushMatrix();
   
-  // This is how it is. It works
-  x1*=20;
+  // This is how it is. It work  x1*=20;
   x2*=20;
   y1*=20;
   y2*=20;

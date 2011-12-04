@@ -13,10 +13,10 @@ toggle::toggle(double xx,double yy)
 void toggle::draw()
 {
     glPushMatrix();
-        glTranslated(x*20,0,y*20);
-        glScalef(0.25,1.5,0.25);
-        glutSolidCube(1.0);
-      glPopMatrix();
+      glTranslated(x*20,0,y*20);
+      glScalef(0.25,1.5,0.25);
+      glutSolidCube(1.0);
+    glPopMatrix();
 
     glPushMatrix();
       glColor3f(1,0,0);
