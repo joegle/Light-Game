@@ -2,8 +2,8 @@
 
 dude::dude(world* ww)
 {
-  x = 0.5;
-  y = 0.5;
+  x = 2.5;
+  y = 2.5;
   z = 2;
   forward_step = 1;
   backward_step = 1;
@@ -143,38 +143,37 @@ void dude::goForward(){
 
   int wall = w-> walls[(int)x/20][(int)y/20];
 
-  signed int fx=x/20;
-  signed int fy=y/20;
+  int fx=x/20;
+  int fy=y/20;
 
-  int ox =x;
-  int oy =y;
+  double ox = x;
+  double oy = y;
 
   y+= forward_step*cos(f(o));
   x+= forward_step*sin(f(o));
 
-  signed int dx=fx-(int)x/20;
-  signed int dy=fy-(int)y/20;
+  int dx=fx-(x/20);
+  int dy=fy-(y/20);
 
-
-  if(wall & 2 && dx<0)
+  if(wall & 4 && (dx<0 || x>((w->x*20)-2)))
     {
       x=ox;
       y=oy;
     }
 
-  if(wall & 1 && dy>0)
+  if(wall & 2 && (dy>0 || y<2 ))
     {
       x=ox;
       y=oy;
     }
 
-  if(wall & 4 && dy<0)
+  if(wall & 8 && (dy<0 || y>((w->y*20)-2)))
     {
       x=ox;
       y=oy;
     }
 
-  if(wall & 8 && dx>0)
+  if(wall & 1 && (dx>0 || x<2 ))
     {
       x=ox;
       y=oy;

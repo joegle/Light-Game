@@ -166,10 +166,10 @@ void world::drawWalls()
       }
 
   // Draw Outer Walls
-  drawWall(0,0,0,y);
+ /* drawWall(0,0,0,y);
   drawWall(0,0,x,0);
   drawWall(0,y,x,y);
-  drawWall(x,0,x,y);
+  drawWall(x,0,x,y);*/
 }
 
 void world::drawBoxes()
