@@ -82,8 +82,6 @@ void dude::drop()
 //   + Pick up a box if not already carrying
 //   + Drop box if currently carrying one
 void dude::doSomething(){
-  cout<<"doSomething"<<endl;
-
   // Parameters for activation zone
   double radius=0.1;
   double dis=1;
@@ -154,7 +152,7 @@ void dude::goForward(){
 
   int dx=fx-(x/20);
   int dy=fy-(y/20);
-
+  cout << fx << ", " << fy <<  endl;
   if(wall & 4 && (dx<0 || x>((w->x*20)-2)))
     {
       x=ox;
