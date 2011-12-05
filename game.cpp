@@ -93,7 +93,7 @@ int main(int argc, char **argv) {
 
   glutCreateWindow("Game"); // Title displayed in window title bar.
 
-  glutFullScreen();   
+//  glutFullScreen();   
  
   glutDisplayFunc(display);
   glutReshapeFunc(reshape);
