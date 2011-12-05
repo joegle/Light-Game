@@ -20,26 +20,18 @@ CMPSC457 Final project: Light Game
    Run 'make' or compile:
    :  gcc -lglut -lGLU game.cpp -o game
 
-   You can also [[./docs/lab1.html][browse the source online]].
 
 ** How it was created
-*** Drawing the sky
-    Draw a rectangle to cover frame. Activating GL_SMOOTH lets us create gradients when we color the top vertices different from the bottom one.
-#+begin_src c
-    glBegin(GL_TRIANGLE_STRIP);        
-
-    glColor3f(0,0.07843,0.16078);
-
-    glVertex2f(-1, 1);        
-    glVertex2f(1, 1);   
-    glVertex2f(-1, .5);   
-
-    glColor3f(0,0.2,0.4);
-
-    glVertex2f(1, y);        
-    glVertex2f(-1, y);        
-    glEnd();
-#+end_src
+*** Structure and Files
+**** [[https://github.com/joegle/Light-Game/blob/master/game.cpp][game.cpp]]
+     This is the core program and has all the typical GLUT functions. The run through looks like this:
+     1. #include all the subparts
+     2. init()
+	initializes glut, seed random number, process the level file
+     3. display()
+	Will repeated call drawObjects() that will place the player and draw the world
+**** 
+     
 *** Drawing the stars
     Stars (and sprinkles) are random points. The formula for random float ranges is from [[http://stackoverflow.com/questions/686353/c-random-float/686376#686376][John at stackoverflow]].
 #+begin_src c
@@ -108,13 +100,11 @@ Computing intersections of light rays and heights required a lot of trigonometry
   glEnd();
 #+end_src
 * Lessons learned
-** Graphics takes math
-   Instead of hard coding everything, I kept positions and ratios relative to some initial parameters. This requires figuring out formulas to compute where points should be (like lines intersecting or x,y offsets and scaling constants). Drawing waves and ovals required trigonometry and geometry.
-** Avoid constants
-   I've learned this lesson before but really applies to this class well. You want to avoid constants because if you ever need to change something you will have recompute everything by hand. So let the computer do the work and keep your code portable. 
-   I started off following this advice fine but as the project finished I used more shortcuts that broke portability.
-** Variable names
-   Avoiding constants implies using variables and I found it tricky to come up with meaningful, short variable names. Each shape kind of had its own local parameters that kept things organized until I reused old variables. I'll have to develop a good practice for these graphical coding issues.
+** 
+
+
+
+
 
 
 
