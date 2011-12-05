@@ -12,7 +12,7 @@ class dude
 public:
   dude(world*);
   void foo();
-  void wf();
+  void wf(); // is never defined
   void look();
   void strafeLeft();
   void strafeRight();

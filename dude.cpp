@@ -100,7 +100,7 @@ void dude::doSomething(){
 	  if( !(w->_boxes[i].placed) && 
 	     distance(rangeX,rangeY,w->_boxes[i].x, w->_boxes[i].y) < radius)
 	    {
-	      //	      w->_boxes[i].c=randomColor();
+	      // w->_boxes[i].c=randomColor();
 	      w->_boxes[i].dude = true;
 	      load = w->_boxes[i];
 	      load.dude=true;

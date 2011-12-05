@@ -88,7 +88,7 @@ int main(int argc, char **argv) {
 
   glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
   
-  glutInitWindowSize(500, 500);       // Set the size of the window here.
+  glutInitWindowSize(600, 600);       // Set the size of the window here.
   glutInitWindowPosition(0, 0);    // Upper left corner of window.
 
   glutCreateWindow("Game"); // Title displayed in window title bar.
