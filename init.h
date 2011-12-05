@@ -62,7 +62,7 @@ void processfile(){
     {
 	    level_file >> x >> y;
 	    //world.addBox( box(x,y) );
-	    world.addLight( light(i,x,y,1) );
+	    world.addLight( light(i,x,y,3.9) );
     }
     level_file.close();
   }
