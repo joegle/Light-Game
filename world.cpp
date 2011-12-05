@@ -6,13 +6,13 @@ world::world()
 
 void world::drawWorld()
 {
+  drawLights();
   drawFloor();
   drawCeiling();
   drawWalls();
   drawBoxes();
   drawToggles();
   drawBins();
-  drawLights();
 }
 
 void world::setDimensions(int xx,int yy)

@@ -8,7 +8,6 @@ void keyboard(unsigned char key, int x, int y) {
    if (key == 27)
       exit(0);
    else if (key == 'a') {
-     //dude.z+=10;
      dude.strafeLeft();
      glutPostRedisplay();
    }
@@ -25,12 +24,10 @@ void keyboard(unsigned char key, int x, int y) {
      glutPostRedisplay();
    }
    else if (key == 'w') {
-     //dude.o-=10;
      dude.goForward();
      glutPostRedisplay();
    }
    else if (key == 's') {
-     //dude.s+=5;
      dude.goBackward();
      glutPostRedisplay();
    }
@@ -78,9 +75,6 @@ void special(int key, int x, int y) {
 
 void mouseMove(int x, int y)
 {
-    //dude.o = -x * .3;
-    // dude.s = y * .3;
-    
 	if(!dude.mouseWarp)
 		{
 			int centerX = width / 2;

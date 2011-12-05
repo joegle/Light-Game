@@ -22,14 +22,11 @@ using namespace std;
 // This function inits things like the globals
 void init() {
 
-  glEnable(GL_NORMALIZE);
   GLfloat b[] = { .10, .10, .10, 1 };
   glLightModelfv(GL_LIGHT_MODEL_AMBIENT, b);
   glEnable(GL_COLOR_MATERIAL);
-  glClearDepth(1); //clear the depth buffer
   glEnable(GL_DEPTH_TEST); //enable the depth testing
   glEnable(GL_LIGHTING); //enable the lighting
-
   glutSetCursor(GLUT_CURSOR_NONE); 
 
   srand(time(NULL));
@@ -50,7 +47,6 @@ void initTransformation() {
   gluPerspective (60, (GLfloat)width / (GLfloat)height, 1.0, 1000.0); 
   
   glMatrixMode( GL_MODELVIEW);
-  glLoadIdentity();
 }
 
 void drawObjects() {
@@ -62,6 +58,7 @@ void drawObjects() {
 }
 
 void display() {
+  glLoadIdentity();
   glClearColor(0,0,0,0); 
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);   
   initTransformation();           // Setup projection and view.
