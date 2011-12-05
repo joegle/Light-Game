@@ -140,7 +140,7 @@ void dude::strafeRight() {
 void dude::goForward(){
 
   int wall = w-> walls[(int)x/20][(int)y/20];
-
+  
   int fx=x/20;
   int fy=y/20;
 
@@ -150,33 +150,29 @@ void dude::goForward(){
   y+= forward_step*cos(f(o));
   x+= forward_step*sin(f(o));
 
-  int dx=fx-(x/20);
-  int dy=fy-(y/20);
-  cout << fx << ", " << fy <<  endl;
-  if(wall & 4 && (dx<0 || x>((w->x*20)-2)))
+  if(wall & 4 && (x>(((fx+1)*20)-2)))
     {
       x=ox;
       y=oy;
     }
 
-  if(wall & 2 && (dy>0 || y<2 ))
+  if(wall & 2 && (y<((fy*20))+2))
     {
       x=ox;
       y=oy;
     }
 
-  if(wall & 8 && (dy<0 || y>((w->y*20)-2)))
+  if(wall & 8 && (y>(((fy+1)*20)-2)))
     {
       x=ox;
       y=oy;
     }
 
-  if(wall & 1 && (dx>0 || x<2 ))
+  if(wall & 1 && (x<((fx*20))+2))
     {
       x=ox;
       y=oy;
     }
-
 }
 
 // Wall detection not implemented here yet
