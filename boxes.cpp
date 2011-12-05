@@ -26,14 +26,13 @@ void box::drawHeld()
 void box::draw()
 {
   if(!dude && !placed)
-    {
-      glPushMatrix();
-        glTranslatef(x*20,0,y*20);
-        glRotatef(angle, 0, 1, 0);
-        glScaled(0.25,0.25,0.25);
-        glTranslatef(0,1,0);
-        glutSolidTeapot(1);
-      glPopMatrix();
+   {
+    glPushMatrix();
+     glTranslatef(x*20,0,y*20);
+     glRotatef(angle, 0, 1, 0);
+     glScaled(0.25,0.25,0.25);
+     glTranslatef(0,1,0);
+     glutSolidTeapot(1);
+   glPopMatrix();
   }
-  
 }
