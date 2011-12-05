@@ -9,11 +9,12 @@ using namespace std;
 class light
 {
  public:
-  light(int n, GLfloat, GLfloat, GLfloat);
+  light(int n, GLfloat x, GLfloat y, GLfloat z);
   
   void draw();
   GLenum getLightEnum(int n);
-  
+  void toggleLight(int n, bool state);
+
   int sx;
   int sy;
   

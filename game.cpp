@@ -22,26 +22,19 @@ using namespace std;
 // This function inits things like the globals
 void init() {
 
+  GLfloat b[] = { .10, .10, .10, 1 };
+  glLightModelfv(GL_LIGHT_MODEL_AMBIENT, b);
   glEnable(GL_COLOR_MATERIAL);
   glEnable(GL_DEPTH_TEST); //enable the depth testing
   glEnable(GL_LIGHTING); //enable the lighting
-  glEnable(GL_LIGHT0); //enable LIGHT0, our Diffuse Light
-  //glEnable(GL_LIGHT1); //enable LIGHT1, our Ambient Light
-
   glutSetCursor(GLUT_CURSOR_NONE); 
 
   srand(time(NULL));
   processfile();
-
-
-
   glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
   glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
   world.LoadGLTextures();
   glEnable(GL_TEXTURE_2D);
-
-
-  
 
   glShadeModel(GL_SMOOTH); //set the shader to smooth shader
 
@@ -52,7 +45,6 @@ void initTransformation() {
   glMatrixMode (GL_PROJECTION); //set the matrix to projection
   glLoadIdentity ();
   gluPerspective (60, (GLfloat)width / (GLfloat)height, 1.0, 1000.0); 
-  
   glMatrixMode( GL_MODELVIEW);
   glLoadIdentity();
 }
@@ -61,16 +53,19 @@ void drawObjects() {
 
   dude.look();
 
+<<<<<<< HEAD
   //placelight();
 
   //  cube.draw();
 
+=======
+>>>>>>> 998a7b921950f650b749ea7127b2a55bc80fea0a
   world.drawWorld();
 
 }
 
 void display() {
-  glClearColor(0,1,1,1); 
+  glClearColor(0,0,0,0); 
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);   
   initTransformation();           // Setup projection and view.
   drawObjects();
@@ -91,19 +86,21 @@ void reshape(int new_width, int new_height) {
    width = new_width;
 }
 
-
-
 int main(int argc, char **argv) {
   glutInit(&argc,argv);
 
   glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
   
-  glutInitWindowSize(500, 500);       // Set the size of the window here.
+  glutInitWindowSize(600, 600);       // Set the size of the window here.
   glutInitWindowPosition(0, 0);    // Upper left corner of window.
 
   glutCreateWindow("Game"); // Title displayed in window title bar.
 
+<<<<<<< HEAD
 glutFullScreen();   
+=======
+  glutFullScreen();   
+>>>>>>> 998a7b921950f650b749ea7127b2a55bc80fea0a
  
   glutDisplayFunc(display);
   glutReshapeFunc(reshape);

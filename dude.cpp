@@ -2,8 +2,8 @@
 
 dude::dude(world* ww)
 {
-  x = 0.5;
-  y = 0.5;
+  x = 2.5;
+  y = 2.5;
   z = 2;
   forward_step = 1;
   backward_step = 1;
@@ -82,8 +82,6 @@ void dude::drop()
 //   + Pick up a box if not already carrying
 //   + Drop box if currently carrying one
 void dude::doSomething(){
-  cout<<"doSomething"<<endl;
-
   // Parameters for activation zone
   double radius=0.1;
   double dis=1;
@@ -102,7 +100,7 @@ void dude::doSomething(){
 	  if( !(w->_boxes[i].placed) && 
 	     distance(rangeX,rangeY,w->_boxes[i].x, w->_boxes[i].y) < radius)
 	    {
-	      //	      w->_boxes[i].c=randomColor();
+	      // w->_boxes[i].c=randomColor();
 	      w->_boxes[i].dude = true;
 	      load = w->_boxes[i];
 	      load.dude=true;
@@ -117,7 +115,6 @@ void dude::doSomething(){
 	  if( distance(rangeX,rangeY,w->_toggles[i].x, w->_toggles[i].y) < radius )
 	    {
 	      w->_toggles[i].flick();
-	      w->updateCircuit();
 	    }
 	}
 
@@ -143,48 +140,44 @@ void dude::strafeRight() {
 void dude::goForward(){
 
   int wall = w-> walls[(int)x/20][(int)y/20];
+  
+  int fx=x/20;
+  int fy=y/20;
 
-  signed int fx=x/20;
-  signed int fy=y/20;
-
-  int ox =x;
-  int oy =y;
+  double ox = x;
+  double oy = y;
 
   y+= forward_step*cos(f(o));
   x+= forward_step*sin(f(o));
 
-  signed int dx=fx-(int)x/20;
-  signed int dy=fy-(int)y/20;
-
-
-  if(wall & 8 && dx<0)
+  if(wall & 4 && (x>(((fx+1)*20)-2)))
     {
       x=ox;
       y=oy;
     }
 
-  if(wall & 4 && dy>0)
+  if(wall & 2 && (y<((fy*20))+2))
     {
       x=ox;
       y=oy;
     }
 
-  if(wall & 2 && dy<0)
+  if(wall & 8 && (y>(((fy+1)*20)-2)))
     {
       x=ox;
       y=oy;
     }
 
-  if(wall & 1 && dx>0)
+  if(wall & 1 && (x<((fx*20))+2))
     {
       x=ox;
       y=oy;
     }
-
 }
 
 // Wall detection not implemented here yet
 void dude::goBackward(){
-  y -= backward_step*cos(f(o));
-  x -= backward_step*sin(f(o));
+  this->o -= 180;
+  goForward();
+  this->o += 180;
 }

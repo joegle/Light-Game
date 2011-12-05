@@ -21,5 +21,4 @@ int height;  // Current height of window; value is maintained by reshape().
 //From example
 /* storage for two texture  */
 
-
 #endif

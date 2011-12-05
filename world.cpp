@@ -2,21 +2,17 @@
 
 world::world()
 {
-  for(int i=0;i<30;i++)
-    {
-      circuit[0][i]=((int)r(0,20))%2;
-    }
-  //updateCircuit(); // this will make segfault
 }
 
 void world::drawWorld()
 {
+  drawLights();
   drawFloor();
+  drawCeiling();
   drawWalls();
   drawBoxes();
   drawToggles();
   drawBins();
-  drawLights();
 }
 
 void world::setDimensions(int xx,int yy)
@@ -27,34 +23,33 @@ void world::setDimensions(int xx,int yy)
 
 void world::drawFloor()
 {
+  glEnable(GL_TEXTURE_2D);
 	GLfloat floorAmbient[] = {.3,.3,.3,1};
 	GLfloat floorSpec[] = { .3,.3,.3,1};
 	GLfloat floorDiff[] = { .3,.3,.3,1};
   glPushMatrix();
-
-  glTranslatef(x * 10, 0 ,y * 10);
-  glScalef(x * 10, 0 , y * 10);
-  
-  //glColor3f(1,0,1);
-
-  glBegin(GL_QUADS);
-  glEnable(GL_TEXTURE_GEN_S);
-  glEnable(GL_TEXTURE_GEN_T);
-  glBindTexture(GL_TEXTURE_2D, texture[0]);
-
-  glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,floorAmbient);
-  glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,floorSpec);
-  glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,floorDiff);
-  glTexCoord2f(-1.0, 1.0);   glVertex3f(-1.0f,0, 1.0f);     
-  glTexCoord2f( 1.0, 1.0);   glVertex3f( 1.0f,0, 1.0f);     
-  glTexCoord2f( 1.0,-1.0);   glVertex3f( 1.0f,0,-1.0f);     
-  glTexCoord2f(-1.0,-1.0);   glVertex3f(-1.0f,0,-1.0f);  
-  glDisable(GL_TEXTURE_GEN_S);
-  glDisable(GL_TEXTURE_GEN_T);
-  glEnd();   
-
+    glTranslatef(x * 10, 0 ,y * 10);
+    glScalef(x * 10, 0 , y * 10);
+    glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,floorAmbient);
+    glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,floorSpec);
+    glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,floorDiff);  
+    glBindTexture(GL_TEXTURE_2D, texture[0]);
+    glBegin(GL_QUADS);
+      glTexCoord2f(-1.0, 1.0);   glVertex3f(-1.0f,0, 1.0f);     
+      glTexCoord2f( 1.0, 1.0);   glVertex3f( 1.0f,0, 1.0f);     
+      glTexCoord2f( 1.0,-1.0);   glVertex3f( 1.0f,0,-1.0f);     
+      glTexCoord2f(-1.0,-1.0);   glVertex3f(-1.0f,0,-1.0f);  
+   glEnd();
   glPopMatrix();
+  glDisable(GL_TEXTURE_2D);
+}
 
+void world::drawCeiling()
+{
+  glPushMatrix();
+    glTranslatef(0, 4, 0);
+    drawFloor();
+  glPopMatrix();
 }
 
 // Checks if each bin has its bin and sets the bin and box with its filled or placed value
@@ -69,8 +64,8 @@ void world::checkBins()
       // _boxes[i].x=_bins[i].x;      _boxes[i].y=_bins[i].y;
 
 
-      if(distance(_boxes[i].x,
-		  _boxes[i].y, 
+   if(distance(_boxes[i].x,
+	    _boxes[i].y, 
 		  _bins[i].x,
 		  _bins[i].y) < radius)
 	{
@@ -87,45 +82,21 @@ void world::checkBins()
 
 }
 
-void world::updateCircuit()
-{
-  // (p + q + r + q r) mod 2
-  for(int i=0;i<30;i++)
-    circuit[0][i]= _toggles[i].state;
-
-  bool p,q,r;
-  for(int i=1;i<29;i++)
-    {
-      for(int j=0;j<30;j++)
-	{
-	  p = circuit[i-1][(j-1)%30];
-	  q = circuit[i-1][(j)];
-	  r = circuit[i-1][(j+1)%30];
-	  circuit[i][j] = (p + q + r + q*r) %2;
-	}
-    }
-
-  for(int i=0;i<30;i++)
-    {
-    for(int j=0;j<30;j++)
-      {
-	cout<<circuit[i][j]<< " ";
-      }
-    cout<<endl;
-    }
-}
-
 void world::checkWin()
 {
-  
+  bool won = true;
+
   for(int i = 0; i <_bins.size(); i++)
-    {
-      if(!_boxes[i].placed)
-	cout<<0;
-      else
-	cout<<1;
-    }
-  cout<<endl;  
+  {
+    if(!_boxes[i].placed)
+	    won = false;
+  }
+  
+  if(won)
+  {
+    cout << "You've won.";
+    exit(1);
+  }
 
 }
 
@@ -142,9 +113,12 @@ void world::syncBinsBoxes()
 // draw wall from (x1,y2) to (x2,y2)
 void world::drawWall(double x1,double y1, double x2, double y2)
 {
-    GLfloat floorAmbient[] = {.3,.3,.3,1};
-    GLfloat floorSpec[] = { .3,.3,.3,1};
-    GLfloat floorDiff[] = { .3,.3,.3,1};
+  glEnable(GL_TEXTURE_2D);
+
+  GLfloat floorAmbient[] = {.3,.3,.3,1};
+  GLfloat floorSpec[] = { .3,.3,.3,1};
+  GLfloat floorDiff[] = { .3,.3,.3,1};
+  
   glPushMatrix();
   
   // This is how it is. It works
@@ -154,30 +128,20 @@ void world::drawWall(double x1,double y1, double x2, double y2)
   y2*=20;
   
   int h=4; // height of wall
-
+  
+  glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,floorAmbient);
+  glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,floorSpec);
+  glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,floorDiff);
+  glBindTexture(GL_TEXTURE_2D, texture[2]);
   glBegin(GL_QUADS);
-    glEnable(GL_TEXTURE_GEN_S);
-	glEnable(GL_TEXTURE_GEN_T);
-    glBindTexture(GL_TEXTURE_2D, texture[1]);
-    glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,floorAmbient);
-    glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,floorSpec);
-    glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,floorDiff);
-	glTexCoord2f(-1.0, 1.0); 
-	glTexCoord2f( 1.0, 1.0);
-	glTexCoord2f( 1.0,-1.0);
-	glTexCoord2f(-1.0,-1.0);  
-    glVertex3f(x1,h,y1);     
-    glVertex3f(x1,0,y1);     
-    glVertex3f(x2,0,y2);     
-    glVertex3f(x2,h,y2);    
-	glDisable(GL_TEXTURE_GEN_S);
-	glDisable(GL_TEXTURE_GEN_T);
+    glTexCoord2f(0, 0 ); glVertex3f(x1,h,y1); 
+	  glTexCoord2f( 1, 0); glVertex3f(x1,0,y1);
+	  glTexCoord2f( 1,1); glVertex3f(x2,0,y2);
+	  glTexCoord2f(0,1);  glVertex3f(x2,h,y2);
   glEnd();   
-
   glPopMatrix();
+  glDisable(GL_TEXTURE_2D);
 }
-
-
 
 void world::drawWalls()
 {
@@ -202,10 +166,10 @@ void world::drawWalls()
       }
 
   // Draw Outer Walls
-  drawWall(0,0,0,y);
+ /* drawWall(0,0,0,y);
   drawWall(0,0,x,0);
   drawWall(0,y,x,y);
-  drawWall(x,0,x,y);
+  drawWall(x,0,x,y);*/
 }
 
 void world::drawBoxes()
@@ -219,14 +183,14 @@ void world::drawBoxes()
 void world::drawLights()
 {
   for(int i = 0; i < _lights.size(); i++)
-    {
-      cout<< circuit[_lights[i].sx][_lights[i].sy];
-      if(!circuit[_lights[i].sx][_lights[i].sy])
-	{
-	  _lights[i].draw();
-	}
+  {
+    if(_toggles[i].state)
+	   {
+	      _lights[i].draw();
+	   }
+     _lights[i].toggleLight(i, _toggles[i].state);
+  }
 
-    }
   cout<<endl;
 }
 
@@ -297,7 +261,7 @@ unsigned int world::getint(FILE *fp)
 	// get 4 bytes
 	c = getc(fp);  
 	c1 = getc(fp);  
-	c2 = getc(fp);  
+	c2 = getc(fp);
 	c3 = getc(fp);
 
 	return ((unsigned int) c) +   
@@ -412,7 +376,7 @@ void world::LoadGLTextures() {
 	}
 
 	//load picture from file
-	if (!ImageLoad("marble.bmp", image1)) 
+	if (!ImageLoad("img/floor.bmp", image1)) 
 	{
 		exit(1);
 	}        
@@ -449,7 +413,7 @@ void world::LoadGLTextures() {
 	}
 
 	//load picture from file
-	if (!ImageLoad("wood.bmp", image2)) 
+	if (!ImageLoad("img/wood.bmp", image2)) 
 	{
 		exit(1);
 	}        
@@ -485,7 +449,7 @@ void world::LoadGLTextures() {
 	}
 
 	//load picture from file
-	if (!ImageLoad("stone.bmp", image3)) 
+	if (!ImageLoad("img/stone.bmp", image3)) 
 	{
 		exit(1);
 	}        
