@@ -2,10 +2,6 @@
 
 world::world()
 {
-  for(int i=0;i<30;i++)
-  {
-      circuit[0][i]=((int)r(0,20))%2;
-  }
 }
 
 void world::drawWorld()
@@ -84,34 +80,6 @@ void world::checkBins()
 	}
     }
 
-}
-
-void world::updateCircuit()
-{
-  // (p + q + r + q r) mod 2
-  for(int i=0;i<30;i++)
-    circuit[0][i]= _toggles[i].state;
-
-  bool p,q,r;
-  for(int i=1;i<29;i++)
-    {
-      for(int j=0;j<30;j++)
-	{
-	  p = circuit[i-1][(j-1)%30];
-	  q = circuit[i-1][(j)];
-	  r = circuit[i-1][(j+1)%30];
-	  circuit[i][j] = (p + q + r + q*r) %2;
-	}
-    }
-
-  for(int i=0;i<30;i++)
-    {
-    for(int j=0;j<30;j++)
-      {
-	cout<<circuit[i][j]<< " ";
-      }
-    cout<<endl;
-    }
 }
 
 void world::checkWin()

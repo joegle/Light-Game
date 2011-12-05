@@ -28,7 +28,6 @@ public:
   void drawBins();
   void drawFloor();
   void drawCeiling();
-  void updateCircuit();
   void tick();
   void syncBinsBoxes();
   void checkBins();
@@ -43,7 +42,6 @@ public:
   int x;
   int y;
   int walls[30][30];  // [row][col]
-  bool circuit[30][30];  // [row][col]
   double time;
   GLuint texture[3];
 
@@ -51,7 +49,6 @@ public:
   vector<toggle> _toggles;
   vector<box> _boxes;
   vector<bin> _bins;
-  //  vector< pair<int,int> > sockets;
  
 private:
 

@@ -18,20 +18,21 @@ void bin::draw()
     glRotated(-90,1,0,0);
     glScaled(0.25,0.25,0.25);
     glTranslated(0,1,0);
-   if(!filled)  
+    glDisable(GL_COLOR_MATERIAL); //Required for the glMaterial calls to work
+    
+    if(!filled)  
     {	
       GLfloat materialColor[] = {c.r, c.g, c.b, c.a};
-      glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, materialColor);}  
+      glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, materialColor);
+    }  
     else  
     {	
       GLfloat materialColor[] = {0, 0, 0, 1};
       glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, materialColor);
     }
 
-    //The specular (shiny) component of the material
-    GLfloat materialSpecular[] = {0.8f, 0.8f, 0.8f, 1.0f};    //The color emitted by the material
+    GLfloat materialSpecular[] = {0.8f, 0.8f, 0.8f, 1.0f};
     GLfloat materialEmission[] = {0, 0, 0, 1.0f};
-    glDisable(GL_COLOR_MATERIAL); //Required for the glMaterial calls to work
     glMaterialfv(GL_FRONT, GL_SPECULAR, materialSpecular);
     glMaterialfv(GL_FRONT, GL_EMISSION, materialEmission);
     glMaterialf(GL_FRONT, GL_SHININESS, 15.0f); 

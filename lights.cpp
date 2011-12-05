@@ -2,11 +2,6 @@
 
 light::light(int n, GLfloat x, GLfloat y, GLfloat z)
 {
-  
-  // random coord of the circuit matrix
-  sx = r(0,30);
-  sy = r(0,30);
-
   position[0] = x;
   position[1] = y;
   position[2] = z;
