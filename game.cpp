@@ -45,8 +45,8 @@ void initTransformation() {
   glMatrixMode (GL_PROJECTION); //set the matrix to projection
   glLoadIdentity ();
   gluPerspective (60, (GLfloat)width / (GLfloat)height, 1.0, 1000.0); 
-  
   glMatrixMode( GL_MODELVIEW);
+  glLoadIdentity();
 }
 
 void drawObjects() {
@@ -58,7 +58,6 @@ void drawObjects() {
 }
 
 void display() {
-  glLoadIdentity();
   glClearColor(0,0,0,0); 
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);   
   initTransformation();           // Setup projection and view.
