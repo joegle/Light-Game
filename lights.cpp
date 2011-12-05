@@ -15,10 +15,10 @@ light::light(int n, GLfloat x, GLfloat y, GLfloat z)
   diffuse[3] = 0.7;
 
   c=randomColor();
-  ambient[0] = 0.7;
-  ambient[1] = 0.7;
-  ambient[2] = 0.7;
-  ambient[3] = 0.7;
+  ambient[0] = 0.0;
+  ambient[1] = 0.0;
+  ambient[2] = 0.0;
+  ambient[3] = 0.0;
 
   c=randomColor();
   specular[0] = 0.7;
@@ -31,7 +31,9 @@ light::light(int n, GLfloat x, GLfloat y, GLfloat z)
 
 void light::draw() 
 {
+	float LightDir[3] = {0.0f, -1.0f, 0.0f}; // towards the viewer 
   glPushMatrix();
+   glLightfv(getLightEnum(lightNum), GL_SPOT_DIRECTION, LightDir); 
    glLightfv(getLightEnum(lightNum), GL_POSITION, position);
    glLightfv(getLightEnum(lightNum), GL_DIFFUSE, diffuse);
    glLightfv(getLightEnum(lightNum), GL_AMBIENT, ambient);

@@ -22,7 +22,7 @@ using namespace std;
 // This function inits things like the globals
 void init() {
 
-  GLfloat b[] = { .4, .4, .4, 1 };
+  GLfloat b[] = { .10, .10, .10, 1 };
   glLightModelfv(GL_LIGHT_MODEL_AMBIENT, b);
   glEnable(GL_COLOR_MATERIAL);
   glEnable(GL_DEPTH_TEST); //enable the depth testing
@@ -93,7 +93,7 @@ int main(int argc, char **argv) {
 
   glutCreateWindow("Game"); // Title displayed in window title bar.
 
-  //glutFullScreen();   
+  glutFullScreen();   
  
   glutDisplayFunc(display);
   glutReshapeFunc(reshape);
