@@ -43,7 +43,8 @@ void processfile(){
     }
     
     world.syncBinsBoxes();
-
+    
+    // Read in toggles
     int toggle_num;
     level_file >> toggle_num;
 
