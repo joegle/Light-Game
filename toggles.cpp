@@ -20,6 +20,7 @@ void toggle::draw()
     glutSolidCube(1.0);
   glPopMatrix();
 
+  glColor3f(1.0,0,0);
   glPushMatrix();
     glTranslatef(x*20, 1.28, y*20);
     glScalef(0.15,0.15,0.15); 
