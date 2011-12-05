@@ -289,7 +289,7 @@ unsigned int world::getint(FILE *fp)
 	// get 4 bytes
 	c = getc(fp);  
 	c1 = getc(fp);  
-	c2 = getc(fp);  
+	c2 = getc(fp);
 	c3 = getc(fp);
 
 	return ((unsigned int) c) +   
