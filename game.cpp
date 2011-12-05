@@ -22,8 +22,8 @@ using namespace std;
 // This function inits things like the globals
 void init() {
 
-  // GLfloat b[] = { 0, 0, 0, 1 };
-  // glLightModelfv(GL_LIGHT_MODEL_AMBIENT, b);
+  GLfloat b[] = { .4, .4, .4, 1 };
+  glLightModelfv(GL_LIGHT_MODEL_AMBIENT, b);
   glEnable(GL_COLOR_MATERIAL);
   glEnable(GL_DEPTH_TEST); //enable the depth testing
   glEnable(GL_LIGHTING); //enable the lighting
