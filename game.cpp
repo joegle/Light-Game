@@ -22,13 +22,13 @@ using namespace std;
 // This function inits things like the globals
 void init() {
 
+  glEnable(GL_NORMALIZE);
   GLfloat b[] = { .10, .10, .10, 1 };
   glLightModelfv(GL_LIGHT_MODEL_AMBIENT, b);
   glEnable(GL_COLOR_MATERIAL);
+  glClearDepth(1); //clear the depth buffer
   glEnable(GL_DEPTH_TEST); //enable the depth testing
   glEnable(GL_LIGHTING); //enable the lighting
-  glEnable(GL_LIGHT0); //enable LIGHT0, our Diffuse Light
-  glEnable(GL_LIGHT1); //enable LIGHT1, our Ambient Light
 
   glutSetCursor(GLUT_CURSOR_NONE); 
 

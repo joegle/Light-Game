@@ -9,10 +9,10 @@ light::light(int n, GLfloat x, GLfloat y, GLfloat z)
 
   // Random colorize
   color c=randomColor();
-  diffuse[0] = 0.7;
-  diffuse[1] = 0.7; 
-  diffuse[2] = 0.7;
-  diffuse[3] = 0.7;
+  diffuse[0] = 0.3;
+  diffuse[1] = 0.3; 
+  diffuse[2] = 0.3;
+  diffuse[3] = 0.3;
 
   c=randomColor();
   ambient[0] = 0.0;
@@ -21,17 +21,17 @@ light::light(int n, GLfloat x, GLfloat y, GLfloat z)
   ambient[3] = 0.0;
 
   c=randomColor();
-  specular[0] = 0.7;
-  specular[1] = 0.7;
-  specular[2] = 0.7;
-  specular[3] = 0.7;
+  specular[0] = 0.0;
+  specular[1] = 0.0;
+  specular[2] = 0.0;
+  specular[3] = 0.0;
 
   lightNum = n;
 }
 
 void light::draw() 
 {
-	float LightDir[3] = {0.0f, -1.0f, 0.0f}; // towards the viewer 
+	GLfloat LightDir[3] = { 0.0f, -1.0f, 0.0f }; // towards the viewer 
   glPushMatrix();
    glLightfv(getLightEnum(lightNum), GL_SPOT_DIRECTION, LightDir); 
    glLightfv(getLightEnum(lightNum), GL_POSITION, position);
@@ -73,7 +73,7 @@ GLenum light::getLightEnum(int n)
       return GL_LIGHT7;
       break;
     default:
-      return GL_LIGHT0;
+      break;
     }
 }
 
