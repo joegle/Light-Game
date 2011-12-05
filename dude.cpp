@@ -156,25 +156,25 @@ void dude::goForward(){
   signed int dy=fy-(int)y/20;
 
 
-  if(wall & 8 && dx<0)
+  if(wall & 2 && dx<0)
     {
       x=ox;
       y=oy;
     }
 
-  if(wall & 4 && dy>0)
+  if(wall & 1 && dy>0)
     {
       x=ox;
       y=oy;
     }
 
-  if(wall & 2 && dy<0)
+  if(wall & 4 && dy<0)
     {
       x=ox;
       y=oy;
     }
 
-  if(wall & 1 && dx>0)
+  if(wall & 8 && dx>0)
     {
       x=ox;
       y=oy;
@@ -184,6 +184,7 @@ void dude::goForward(){
 
 // Wall detection not implemented here yet
 void dude::goBackward(){
-  y -= backward_step*cos(f(o));
-  x -= backward_step*sin(f(o));
+  this->o -= 180;
+  goForward();
+  this->o += 180;
 }
