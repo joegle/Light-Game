@@ -53,13 +53,6 @@ void drawObjects() {
 
   dude.look();
 
-<<<<<<< HEAD
-  //placelight();
-
-  //  cube.draw();
-
-=======
->>>>>>> 998a7b921950f650b749ea7127b2a55bc80fea0a
   world.drawWorld();
 
 }
@@ -96,11 +89,7 @@ int main(int argc, char **argv) {
 
   glutCreateWindow("Game"); // Title displayed in window title bar.
 
-<<<<<<< HEAD
-glutFullScreen();   
-=======
   glutFullScreen();   
->>>>>>> 998a7b921950f650b749ea7127b2a55bc80fea0a
  
   glutDisplayFunc(display);
   glutReshapeFunc(reshape);
