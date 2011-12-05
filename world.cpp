@@ -84,15 +84,19 @@ void world::checkBins()
 
 void world::checkWin()
 {
-  
+  bool won = true;
+
   for(int i = 0; i <_bins.size(); i++)
-    {
-      if(!_boxes[i].placed)
-	cout<<0;
-      else
-	cout<<1;
-    }
-  cout<<endl;  
+  {
+    if(!_boxes[i].placed)
+	    won = false;
+  }
+  
+  if(won)
+  {
+    cout << "You've won.";
+    exit(1);
+  }
 
 }
 
@@ -110,6 +114,7 @@ void world::syncBinsBoxes()
 void world::drawWall(double x1,double y1, double x2, double y2)
 {
   glEnable(GL_TEXTURE_2D);
+
   GLfloat floorAmbient[] = {.3,.3,.3,1};
   GLfloat floorSpec[] = { .3,.3,.3,1};
   GLfloat floorDiff[] = { .3,.3,.3,1};
