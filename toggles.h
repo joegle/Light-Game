@@ -9,7 +9,6 @@ class toggle
 {
 public:
   toggle(double,double);
-  toggle();
 
   void draw();
   void flick();

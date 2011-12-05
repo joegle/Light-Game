@@ -10,6 +10,7 @@ box::box(double xx,double yy)
   y=yy;
   z=0;
   angle=0;
+  c = randomColor();
 }
 
 void box::drawHeld()
@@ -19,6 +20,7 @@ void box::drawHeld()
     glRotated(angle, 0, 1, 0);
     glScaled(0.25,0.25,0.25);
     glTranslatef(0,1,0);
+    glColor3f(c.r, c.a, c.b);
     glutSolidTeapot(1);
   glPopMatrix();
 }
@@ -32,6 +34,7 @@ void box::draw()
      glRotatef(angle, 0, 1, 0);
      glScaled(0.25,0.25,0.25);
      glTranslatef(0,1,0);
+     glColor3f(c.r, c.a, c.b);
      glutSolidTeapot(1);
    glPopMatrix();
   }

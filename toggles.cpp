@@ -1,7 +1,5 @@
 #include "toggles.h"
 
-toggle::toggle(){}
-
 toggle::toggle(double xx,double yy)
 {
   state=false;

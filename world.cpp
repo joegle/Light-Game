@@ -214,7 +214,6 @@ void world::drawLights()
     if(_toggles[i].state)
 	   {
 	      _lights[i].draw();
-        cout << "state of the toggle in world.cpp: " << _toggles[i].state << endl;
 	   }
      _lights[i].toggleLight(i, _toggles[i].state);
   }
@@ -404,7 +403,7 @@ void world::LoadGLTextures() {
 	}
 
 	//load picture from file
-	if (!ImageLoad("marble.bmp", image1)) 
+	if (!ImageLoad("img/floor.bmp", image1)) 
 	{
 		exit(1);
 	}        
@@ -441,7 +440,7 @@ void world::LoadGLTextures() {
 	}
 
 	//load picture from file
-	if (!ImageLoad("wood.bmp", image2)) 
+	if (!ImageLoad("img/wood.bmp", image2)) 
 	{
 		exit(1);
 	}        
@@ -477,7 +476,7 @@ void world::LoadGLTextures() {
 	}
 
 	//load picture from file
-	if (!ImageLoad("stone.bmp", image3)) 
+	if (!ImageLoad("img/stone.bmp", image3)) 
 	{
 		exit(1);
 	}        
