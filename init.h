@@ -62,7 +62,9 @@ void processfile(){
     {
 	    level_file >> x >> y;
 	    //world.addBox( box(x,y) );
-	    world.addLight( light(i,x,y,3.9) );
+	    world.addLight( light(i,x,y,0) );
+      cout << "Light drawn at: " << x << " " << y << endl;
+      
     }
     level_file.close();
   }
