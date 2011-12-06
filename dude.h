@@ -10,7 +10,7 @@ using namespace std;
 class dude
 {
 public:
-  dude(world*);
+  dude(world* ww);
   void foo();
   void wf(); // is never defined
   void look();

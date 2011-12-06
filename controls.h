@@ -46,6 +46,10 @@ void keyboard(unsigned char key, int x, int y) {
      dude.setLamp();
      glutPostRedisplay();
    }
+   else if(key == 'o'){
+	 oilGodMode = !oilGodMode;
+	 glutPostRedisplay();
+   }
 
    else if (key == ' ') {
      dude.doSomething();

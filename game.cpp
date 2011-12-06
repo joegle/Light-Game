@@ -24,9 +24,7 @@ void init() {
   
   width = glutGet(GLUT_WINDOW_WIDTH);
   height = glutGet(GLUT_WINDOW_HEIGHT);
-  cout << width << " "<< height << endl;
-  cout << "Begin init" << endl;
-  GLfloat b[] = { .07, .07, .07, 1 };
+  GLfloat b[] = { 0, 0, 0, 1 };
   glLightModelfv(GL_LIGHT_MODEL_AMBIENT, b);
   glLightModelf(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_FALSE);
   glEnable(GL_COLOR_MATERIAL);
@@ -118,8 +116,12 @@ void display() {
 void idle() {
   world.tick();
 
-  dude.lampOil = (dude.lampOil > 0 && dude.lampState) ? dude.lampOil-.100 : dude.lampOil;
-
+  double amtBurned = .1;
+  #if defined (_MSC_VER) 
+	amtBurned *= 10;
+  #endif 
+  dude.lampOil = (dude.lampOil > 0 && dude.lampState && !oilGodMode) ? dude.lampOil-amtBurned : dude.lampOil;
+  dude.lampOil = (oilGodMode) ? 100 : dude.lampOil;
   glutPostRedisplay();
 }
 
@@ -141,12 +143,12 @@ int main(int argc, char **argv) {
 
   glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
   
-  glutInitWindowSize(600, 600);       // Set the size of the window here.
+  glutInitWindowSize(800, 800);       // Set the size of the window here.
   glutInitWindowPosition(0, 0);    // Upper left corner of window.
 
   glutCreateWindow("Game"); // Title displayed in window title bar.
 
- // glutFullScreen();   
+  //glutFullScreen();   
  
   glutDisplayFunc(display);
   glutReshapeFunc(reshape);

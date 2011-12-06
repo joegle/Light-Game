@@ -23,7 +23,11 @@ dude::dude(world* ww)
   lampDif[1] = 1.0;
   lampDif[2] = 1.0;
   lampDif[3] = 1.0;
-  lampPos[3] = 1.0;
+  lampSpec[0] = 1.0;
+  lampSpec[1] = 1.0;
+  lampSpec[2] = 1.0;
+  lampSpec[3] = 1.0;
+  lampPos[3] = 1.0; // Set the dude's light as positional
 }
 
 void dude::setPosition(double a,double b,double c)
@@ -196,7 +200,7 @@ void dude::goBackward(){
 
 // The dude's lamp will ALWAYS be GL_LIGHT7 (the last one available)
 void dude::setLamp() {
-  //cout << lampOil << endl; 
+  //cout << lampOil << endl;
   glLightfv(lamp, GL_AMBIENT, lampAmb);
   glLightfv(lamp, GL_DIFFUSE, lampDif);
   glLightfv(lamp, GL_SPECULAR, lampSpec);

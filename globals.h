@@ -16,6 +16,7 @@ dude dude(&world);
 
 int width;   // Current width of window; value is maintained by reshape().
 int height;  // Current height of window; value is maintained by reshape().
+bool oilGodMode = false;
 
 
 //From example

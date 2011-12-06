@@ -31,11 +31,15 @@ light::light(int n, GLfloat x, GLfloat y, GLfloat z)
 
 void light::draw() 
 {
+	double attenuation = .08;
+	#if defined (_MSC_VER) 
+		attenuation /= 10;
+	#endif 
   glPushMatrix();
    glLightfv(getLightEnum(lightNum), GL_DIFFUSE, diffuse);
    glLightfv(getLightEnum(lightNum), GL_AMBIENT, ambient);
    glLightfv(getLightEnum(lightNum), GL_SPECULAR, specular);
-   glLightf(getLightEnum(lightNum), GL_QUADRATIC_ATTENUATION,0.08);
+   glLightf(getLightEnum(lightNum), GL_QUADRATIC_ATTENUATION,attenuation);
   glPopMatrix();
 
   glPushMatrix();
