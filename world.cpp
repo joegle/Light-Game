@@ -3,6 +3,8 @@
 world::world()
 {
   won = false;
+  loss = false;
+  timeProgressed = 0;
 }
 
 void world::drawWorld()
@@ -14,6 +16,7 @@ void world::drawWorld()
   drawBoxes();
   drawToggles();
   drawBins();
+  drawSpikeTraps();
 }
 
 void world::setDimensions(int xx,int yy)
@@ -198,7 +201,7 @@ void world::drawBins()
 }
 
 void world::drawToggles()
-{
+{ 
 
   for(int i = 0; i < _toggles.size(); i++)
     {
@@ -214,6 +217,15 @@ void world::addLight(light l)
 	_lights.push_back(l);
 }
 
+void world::addSpikeTrap(spikeTrap st)
+{
+  _spikeTraps.push_back(st);
+}
+
+void world::drawSpikeTraps(){
+  for(int i = 0; i < _spikeTraps.size(); i++)
+    _spikeTraps[i].draw();
+}
 
 void world::addToggle(toggle t)
 {
@@ -237,6 +249,16 @@ void world::addBin(bin b)
 void world::tick()
 {
   time += 0.001;
+  timeProgressed += .001;
+  if(timeProgressed > .05)
+  {
+    for(int i = 0; i < _spikeTraps.size(); i++)
+    {
+      _spikeTraps[i].down = !_spikeTraps[i].down;
+    }
+    timeProgressed = 0;
+  }
+  cout << timeProgressed << endl;
 }
 
 
