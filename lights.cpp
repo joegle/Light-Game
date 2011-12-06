@@ -2,46 +2,65 @@
 
 light::light(int n, GLfloat x, GLfloat y, GLfloat z)
 {
-  position[0] = x;
-  position[1] = y;
+  position[0] = x*20;
+  position[1] = y*20;
   position[2] = z;
-  position[3] = 0; // 0 = directional light, 1 = positional light
+  position[3] = 1; // 0 = directional light, 1 = positional light
 
   // Random colorize
   color c=randomColor();
-  diffuse[0] = 0.3;
-  diffuse[1] = 0.3; 
-  diffuse[2] = 0.3;
-  diffuse[3] = 0.3;
+  diffuse[0] = 0.0;
+  diffuse[1] = 0.0; 
+  diffuse[2] = 0.0;
+  diffuse[3] = 0.0;
 
   c=randomColor();
-  ambient[0] = 0.0;
-  ambient[1] = 0.0;
-  ambient[2] = 0.0;
-  ambient[3] = 0.0;
+  ambient[0] = 1.0;
+  ambient[1] = 1.0;
+  ambient[2] = 1.0;
+  ambient[3] = 1.0;
 
   c=randomColor();
   specular[0] = 0.0;
   specular[1] = 0.0;
   specular[2] = 0.0;
-  specular[3] = 0.0;
+  specular[3] = 0;
 
   lightNum = n;
 }
 
 void light::draw() 
 {
-	GLfloat LightDir[3] = { 0.0f, -1.0f, 0.0f }; // towards the viewer 
   glPushMatrix();
-   glLightfv(getLightEnum(lightNum), GL_SPOT_DIRECTION, LightDir); 
-   glLightfv(getLightEnum(lightNum), GL_POSITION, position);
+   //glLightfv(getLightEnum(lightNum), GL_POSITION, position);
    glLightfv(getLightEnum(lightNum), GL_DIFFUSE, diffuse);
    glLightfv(getLightEnum(lightNum), GL_AMBIENT, ambient);
    glLightfv(getLightEnum(lightNum), GL_SPECULAR, specular);
+   glLightf(getLightEnum(lightNum), GL_QUADRATIC_ATTENUATION,0.08);
   glPopMatrix();
 
-  double x=position[0];
-  double y=position[1];
+  glPushMatrix();
+    GLfloat materialColor[] = {.3, .3, .3, 1};	
+		glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, materialColor);      
+    GLfloat materialSpecular[] = {0, 0, 0, 1};    
+		GLfloat materialEmission[] = {0, 0, 0, 1};    
+		glDisable(GL_COLOR_MATERIAL); //Required for the glMaterial calls to work        
+		glMaterialfv(GL_FRONT, GL_SPECULAR, materialSpecular);
+		glMaterialfv(GL_FRONT, GL_EMISSION, materialEmission);        
+		glMaterialf(GL_FRONT, GL_SHININESS, 15.0f);
+    glTranslatef(position[0], position[2], position[1]);  
+    glutSolidCube(1.0);
+  glPopMatrix();
+
+}
+
+void light::init()
+{
+//	GLfloat LightDir[3] = { 0.0, -1.0f, -7.0f }; // towards the viewer 
+  glLightfv(getLightEnum(lightNum), GL_POSITION, position);
+  //glLightfv(getLightEnum(lightNum), GL_SPOT_DIRECTION, LightDir); 
+  //glLightf(getLightEnum(lightNum), GL_SPOT_CUTOFF, 45.0); 
+
 }
 
 GLenum light::getLightEnum(int n)

@@ -54,6 +54,7 @@ void processfile(){
 	    world.addToggle( toggle(x,y) );
     }
 
+     
     // Read in lights
     int num_lights;
     level_file >> num_lights;
@@ -62,9 +63,8 @@ void processfile(){
     {
 	    level_file >> x >> y;
 	    //world.addBox( box(x,y) );
-	    world.addLight( light(i,x,y,0) );
+	    world.addLight( light(i,x,y,3) );
       cout << "Light drawn at: " << x << " " << y << endl;
-      
     }
     level_file.close();
   }

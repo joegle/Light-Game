@@ -191,7 +191,6 @@ void world::drawLights()
      _lights[i].toggleLight(i, _toggles[i].state);
   }
 
-  cout<<endl;
 }
 
 

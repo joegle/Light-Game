@@ -19,7 +19,7 @@ void toggle::draw()
     glScalef(0.25,1.5,0.25);
 		GLfloat materialColor[] = {.3, .3, .3, 1};	
 		glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, materialColor);      
-        GLfloat materialSpecular[] = {0, 0, 0, 1};    
+    GLfloat materialSpecular[] = {0, 0, 0, 1};    
 		GLfloat materialEmission[] = {0, 0, 0, 1};    
 		glDisable(GL_COLOR_MATERIAL); //Required for the glMaterial calls to work        
 		glMaterialfv(GL_FRONT, GL_SPECULAR, materialSpecular);

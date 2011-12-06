@@ -29,11 +29,11 @@ void dude::turn(double amt)
 void dude::look()
 {
   //  cout << x << " " << y << " " << z <<endl;
-  gluLookAt(x,z,y,
+  /*gluLookAt(x,z,y,
 	    x+sin(f(o))*cos(f(s)),
 	    z+sin(f(s)),
 	    y+cos(f(o))*cos(f(s)),
-	    0,1,0);
+	    0,1,0);*/
 
   if(carrying)
     {

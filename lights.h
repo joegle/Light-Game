@@ -14,6 +14,7 @@ class light
   void draw();
   GLenum getLightEnum(int n);
   void toggleLight(int n, bool state);
+  void init();
 
   int sx;
   int sy;
