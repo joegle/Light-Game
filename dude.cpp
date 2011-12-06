@@ -211,7 +211,7 @@ void dude::setLamp() {
   //GLfloat attenuation = 1.5 - (lampOil / 100);
   GLfloat attenuation = .2;
   #if defined (_MSC_VER) 
-	attenuation /= 10;
+	attenuation /= 2;
   #endif 
   glLightf(lamp, GL_LINEAR_ATTENUATION,attenuation);
 

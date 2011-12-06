@@ -33,7 +33,7 @@ void light::draw()
 {
 	double attenuation = 0.12;
 	#if defined (_MSC_VER) 
-		attenuation /= 10;
+		attenuation /= 2;
 	#endif 
   glPushMatrix();
    glLightfv(getLightEnum(lightNum), GL_DIFFUSE, diffuse);
@@ -42,20 +42,7 @@ void light::draw()
    glLightf(getLightEnum(lightNum), /*GL_QUADRATIC_ATTENUATION*/GL_LINEAR_ATTENUATION,attenuation);
   glPopMatrix();
 
-  glPushMatrix();
-    GLfloat materialColor[] = {.3, .3, .3, 1};	
-		glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, materialColor);      
-    GLfloat materialSpecular[] = {0, 0, 0, 1};    
-		GLfloat materialEmission[] = {0, 0, 0, 1};    
-		glDisable(GL_COLOR_MATERIAL); //Required for the glMaterial calls to work        
-		glMaterialfv(GL_FRONT, GL_SPECULAR, materialSpecular);
-		glMaterialfv(GL_FRONT, GL_EMISSION, materialEmission);        
-		glMaterialf(GL_FRONT, GL_SHININESS, 15.0f);
-    glTranslatef(position[0], position[2], position[1]);  
-    glutSolidCube(1);
-  glPopMatrix();
-
-}
+ }
 
 void light::init()
 {

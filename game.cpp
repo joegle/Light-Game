@@ -154,7 +154,7 @@ void idle() {
 
   double amtBurned = .1;
   #if defined (_MSC_VER) 
-	amtBurned *= 10;
+	amtBurned *= 2;
   #endif 
   dude.lampOil = (dude.lampOil > 0 && dude.lampState && !oilGodMode) ? dude.lampOil-amtBurned : dude.lampOil;
   dude.lampOil = (dude.lampOil < 100 && !dude.lampState) ? dude.lampOil+amtBurned/4 : dude.lampOil;
