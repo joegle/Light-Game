@@ -100,6 +100,32 @@ void outputWin()
   glEnable(GL_LIGHTING);
 }
 
+void outputLoss()
+{
+  glDisable(GL_TEXTURE_2D);
+  glDisable(GL_LIGHTING);
+  glMatrixMode(GL_PROJECTION);
+  glPushMatrix();
+    glLoadIdentity();
+    gluOrtho2D(0.0, width, 0.0, height);
+    glMatrixMode(GL_MODELVIEW);
+
+    glPushMatrix();
+      glLoadIdentity();
+      string stringText = "You've died! Press any key to exit...";
+      glColor4f(1,1,1,1);
+      glRasterPos2f(width/2, height/2);
+      for (int i=0; i < stringText.length(); i++)
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, stringText[i]);
+      glMatrixMode(GL_MODELVIEW);
+    glPopMatrix();
+
+    glMatrixMode(GL_PROJECTION);
+  glPopMatrix();
+  glEnable(GL_TEXTURE_2D);
+  glEnable(GL_LIGHTING);
+}
+
 void initTransformation() {
   glMatrixMode (GL_PROJECTION); //set the matrix to projection
   glLoadIdentity ();
@@ -131,6 +157,16 @@ void drawObjects() {
 
 }
 
+void keyboardLoss(unsigned char key, int x, int y)
+{
+  exit(0);
+}
+
+void specialLoss(int key, int x, int y)
+{
+  exit(0);
+}
+
 void display() {
   glClearColor(0,0,0,0); 
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -142,6 +178,14 @@ void display() {
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, b);
 
     outputWin();
+  }
+  else if(world.loss)
+  {
+    GLfloat b[] = { 1,0, 0, 1 };
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, b);
+    outputLoss();
+    glutKeyboardFunc(keyboardLoss);
+    glutSpecialFunc(specialLoss); 
   }
   else
     output();
@@ -159,6 +203,17 @@ void idle() {
   dude.lampOil = (dude.lampOil > 0 && dude.lampState && !oilGodMode) ? dude.lampOil-amtBurned : dude.lampOil;
   dude.lampOil = (dude.lampOil < 100 && !dude.lampState) ? dude.lampOil+amtBurned/4 : dude.lampOil;
   dude.lampOil = (oilGodMode) ? 100 : dude.lampOil;
+
+  //check for spike trap
+  for(int i = 0; i < world._spikeTraps.size();i++)
+  {
+      if(dude.x > world._spikeTraps[i].x-5 &&
+        dude.x < world._spikeTraps[i].x+5 &&
+        dude.y > world._spikeTraps[i].y-5 &&
+        dude.y < world._spikeTraps[i].y+5 && 
+        !world._spikeTraps[i].down)
+        world.loss = true;
+  }
   glutPostRedisplay();
 }
 
@@ -174,6 +229,8 @@ void reshape(int new_width, int new_height) {
   gluPerspective (60, (GLfloat)width / (GLfloat)height, 1.0, 1000.0); 
   glMatrixMode( GL_MODELVIEW);
 }
+
+
 
 int main(int argc, char **argv) {
   glutInit(&argc,argv);

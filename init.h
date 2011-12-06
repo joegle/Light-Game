@@ -67,6 +67,14 @@ void processfile(){
 	    world.addLight( light(i,x,y,3) );
       cout << "Light drawn at: " << x << " " << y << endl;
     }
+
+    int num_spikeTraps;
+    level_file >> num_spikeTraps;
+    for(int i=0; i<num_spikeTraps; i++)
+    {
+      level_file >> x >> y;
+      world.addSpikeTrap(spikeTrap(x,y));
+    }
     level_file.close();
   }
   else cout << "Unable to open level.txt which stores the level information";
