@@ -9,10 +9,10 @@ light::light(int n, GLfloat x, GLfloat y, GLfloat z)
 
   // Random colorize
   color c=randomColor();
-  diffuse[0] = 0.0;
-  diffuse[1] = 0.0; 
-  diffuse[2] = 0.0;
-  diffuse[3] = 0.0;
+  diffuse[0] = 0.3;
+  diffuse[1] = 0.3; 
+  diffuse[2] = 0.3;
+  diffuse[3] = 1.0;
 
   c=randomColor();
   ambient[0] = 1.0;
@@ -31,7 +31,7 @@ light::light(int n, GLfloat x, GLfloat y, GLfloat z)
 
 void light::draw() 
 {
-	double attenuation = .08;
+	double attenuation = 0.015;
 	#if defined (_MSC_VER) 
 		attenuation /= 10;
 	#endif 
@@ -52,6 +52,7 @@ void light::draw()
 		glMaterialfv(GL_FRONT, GL_EMISSION, materialEmission);        
 		glMaterialf(GL_FRONT, GL_SHININESS, 15.0f);
     glTranslatef(position[0], position[2], position[1]);  
+    glutSolidCube(1);
   glPopMatrix();
 
 }
