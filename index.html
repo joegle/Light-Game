@@ -11,6 +11,32 @@ xmlns="http://www.w3.org/TR/REC-html40" xml:lang="en">
 <meta name=Originator content="Microsoft Word 14">
 <link rel=File-List href="index_files/filelist.xml">
 <link rel=Edit-Time-Data href="index_files/editdata.mso">
+<script src="./jquery/jquery.js" type="text/javascript"></script>
+<script src="./jquery/slides.jquery.js" type="text/javascript"></script>
+<style type="text/css" media="screen">
+  .slides_container {
+    width:512px;
+    height:512px;
+  }
+  .slides_container div {
+    width:512px;
+    height:512px;
+    display:block;
+  }
+</style>
+<link rel="stylesheet" href="./css/global.css"/>
+<script>
+    $(function () {
+        $('#slides').slides({
+            preload: true,
+            preloadImage: '/img/loading.gif',
+            play: 5000,
+            pause: 2500,
+            slideSpeed: 600,
+            hoverPause: true
+        });
+    });
+</script>
 <!--[if !mso]>
 <style>
 v\:* {behavior:url(#default#VML);}
@@ -1325,19 +1351,28 @@ ul
 EN'>CMPSC457 Final project: Light Game<o:p></o:p></span></h1>
 
 <div>
-
-<p class=MsoNormal align=center style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
-auto;text-align:center'><span style='font-family:"Times","serif";mso-no-proof:
-yes'><img width=512 height=512 id="_x0000_i1025" src=1.png
-alt="Description: Description: Description: ./1.png"></span><span lang=EN
-style='font-family:"Times","serif";mso-ansi-language:EN'><o:p></o:p></span></p>
-
-<p class=MsoNormal align=center style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
-auto;text-align:center'><span lang=EN style='font-family:"Times","serif";
-mso-ansi-language:EN'>Zach Bush - Alex Wardi - Joseph Wright<o:p></o:p></span></p>
+<div id="example">
+<div id="slides">
+  <div class="slides_container">
+    <div>
+      <p><img width=512 height=512 id="Img1" src="./img/Screens/buttonPressed.png" alt="Description: Description: Description: ./1.png"></p>
+    </div>
+    <div>
+      <p><img width=512 height=512 id="Img2" src="./img/Screens/dead!.png" alt="Description: Description: Description: ./1.png"></p>
+    </div>
+    <div>
+      <p><img width=512 height=512 id="Img3" src="./img/Screens/heading.png" alt="Description: Description: Description: ./1.png"></p>
+    </div>
+    <div>
+      <p><img width=512 height=512 id="Img4" src="./img/Screens/spikes.png" alt="Description: Description: Description: ./1.png"></p>
+    </div>
+  </div>
+</div>
+</div>
 
 </div>
 
+<div id="container">
 <div id=table-of-contents>
 
 <h2><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
@@ -1429,7 +1464,7 @@ mso-ansi-language:EN'>Zach Bush - Alex Wardi - Joseph Wright<o:p></o:p></span></
 
 <div id=outline-container-1>
 
-<h2><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
+<h2><span id='sec-1' lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
 "Times New Roman";mso-ansi-language:EN'>Background <o:p></o:p></span></h2>
 
 <div id=text-1>
@@ -1442,7 +1477,7 @@ one big cool project. <o:p></o:p></span></p>
 
 <div id=outline-container-1.1>
 
-<h3><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
+<h3><span id='sec-1.1' lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
 "Times New Roman";mso-ansi-language:EN'>The minimum criteria <o:p></o:p></span></h3>
 
 <div id=text-1.1>
@@ -1482,7 +1517,7 @@ one big cool project. <o:p></o:p></span></p>
 
 <div id=outline-container-2>
 
-<h2><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
+<h2><span id='sec-2' lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
 "Times New Roman";mso-ansi-language:EN'>Light Game <o:p></o:p></span></h2>
 
 <div id=text-2>
@@ -1565,7 +1600,7 @@ matching bin. Some features: <o:p></o:p></span></p>
 
 <div id=outline-container-2.1>
 
-<h3><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
+<h3><span id='sec-2.1' lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
 "Times New Roman";mso-ansi-language:EN'>Source Code <o:p></o:p></span></h3>
 
 <div id=text-2.1>
@@ -1586,13 +1621,13 @@ lang=EN style='mso-ansi-language:EN'> g++ -lglut -lGLU game.cpp -o game<o:p></o:
 
 <div id=outline-container-2.2>
 
-<h3 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+<h3 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span id='sec-2.2'
 lang=EN style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
 mso-ansi-language:EN'>How it was created <o:p></o:p></span></h3>
 
 <div id=outline-container-2.2.1>
 
-<h4 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+<h4 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span id='sec-2.2.1'
 lang=EN style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
 mso-ansi-language:EN'>Structure and Files <o:p></o:p></span></h4>
 
@@ -1761,7 +1796,7 @@ information is stored in a matrix <o:p></o:p></span></p>
 
 <div id=outline-container-3>
 
-<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span id='sec-3'
 lang=EN style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
 mso-ansi-language:EN'>Lessons learned / Cool Stuff<o:p></o:p></span></h2>
 
@@ -1784,7 +1819,7 @@ EN'> <o:p></o:p></span></h3>
 
 <div id=outline-container-3.1>
 
-<h3 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+<h3 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span id='sec-3.1'
 lang=EN style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
 mso-ansi-language:EN'>Using git for group projects <o:p></o:p></span></h3>
 
@@ -1853,7 +1888,7 @@ linux, doesn’t like Windows too much<o:p></o:p></span></h3>
 
 <div id=text-3.1>
 
-<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span 
 lang=EN style='font-family:"Times","serif";mso-ansi-language:EN'>In the
 beginning we decided to use <a href="http://github.com">github.com</a> to host
 our code. Team members can download the latest version of the code and make
@@ -1874,7 +1909,7 @@ online help couldn't help with. <o:p></o:p></span></p>
 
 <div id=outline-container-3.2>
 
-<h3 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+<h3 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span id='sec-3.2'
 lang=EN style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
 mso-ansi-language:EN'>Structural planning end evolution <o:p></o:p></span></h3>
 
@@ -1900,7 +1935,7 @@ efficiency was kept very high. <o:p></o:p></span></p>
 
 <div id=outline-container-3.3>
 
-<h3 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+<h3 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span id='sec-3.3'
 lang=EN style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
 mso-ansi-language:EN'>Incremental planning and debugging <o:p></o:p></span></h3>
 
@@ -1921,14 +1956,14 @@ incrementally building on single parts you know work. <o:p></o:p></span></p>
 
 <div id=outline-container-3.4>
 
-<h3 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+<h3 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span id='sec-3.4'
 lang=EN style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
 mso-ansi-language:EN'>Using multiple source files and inheritance <o:p></o:p></span></h3>
 
 <div id=text-3.4>
 
 <p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
-lang=EN style='font-family:"Times","serif";mso-ansi-language:EN'>Working will
+lang=EN style='font-family:"Times","serif";mso-ansi-language:EN'>Working with
 huge source files is really annoying and unnecessary but working with a large
 number of dependent sources was a little like fitting a puzzle together. It took
 some time to figure out the right include order and this also helped shaped our
@@ -2088,7 +2123,7 @@ interact with them.<o:p></o:p></span></h3>
 </div>
 
 </div>
-
+</div>
 </div>
 
 </body>
