@@ -1,7 +1,11 @@
 CMPSC457 Final project: Light Game
 
-#+CAPTION: A beam of white light enters a prism in space and refracts out Nyan kitty.
-[[./Window.png]]
+#+CAPTION: Zach Bush - Alex Wardi - Joseph Wright
+#+ATTR_HTML: width="50%"
+[[./1.png]]
+
+
+
 
 * Background
   The final project was supposed to put all the things we learned about OpenGL into one big cool project.
@@ -13,13 +17,24 @@ CMPSC457 Final project: Light Game
   + Textures
   + Interaction
 * Light Game
-  [[./Nyan.png][Image output]]
+  For our project we made a first person 3D video game. The player is in maze and the goal of the game is to collect colored teapots and place them into their matching bin. Some features:
+  + Levels can be designed and processed through a text file
+    + Placement of walls
+    + Placement of teapots
+    + Placement of bins
+    + Placement of lights
+    + Placement of light switches
+  + Walls can not be passed through
+  + Lights can be toggled on and off with switches for visibility 
+  + Teapots can be picked up, moved, and dropped
+    + Dropped on the floor or in the correct bin
+  + Player can move with WASD keys
+  + Player can look around with mouse movement
 
 ** Source Code
    You can download and browse the source code on github.com at [[twhttps://github.com/joegle/Light-Game][joegle/Light-Game]]
    Run 'make' or compile:
-   :  gcc -lglut -lGLU game.cpp -o game
-
+   :  g++ -lglut -lGLU game.cpp -o game
 
 ** How it was created
 *** Structure and Files
@@ -29,89 +44,60 @@ CMPSC457 Final project: Light Game
      2. init()
 	initializes glut, seed random number, process the level file
      3. display()
-	Will repeated call drawObjects() that will place the player and draw the world
-**** 
-     
-*** Drawing the stars
-    Stars (and sprinkles) are random points. The formula for random float ranges is from [[http://stackoverflow.com/questions/686353/c-random-float/686376#686376][John at stackoverflow]].
-#+begin_src c
-  glBegin(GL_POINTS);
-  for(i=0; i <= numStars; i++){
-    sx = (2*(float)rand()/(float)RAND_MAX)-1;
-    sy = (2*(float)rand()/(float)RAND_MAX)-1;
+	Will repeatedly call drawObjects() that will place the player and draw the world
 
-    glVertex2f(sx,sy);
-  }
-  glEnd();
-#+end_src
-*** The Prism and light rays
-    The prism is just a equilateral triangle but we had to compensate for the frame skewness with 'r' since the frame is 800:500 and the coordinates range from -1 to 1 for both x and y ranges. The variable 'r' will be used through out the rest of the code. 
-#+begin_src c
-    glBegin(GL_LINE_LOOP);
-    glColor3f (1.0, 1.0, 1.0);
-    glVertex2f( px, py );    
-    glVertex2f( px+side_length, py  ); // Base line
-    glVertex2f( px+(side_length/2.0), py+side_length*-0.866*r);
-    glEnd();
-#+end_src 
-Computing intersections of light rays and heights required a lot of trigonometry and geometry. Most things were computed with parameters so you can change a variable and things will still line up correctly.
-*** Rainbow
-    The rainbow is a sequence of small GL_QUAD_STRIPs. At each level of the strip the color is changed in a ROYGBIV pattern to give smooth rainbow shading. At the end of each loop the y position of the strip is adjusted with Sine() to give a wave effect.
-#+begin_src c
-  for(i=0;i<50;i++)
-    {
-      glBegin(GL_QUAD_STRIP);
+**** [[https://github.com/joegle/Light-Game/blob/master/globals.h][globals.h]]
+     This file only instantiates the two important objects: 'world' and 'dude'.
+**** [[https://github.com/joegle/Light-Game/blob/master/utils.cpp][utils.cpp]]
+     Has useful definitions that most files needs:
+     + color struct to hold colors
+     + radian to degree function
+     + distance function
+     + random color generator 
+     + random number from a to b
+**** [[https://github.com/joegle/Light-Game/blob/master/init.h][init.h]]
+     This holds the 'processfile()' function which will process the 'level.txt' file and fill in the 'world' with the data needed to represent the parts like walls, teapots, switches.
+**** [[https://github.com/joegle/Light-Game/blob/master/world.h][world.h]]
+     This stores the 'world' class and is where most of the action happens. Everything that exists, except for the player, is contained in this object and managed through it. 
 
-      glColor3f(1,0,0); //Red
-      glVertex2f(dx,dy);
-      glVertex2f(dx+w,dy);
+     A world object has a vector for each kind of thing in the world (Teapot, Bin, Switch, Light) and will loop through the vector to draw each thing by call their 'draw()'
 
-      glColor3f(1,0.6,0); //Orange
-      glVertex2f(dx,dy-step);
-      glVertex2f(dx+w,dy-step);
+     There are 4 sub objects that all have similar structure (also check the '.h' files):
+     + [[https://github.com/joegle/Light-Game/blob/master/boxes.h][boxes.cpp]] (teapots)
+     + [[https://github.com/joegle/Light-Game/blob/master/bins.cpp][bins.cpp]]
+     + [[https://github.com/joegle/Light-Game/blob/master/lights.cpp][lights.cpp]]
+     + [[https://github.com/joegle/Light-Game/blob/master/toggles.cpp][toggles.cpp]] (for switches)
 
-      glColor3f(1,1,0);//Yellow
-      glVertex2f(dx,dy-step*2);
-      glVertex2f(dx+w,dy-step*2);
+Wall information is stored in a matrix
 
-      glColor3f(0.2,1,0); //Green
-      glVertex2f(dx,dy-step*3);
-      glVertex2f(dx+w,dy-step*3);
+**** [[https://github.com/joegle/Light-Game/blob/master/dude.h][dude.h]]
+     This represents the player. 
+     The player has a pointer into the world instance so that it can access world information.
+     The main function is 'look()' which will place and tilt the camera from the player position. It will also draw the held teapots in view.
 
-      glColor3f(0,0.6,1); //Blue
-      glVertex2f(dx,dy-step*4);
-      glVertex2f(dx+w,dy-step*4);
-
-      glColor3f(0.4,0.2,1); //Purple
-      glVertex2f(dx,dy-step*5);
-      glVertex2f(dx+w,dy-step*5);
-      glEnd();
-
-      dx+=w;
-      dy+=0.01*sin(i*3.14/5.0);
-    }
-#+end_src    
-*** Face and paws
-    Most parts of the face and paws are drawn as ellipse with the pattern based on (radius*cos(i),radius*sin(i)). We use 'r' to correct skewness to get circles instead of ovals.
-#+begin_src c
-  glBegin(GL_TRIANGLE_FAN);
-  for(i=0;i<=180;i=i+6*3.14)
-    glVertex2f(fx+fr*cos(i),fy+fr*sin(i)*r);
-  glEnd();
-#+end_src
+**** controls.h
+     This file only handles the mapping of keys and mouse to movement of the player.
 * Lessons learned
-** 
+** Using git for group projects
+   In the begining we decided to use [[http://github.com][github.com]] to host our code. Team members can download the latest version of the code and make changes concurently with the other team members. The version control also lets us have access to every version of the project. The website is interfaced with the [[http://git-scm.com/][git]] program and we learned the concepts needed to use the system. 
 
+It turned out to be a nice way to manage our group project and we can foresee ourselve using the system in the future. Their was some confusion sometimes but nothing that online help couldn't help with.
+** Structural planning end evolution
+   Some thought had to put into how to logically orginize the project. The choice to have a world class and dude class seemed obvious but the internals of those classes had to be giving a loose frame work. At one point the dude and world instance needed to interact and the decision was made to make the dude have a pointer to the world instance.
 
-
-
-
+   There may be some redundancy in our data model but the extra time it would of taken to make everything perfect would not have been would saving a little bit of memory and efficiency was kept very high.
+** Incremental planning and debugging
+   Programming could get very confusing. Sometimes you could change code and not see any difference or some thing is not showing up at all in the game /when it should./ With a large project like ours you can't trust that the whole chain of calls has ran smoothly prior to the call of the current function your working on. You must instead some how isolate the testing of your function and incrementally building on single parts you know work.
+** Using multiple source files and inheritance
+   Working will huge source files is really annoying and unnecessary but working with a large number of dependent sources was a little like fitting a puzzle together. It took som time to figure out the right include order and this also helped shaped our functional topology. Also, it was found that our first verson would not compile in Windows because g++ is less strict (or smarter) then visual studio, so our headers and source files had to shaped up better.
 
 
 
 #+AUTHOR: Joseph Wright
+#+AUTHOR: Alex Wardi
+#+AUTHOR: Zack Bush
 #+EMAIL: jmw5473@psu.edu
 #+OPTIONS: ^:{} num:nil
 #+LINK_UP: http://joegle.com/code/graphics/
 #+LINK_HOME: http://joegle.com
-
+   
