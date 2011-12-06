@@ -8,7 +8,6 @@
 #include <iostream>
 #include <string.h>
 
-
 #include "globals.h"
 #include "time.h"
 #include "utils.h"
@@ -24,7 +23,7 @@ void init() {
   
   width = glutGet(GLUT_WINDOW_WIDTH);
   height = glutGet(GLUT_WINDOW_HEIGHT);
-  GLfloat b[] = { 0, 0, 0, 1 };
+  GLfloat b[] = { 0.0, 0.0, 0.0, 0 };
   glLightModelfv(GL_LIGHT_MODEL_AMBIENT, b);
   glLightModelf(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_FALSE);
   glEnable(GL_COLOR_MATERIAL);
@@ -34,6 +33,8 @@ void init() {
 
   srand(time(NULL));
   processfile();
+  world._toggles[0].state=1;
+  glEnable(GL_LIGHT0);
 
 
   glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
@@ -42,7 +43,6 @@ void init() {
   glEnable(GL_TEXTURE_2D);
 
   glShadeModel(GL_SMOOTH); //set the shader to smooth shader
-  cout << "End init" << endl;
 
 }
 
@@ -63,6 +63,32 @@ void output()
       stringText = stringText.append(strOil); stringText.append("%");
       glColor4f(1,1,1,1);
       glRasterPos2f(width-80, height/2);
+      for (int i=0; i < stringText.length(); i++)
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, stringText[i]);
+      glMatrixMode(GL_MODELVIEW);
+    glPopMatrix();
+
+    glMatrixMode(GL_PROJECTION);
+  glPopMatrix();
+  glEnable(GL_TEXTURE_2D);
+  glEnable(GL_LIGHTING);
+}
+
+void outputWin()
+{
+  glDisable(GL_TEXTURE_2D);
+  glDisable(GL_LIGHTING);
+  glMatrixMode(GL_PROJECTION);
+  glPushMatrix();
+    glLoadIdentity();
+    gluOrtho2D(0.0, width, 0.0, height);
+    glMatrixMode(GL_MODELVIEW);
+
+    glPushMatrix();
+      glLoadIdentity();
+      string stringText = "You've Won";
+      glColor4f(1,1,1,1);
+      glRasterPos2f(width/2, height/2);
       for (int i=0; i < stringText.length(); i++)
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, stringText[i]);
       glMatrixMode(GL_MODELVIEW);
@@ -109,7 +135,17 @@ void display() {
   glClearColor(0,0,0,0); 
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   drawObjects();
-  output();
+
+  if (world.won)
+  {
+    GLfloat b[] = { 1,1, 1, 1 };
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, b);
+
+    outputWin();
+  }
+  else
+    output();
+
   glutSwapBuffers();  // Makes the drawing appear on the screen.
 }
 
@@ -121,6 +157,7 @@ void idle() {
 	amtBurned *= 10;
   #endif 
   dude.lampOil = (dude.lampOil > 0 && dude.lampState && !oilGodMode) ? dude.lampOil-amtBurned : dude.lampOil;
+  dude.lampOil = (dude.lampOil < 100 && !dude.lampState) ? dude.lampOil+amtBurned/4 : dude.lampOil;
   dude.lampOil = (oilGodMode) ? 100 : dude.lampOil;
   glutPostRedisplay();
 }

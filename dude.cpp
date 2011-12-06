@@ -127,7 +127,11 @@ void dude::doSomething(){
 	{
 	  if( distance(rangeX,rangeY,w->_toggles[i].x, w->_toggles[i].y) < radius )
 	    {
-	      w->_toggles[i].flick();
+        for (int j=0; j < w->_toggles.size(); j++)
+          w->_toggles[j].state = 0;
+          
+          w->_toggles[i].flick();
+
 	    }
 	}
 
@@ -151,7 +155,7 @@ void dude::strafeRight() {
 }
 
 void dude::goForward(){
-
+  
   int wall = w-> walls[(int)x/20][(int)y/20];
   
   int fx=x/20;
@@ -205,7 +209,7 @@ void dude::setLamp() {
   glLightfv(lamp, GL_DIFFUSE, lampDif);
   glLightfv(lamp, GL_SPECULAR, lampSpec);
   //GLfloat attenuation = 1.5 - (lampOil / 100);
-  GLfloat attenuation = .5;
+  GLfloat attenuation = .2;
   #if defined (_MSC_VER) 
 	attenuation /= 10;
   #endif 

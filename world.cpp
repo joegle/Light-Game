@@ -2,6 +2,7 @@
 
 world::world()
 {
+  won = false;
 }
 
 void world::drawWorld()
@@ -84,18 +85,12 @@ void world::checkBins()
 
 void world::checkWin()
 {
-  bool won = true;
+  won = true;
 
   for(int i = 0; i <_bins.size(); i++)
   {
     if(!_boxes[i].placed)
 	    won = false;
-  }
-  
-  if(won)
-  {
-    cout << "You've won.";
-    exit(1);
   }
 
 }

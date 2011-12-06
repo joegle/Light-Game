@@ -44,6 +44,7 @@ public:
   int walls[30][30];  // [row][col]
   double time;
   GLuint texture[3];
+  bool won;
 
   vector<light> _lights;
   vector<toggle> _toggles;
