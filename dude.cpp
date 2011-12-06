@@ -15,10 +15,15 @@ dude::dude(world* ww)
   lampOil = 100.00;
   lamp = GL_LIGHT7;
   lampState = false;
-  lampAmb = { 1.0, 1.0, 1.0, 1.0 };
-  lampDif = { 0.3,0.3,0.3, 1.0 };
-  lampSpec = { 0.3,0.3,0.3, 1.0 };
-  lampPos[3] = 1.0; // Set the dude's light as positional
+  lampAmb[0] = 1.0;
+  lampAmb[1] = 1.0;
+  lampAmb[2] = 1.0;
+  lampAmb[3] = 1.0;
+  lampDif[0] = 1.0;
+  lampDif[1] = 1.0;
+  lampDif[2] = 1.0;
+  lampDif[3] = 1.0;
+  lampPos[3] = 1.0;
 }
 
 void dude::setPosition(double a,double b,double c)
@@ -197,6 +202,9 @@ void dude::setLamp() {
   glLightfv(lamp, GL_SPECULAR, lampSpec);
   //GLfloat attenuation = 1.5 - (lampOil / 100);
   GLfloat attenuation = .5;
+  #if defined (_MSC_VER) 
+	attenuation /= 10;
+  #endif 
   glLightf(lamp, GL_LINEAR_ATTENUATION,attenuation);
 
  if (lampOil <= 0)
