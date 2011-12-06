@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>CMPSC457 Final project: Light Game</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-12-05 19:45:19 EST"/>
+<meta name="author" content="Joseph Wright"/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color:lightblue; font-weight:normal }
+  .target { }
+  .timestamp { color: grey }
+  .timestamp-kwd { color: CadetBlue }
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*/-->
+</script>
+</head><body>
+<h1 class="title">CMPSC457 Final project: Light Game</h1>
+
+
+<div class="figure">
+<p><img src="./1.png" width="50%" alt="./1.png" /></p>
+<p>Zach Zack - Alex Wardi - Joseph Wright</p>
+</div>
+
+
+
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Background </a>
+<ul>
+<li><a href="#sec-1.1">The minimum criteria </a></li>
+</ul>
+</li>
+<li><a href="#sec-2">Light Game </a>
+<ul>
+<li><a href="#sec-2.1">Source Code </a></li>
+<li><a href="#sec-2.2">How it was created </a>
+<ul>
+<li><a href="#sec-2.2.1">Structure and Files </a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-3">Lessons learned </a>
+<ul>
+<li><a href="#sec-3.1">Using git for group projects </a></li>
+<li><a href="#sec-3.2">Structural planning </a></li>
+<li><a href="#sec-3.3">Incremental planning and debugging </a></li>
+<li><a href="#sec-3.4">Using multiple source files and inheritance </a></li>
+<li><a href="#sec-3.5">Evolution of code </a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Background </h2>
+<div id="text-1">
+
+<p>The final project was supposed to put all the things we learned about OpenGL into one big cool project.
+</p>
+</div>
+
+<div id="outline-container-1.1" class="outline-3">
+<h3 id="sec-1.1">The minimum criteria </h3>
+<div id="text-1.1">
+
+<ul>
+<li>
+Animation
+</li>
+<li>
+3-D Hierarchal 
+</li>
+<li>
+Perspective
+</li>
+<li>
+Illumination and Shading
+</li>
+<li>
+Textures
+</li>
+<li>
+Interaction
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Light Game </h2>
+<div id="text-2">
+
+<p>For our project we made a first person 3D video game. The player is in maze and the goal of the game is to collect colored teapots and place them into their matching bin. Some features:
+</p><ul>
+<li>
+Levels can be designed and processed through a text file
+<ul>
+<li>
+Placement of walls
+</li>
+<li>
+Placement of teapots
+</li>
+<li>
+Placement of bins
+</li>
+<li>
+Placement of lights
+</li>
+<li>
+Placement of light switches
+</li>
+</ul>
+</li>
+<li>
+Walls can not be passed through
+</li>
+<li>
+Lights can be toggled on and off with switches for visibility 
+</li>
+<li>
+Teapots can be picked up, moved, and dropped
+<ul>
+<li>
+Dropped on the floor or in the correct bin
+</li>
+</ul>
+</li>
+<li>
+Player can move with WASD keys
+</li>
+<li>
+Player can look around with mouse movement
+
+</li>
+</ul>
+
+</div>
+
+<div id="outline-container-2.1" class="outline-3">
+<h3 id="sec-2.1">Source Code </h3>
+<div id="text-2.1">
+
+<p>You can download and browse the source code on github.com at <a href="#twhttps://github.com/joegle/Light-Game">joegle/Light-Game</a>
+Run 'make' or compile:
+</p><pre class="example">
+ g++ -lglut -lGLU game.cpp -o game
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-2.2" class="outline-3">
+<h3 id="sec-2.2">How it was created </h3>
+<div id="text-2.2">
+
+
+</div>
+
+<div id="outline-container-2.2.1" class="outline-4">
+<h4 id="sec-2.2.1">Structure and Files </h4>
+<div id="text-2.2.1">
+
+<ul>
+<li id="sec-2.2.1.1"><a href="https://github.com/joegle/Light-Game/blob/master/game.cpp">game.cpp</a> <br/>
+This is the core program and has all the typical GLUT functions. The run through looks like this:
+<ol>
+<li>
+#include all the subparts
+</li>
+<li>
+init()
+initializes glut, seed random number, process the level file
+</li>
+<li>
+display()
+Will repeated call drawObjects() that will place the player and draw
+</li>
+</ol>
+</li>
+<li id="sec-2.2.1.2"><a href="https://github.com/joegle/Light-Game/blob/master/globals.h">globals.h</a> <br/>
+This file only instantiates the two important objects: 'world' and 'dude'.
+</li>
+<li id="sec-2.2.1.3"><a href="https://github.com/joegle/Light-Game/blob/master/utils.cpp">utils.cpp</a> <br/>
+Has useful definitions that most files needs:
+<ul>
+<li>
+color struct to hold colors
+</li>
+<li>
+radian to degree function
+</li>
+<li>
+distance function
+</li>
+<li>
+random color generator 
+</li>
+<li>
+random number from a to b
+</li>
+</ul>
+</li>
+<li id="sec-2.2.1.4"><a href="https://github.com/joegle/Light-Game/blob/master/init.h">init.h</a> <br/>
+This holds the 'processfile()' function which will process the 'level.txt' file and fill in the 'world' with the data needed to represent the parts like walls, teapots, switches.
+</li>
+<li id="sec-2.2.1.5"><a href="https://github.com/joegle/Light-Game/blob/master/world.h">world.h</a> <br/>
+This stores the 'world' class and is where most of the action happens. Everything that exists, except for the player, is contained in this object and managed through it. 
+
+<p>
+A world object has a vector for each kind of thing in the world (Teapot, Bin, Switch, Light) and will loop through the vector to draw each thing by call their 'draw()'
+</p>
+<p>
+There are 4 sub objects that all have similar structure (also check the '.h' files):
+</p><ul>
+<li>
+<a href="https://github.com/joegle/Light-Game/blob/master/boxes.h">boxes.cpp</a> (teapots)
+</li>
+<li>
+<a href="https://github.com/joegle/Light-Game/blob/master/bins.cpp">bins.cpp</a>
+</li>
+<li>
+<a href="https://github.com/joegle/Light-Game/blob/master/lights.cpp">lights.cpp</a>
+</li>
+<li>
+<a href="https://github.com/joegle/Light-Game/blob/master/toggles.cpp">toggles.cpp</a> (for switches)
+
+</li>
+</ul>
+
+<p>Wall information is stored in a matrix
+</p>
+</li>
+<li id="sec-2.2.1.6"><a href="https://github.com/joegle/Light-Game/blob/master/dude.h">dude.h</a> <br/>
+This represents the player. 
+The player has a pointer into the world instance so that it can access world information.
+The main function is 'look()' which will place and tilt the camera from the player position. It will also draw the held teapots in view.
+
+</li>
+<li id="sec-2.2.1.7">controls.h <br/>
+This file only handles the mapping of keys and mouse to movement of the player.
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Lessons learned </h2>
+<div id="text-3">
+
+
+</div>
+
+<div id="outline-container-3.1" class="outline-3">
+<h3 id="sec-3.1">Using git for group projects </h3>
+<div id="text-3.1">
+
+<p>In the begining we decided to use <a href="http://github.com">github.com</a> to host our code. Team members can download the latest version of the code and make changes concurently with the other team members. The version control also lets us have access to every version of the project. The website is interfaced with the <a href="http://git-scm.com/">git</a> program and we learned the concepts needed to use the system. 
+</p>
+<p>
+It turned out to be a nice way to manage our group project and we can foresee ourselve using the system in the future. Their was some confusion sometimes but nothing that online help couldn't help with.
+</p></div>
+
+</div>
+
+<div id="outline-container-3.2" class="outline-3">
+<h3 id="sec-3.2">Structural planning </h3>
+<div id="text-3.2">
+
+<p>Some thought
+</p></div>
+
+</div>
+
+<div id="outline-container-3.3" class="outline-3">
+<h3 id="sec-3.3">Incremental planning and debugging </h3>
+<div id="text-3.3">
+
+</div>
+
+</div>
+
+<div id="outline-container-3.4" class="outline-3">
+<h3 id="sec-3.4">Using multiple source files and inheritance </h3>
+<div id="text-3.4">
+
+</div>
+
+</div>
+
+<div id="outline-container-3.5" class="outline-3">
+<h3 id="sec-3.5">Evolution of code </h3>
+<div id="text-3.5">
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+<div id="postamble"><p class="author"> Author: Joseph Wright
+<a href="mailto:jmw5473@psu.edu">&lt;jmw5473@psu.edu&gt;</a>
+</p>
+<p class="date"> Date: 2011-12-05 19:45:19 EST</p>
+<p>HTML generated by org-mode 6.21b in emacs 23</p>
+</div></body>
+</html>
