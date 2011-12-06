@@ -1,12 +1,13 @@
 //   g++ -o test -lglut -lGLU lab4_start.cpp
 
 
-#include <stdlib.h>         /* For _MAX_PATH definition */
+#include <cstdlib>         /* For _MAX_PATH definition */
 #include <GL/glut.h>
 #include <stdio.h>
 #include <cmath>
 #include <iostream>
-#include <string>
+#include <string.h>
+
 
 #include "globals.h"
 #include "time.h"
@@ -16,12 +17,14 @@
 #include "controls.h"
 
 using namespace std;
-
 // http://fly.cc.fer.hr/~unreal/theredbook/chapter03.html
 
 // This function inits things like the globals
-void init() {
-
+void init() { 
+  
+  width = glutGet(GLUT_WINDOW_WIDTH);
+  height = glutGet(GLUT_WINDOW_HEIGHT);
+  cout << width << " "<< height << endl;
   cout << "Begin init" << endl;
   GLfloat b[] = { .07, .07, .07, 1 };
   glLightModelfv(GL_LIGHT_MODEL_AMBIENT, b);
@@ -45,6 +48,33 @@ void init() {
 
 }
 
+void output()
+{
+  glDisable(GL_TEXTURE_2D);
+  glDisable(GL_LIGHTING);
+  glMatrixMode(GL_PROJECTION);
+  glPushMatrix();
+    glLoadIdentity();
+    gluOrtho2D(0.0, width, 0.0, height);
+    glMatrixMode(GL_MODELVIEW);
+
+    glPushMatrix();
+      glLoadIdentity();
+      string strOil = convertInt(dude.lampOil);
+      string stringText = "Oil ";
+      stringText = stringText.append(strOil); stringText.append("%");
+      glColor4f(1,1,1,1);
+      glRasterPos2f(width-80, height/2);
+      for (int i=0; i < stringText.length(); i++)
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, stringText[i]);
+      glMatrixMode(GL_MODELVIEW);
+    glPopMatrix();
+
+    glMatrixMode(GL_PROJECTION);
+  glPopMatrix();
+  glEnable(GL_TEXTURE_2D);
+  glEnable(GL_LIGHTING);
+}
 
 void initTransformation() {
   glMatrixMode (GL_PROJECTION); //set the matrix to projection
@@ -79,8 +109,9 @@ void drawObjects() {
 
 void display() {
   glClearColor(0,0,0,0); 
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);   
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   drawObjects();
+  output();
   glutSwapBuffers();  // Makes the drawing appear on the screen.
 }
 

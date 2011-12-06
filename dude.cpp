@@ -2,7 +2,6 @@
 
 dude::dude(world* ww)
 {
-  cout << "constructor" << endl;
   x = 2.5;
   y = 2.5;
   z = 2;
@@ -15,15 +14,11 @@ dude::dude(world* ww)
   // Dude's lamp init
   lampOil = 100.00;
   lamp = GL_LIGHT7;
-  cout << "got past lamp" << endl;
   lampState = false;
   lampAmb = { 1.0, 1.0, 1.0, 1.0 };
   lampDif = { 0.3,0.3,0.3, 1.0 };
   lampSpec = { 0.3,0.3,0.3, 1.0 };
- 
   lampPos[3] = 1.0; // Set the dude's light as positional
-
-  cout << "end cons" << endl;
 }
 
 void dude::setPosition(double a,double b,double c)
@@ -196,7 +191,7 @@ void dude::goBackward(){
 
 // The dude's lamp will ALWAYS be GL_LIGHT7 (the last one available)
 void dude::setLamp() {
-  cout << lampOil << endl;
+  //cout << lampOil << endl; 
   glLightfv(lamp, GL_AMBIENT, lampAmb);
   glLightfv(lamp, GL_DIFFUSE, lampDif);
   glLightfv(lamp, GL_SPECULAR, lampSpec);

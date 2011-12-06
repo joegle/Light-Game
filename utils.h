@@ -3,6 +3,8 @@
 
 // Extra functions that are needed
 #include <iostream>
+#include <string>
+#include <sstream>
 using namespace std;
 
 class color{
@@ -55,5 +57,12 @@ struct Image
 	unsigned long sizeY;
 	GLubyte *data;
 };
+
+string convertInt(int number)
+{
+   stringstream ss;//create a stringstream
+   ss << number;//add number to the stream
+   return ss.str();//return a string with the contents of the stream
+}
 
 #endif

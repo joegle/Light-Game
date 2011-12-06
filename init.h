@@ -55,7 +55,7 @@ void processfile(){
     }
 
      
-    // Read in lights
+    // Read in lights -- this number should never exceed 7
     int num_lights;
     level_file >> num_lights;
 
