@@ -32,7 +32,6 @@ light::light(int n, GLfloat x, GLfloat y, GLfloat z)
 void light::draw() 
 {
   glPushMatrix();
-   //glLightfv(getLightEnum(lightNum), GL_POSITION, position);
    glLightfv(getLightEnum(lightNum), GL_DIFFUSE, diffuse);
    glLightfv(getLightEnum(lightNum), GL_AMBIENT, ambient);
    glLightfv(getLightEnum(lightNum), GL_SPECULAR, specular);
@@ -56,11 +55,7 @@ void light::draw()
 
 void light::init()
 {
-//	GLfloat LightDir[3] = { 0.0, -1.0f, -7.0f }; // towards the viewer 
   glLightfv(getLightEnum(lightNum), GL_POSITION, position);
-  //glLightfv(getLightEnum(lightNum), GL_SPOT_DIRECTION, LightDir); 
-  //glLightf(getLightEnum(lightNum), GL_SPOT_CUTOFF, 45.0); 
-
 }
 
 GLenum light::getLightEnum(int n)

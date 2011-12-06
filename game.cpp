@@ -52,6 +52,7 @@ void initTransformation() {
   glLoadIdentity();
 }
 
+// Don't change the matrix mode transformations here!
 void drawObjects() {
   
   glMatrixMode( GL_MODELVIEW);
@@ -76,9 +77,7 @@ void drawObjects() {
 void display() {
   glClearColor(0,0,0,0); 
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);   
-//  initTransformation();           // Setup projection and view.
   drawObjects();
-  //glFlush();
   glutSwapBuffers();  // Makes the drawing appear on the screen.
 }
 

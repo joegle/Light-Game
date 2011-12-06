@@ -29,12 +29,7 @@ void dude::turn(double amt)
 void dude::look()
 {
   //  cout << x << " " << y << " " << z <<endl;
-  /*gluLookAt(x,z,y,
-	    x+sin(f(o))*cos(f(s)),
-	    z+sin(f(s)),
-	    y+cos(f(o))*cos(f(s)),
-	    0,1,0);*/
-
+  // Dude no longer does the gluLookAt() himself. This has been pushed out to game.cpp for lighting stuff
   if(carrying)
     {
       double dis=2;
