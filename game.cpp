@@ -22,6 +22,7 @@ using namespace std;
 // This function inits things like the globals
 void init() {
 
+  cout << "Begin init" << endl;
   GLfloat b[] = { .07, .07, .07, 1 };
   glLightModelfv(GL_LIGHT_MODEL_AMBIENT, b);
   glLightModelf(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_FALSE);
@@ -40,6 +41,7 @@ void init() {
   glEnable(GL_TEXTURE_2D);
 
   glShadeModel(GL_SMOOTH); //set the shader to smooth shader
+  cout << "End init" << endl;
 
 }
 
@@ -70,6 +72,7 @@ void drawObjects() {
   }
 
   dude.look();
+  dude.setLamp();
   world.drawWorld();
 
 }
@@ -83,6 +86,9 @@ void display() {
 
 void idle() {
   world.tick();
+
+  dude.lampOil = (dude.lampOil > 0 && dude.lampState) ? dude.lampOil-.100 : dude.lampOil;
+
   glutPostRedisplay();
 }
 

@@ -41,6 +41,11 @@ void keyboard(unsigned char key, int x, int y) {
    else if (key == 'k') {
      glutPostRedisplay();
    }
+   else if (key == 'e') {
+     dude.lampState = !dude.lampState;
+     dude.setLamp();
+     glutPostRedisplay();
+   }
 
    else if (key == ' ') {
      dude.doSomething();

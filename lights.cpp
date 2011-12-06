@@ -5,7 +5,7 @@ light::light(int n, GLfloat x, GLfloat y, GLfloat z)
   position[0] = x*20;
   position[1] = y*20;
   position[2] = z;
-  position[3] = 1; // 0 = directional light, 1 = positional light
+  position[3] = 1; // 0 = directional light, 1 = positional light (the one we want)
 
   // Random colorize
   color c=randomColor();
@@ -48,7 +48,6 @@ void light::draw()
 		glMaterialfv(GL_FRONT, GL_EMISSION, materialEmission);        
 		glMaterialf(GL_FRONT, GL_SHININESS, 15.0f);
     glTranslatef(position[0], position[2], position[1]);  
-    glutSolidCube(1.0);
   glPopMatrix();
 
 }
