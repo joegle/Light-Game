@@ -1,6 +1,6 @@
 CMPSC457 Final project: Light Game
 
-#+CAPTION: Zach Zack - Alex Wardi - Joseph Wright
+#+CAPTION: Zach Bush - Alex Wardi - Joseph Wright
 #+ATTR_HTML: width="50%"
 [[./1.png]]
 
@@ -44,7 +44,8 @@ CMPSC457 Final project: Light Game
      2. init()
 	initializes glut, seed random number, process the level file
      3. display()
-	Will repeated call drawObjects() that will place the player and draw
+	Will repeatedly call drawObjects() that will place the player and draw the world
+
 **** [[https://github.com/joegle/Light-Game/blob/master/globals.h][globals.h]]
      This file only instantiates the two important objects: 'world' and 'dude'.
 **** [[https://github.com/joegle/Light-Game/blob/master/utils.cpp][utils.cpp]]
@@ -81,22 +82,22 @@ Wall information is stored in a matrix
    In the begining we decided to use [[http://github.com][github.com]] to host our code. Team members can download the latest version of the code and make changes concurently with the other team members. The version control also lets us have access to every version of the project. The website is interfaced with the [[http://git-scm.com/][git]] program and we learned the concepts needed to use the system. 
 
 It turned out to be a nice way to manage our group project and we can foresee ourselve using the system in the future. Their was some confusion sometimes but nothing that online help couldn't help with.
-** Structural planning
-   Some thought
+** Structural planning end evolution
+   Some thought had to put into how to logically orginize the project. The choice to have a world class and dude class seemed obvious but the internals of those classes had to be giving a loose frame work. At one point the dude and world instance needed to interact and the decision was made to make the dude have a pointer to the world instance.
+
+   There may be some redundancy in our data model but the extra time it would of taken to make everything perfect would not have been would saving a little bit of memory and efficiency was kept very high.
 ** Incremental planning and debugging
+   Programming could get very confusing. Sometimes you could change code and not see any difference or some thing is not showing up at all in the game /when it should./ With a large project like ours you can't trust that the whole chain of calls has ran smoothly prior to the call of the current function your working on. You must instead some how isolate the testing of your function and incrementally building on single parts you know work.
 ** Using multiple source files and inheritance
-** Evolution of code
-
-
-
-
-
+   Working will huge source files is really annoying and unnecessary but working with a large number of dependent sources was a little like fitting a puzzle together. It took som time to figure out the right include order and this also helped shaped our functional topology. Also, it was found that our first verson would not compile in Windows because g++ is less strict (or smarter) then visual studio, so our headers and source files had to shaped up better.
 
 
 
 #+AUTHOR: Joseph Wright
+#+AUTHOR: Alex Wardi
+#+AUTHOR: Zack Bush
 #+EMAIL: jmw5473@psu.edu
 #+OPTIONS: ^:{} num:nil
 #+LINK_UP: http://joegle.com/code/graphics/
 #+LINK_HOME: http://joegle.com
-
+   
