@@ -1,47 +1,1110 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-lang="en" xml:lang="en">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40" xml:lang="en">
+
 <head>
-<title>CMPSC457 Final project: Light Game</title>
-<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
-<meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2011-12-05 21:18:03 EST"/>
-<meta name="author" content="Zack Bush"/>
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  html { font-family: Times, serif; font-size: 12pt; }
-  .title  { text-align: center; }
-  .todo   { color: red; }
-  .done   { color: green; }
-  .tag    { background-color:lightblue; font-weight:normal }
-  .target { }
-  .timestamp { color: grey }
-  .timestamp-kwd { color: CadetBlue }
-  p.verse { margin-left: 3% }
-  pre {
-	border: 1pt solid #AEBDCC;
-	background-color: #F3F5F7;
-	padding: 5pt;
-	font-family: courier, monospace;
-        font-size: 90%;
-        overflow:auto;
-  }
-  table { border-collapse: collapse; }
-  td, th { vertical-align: top; }
-  dt { font-weight: bold; }
-  div.figure { padding: 0.5em; }
-  div.figure p { text-align: center; }
-  .linenr { font-size:smaller }
-  .code-highlighted {background-color:#ffff00;}
-  .org-info-js_info-navigation { border-style:none; }
-  #org-info-js_console-label { font-size:10px; font-weight:bold;
-                               white-space:nowrap; }
-  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
-                                 font-weight:bold; }
-  /*]]>*/-->
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<link rel=File-List href="index_files/filelist.xml">
+<link rel=Edit-Time-Data href="index_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
 </style>
-<script type="text/javascript">
+<![endif]-->
+<title>CMPSC457 Final project: Light Game</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>ZACK BUSH</o:Author>
+  <o:LastAuthor>ZACK BUSH</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>1</o:TotalTime>
+  <o:Created>2011-12-06T09:42:00Z</o:Created>
+  <o:LastSaved>2011-12-06T09:43:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>970</o:Words>
+  <o:Characters>5533</o:Characters>
+  <o:Lines>46</o:Lines>
+  <o:Paragraphs>12</o:Paragraphs>
+  <o:CharactersWithSpaces>6491</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="index_files/themedata.thmx">
+<link rel=colorSchemeMapping href="index_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SplitPgBreakAndParaMark/>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--.TIMESTAMP
+	{color: grey ;}
+pre
+	{overflow:auto;}
+
+ /* Font Definitions */
+ @font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:Times;
+	panose-1:2 2 6 3 5 4 5 2 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-536859905 -1073711039 9 0 511 0;}
+@font-face
+	{font-family:Consolas;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:auto;
+	mso-font-signature:0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+h1
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 1 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	font-weight:bold;}
+h2
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 2 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	font-weight:bold;}
+h3
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 3 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	font-weight:bold;}
+h4
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 4 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	font-weight:bold;}
+p
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+pre
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"HTML Preformatted Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	background:#F3F5F7;
+	border:none;
+	mso-border-alt:solid #AEBDCC 1.0pt;
+	padding:0in;
+	mso-padding-alt:5.0pt 5.0pt 5.0pt 5.0pt;
+	font-size:11.0pt;
+	font-family:Courier;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:"Courier New";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"HTML Preformatted";
+	font-family:"Consolas","serif";
+	mso-ascii-font-family:Consolas;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Consolas;}
+p.verse, li.verse, div.verse
+	{mso-style-name:verse;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:18.35pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.title, li.title, div.title
+	{mso-style-name:title;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.todo, li.todo, div.todo
+	{mso-style-name:todo;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	color:red;}
+p.done, li.done, div.done
+	{mso-style-name:done;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	color:green;}
+p.tag, li.tag, div.tag
+	{mso-style-name:tag;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	background:lightblue;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.timestamp-kwd, li.timestamp-kwd, div.timestamp-kwd
+	{mso-style-name:timestamp-kwd;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	color:cadetblue;}
+p.linenr, li.linenr, div.linenr
+	{mso-style-name:linenr;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.code-highlighted, li.code-highlighted, div.code-highlighted
+	{mso-style-name:code-highlighted;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	background:yellow;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.org-info-jsinfo-navigation, li.org-info-jsinfo-navigation, div.org-info-jsinfo-navigation
+	{mso-style-name:org-info-js_info-navigation;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.org-info-jssearch-highlight, li.org-info-jssearch-highlight, div.org-info-jssearch-highlight
+	{mso-style-name:org-info-js_search-highlight;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	background:yellow;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	color:black;
+	font-weight:bold;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 1";
+	mso-ansi-font-size:14.0pt;
+	mso-bidi-font-size:14.0pt;
+	font-family:"Cambria","serif";
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#365F91;
+	mso-themecolor:accent1;
+	mso-themeshade:191;
+	font-weight:bold;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 2";
+	mso-ansi-font-size:13.0pt;
+	mso-bidi-font-size:13.0pt;
+	font-family:"Cambria","serif";
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#4F81BD;
+	mso-themecolor:accent1;
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 3";
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Cambria","serif";
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#4F81BD;
+	mso-themecolor:accent1;
+	font-weight:bold;}
+span.Heading4Char
+	{mso-style-name:"Heading 4 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 4";
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Cambria","serif";
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#4F81BD;
+	mso-themecolor:accent1;
+	font-weight:bold;
+	font-style:italic;}
+p.author, li.author, div.author
+	{mso-style-name:author;
+	mso-style-unhide:no;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.date, li.date, div.date
+	{mso-style-name:date;
+	mso-style-unhide:no;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:307979046;
+	mso-list-template-ids:-879299186;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1
+	{mso-list-id:678237565;
+	mso-list-template-ids:714628060;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2
+	{mso-list-id:968166378;
+	mso-list-template-ids:1929018538;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3
+	{mso-list-id:1366129376;
+	mso-list-template-ids:1824793508;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l3:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l3:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level2 lfo5
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-numbering:continue;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+</style>
+<![endif]-->
+<meta name=generated content="2011-12-05 21:18:03 EST">
+<meta name=author content="Zack Bush">
+
+<script  type="text/javascript">
 <!--/*--><![CDATA[/*><!--*/
  function CodeHighlightOn(elem, id)
  {
@@ -63,305 +1126,549 @@ lang="en" xml:lang="en">
  }
 /*]]>*/-->
 </script>
-</head><body>
-<h1 class="title">CMPSC457 Final project: Light Game</h1>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
 
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
 
-<div class="figure">
-<p><img src="./1.png" width="50%" alt="./1.png" /></p>
-<p>Zach Bush - Alex Wardi - Joseph Wright</p>
-</div>
+<div class=WordSection1>
 
+<h1 align=center style='text-align:center'><span lang=EN style='font-family:
+"Times","serif";mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+EN'>CMPSC457 Final project: Light Game<o:p></o:p></span></h1>
 
+<div>
 
+<p class=MsoNormal align=center style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;text-align:center'><span style='font-family:"Times","serif";mso-no-proof:
+yes'><img width=512 height=512 id="_x0000_i1025" src=1.png
+alt="Description: ./1.png"></span><span lang=EN style='font-family:"Times","serif";
+mso-ansi-language:EN'><o:p></o:p></span></p>
 
-
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">Background </a>
-<ul>
-<li><a href="#sec-1.1">The minimum criteria </a></li>
-</ul>
-</li>
-<li><a href="#sec-2">Light Game </a>
-<ul>
-<li><a href="#sec-2.1">Source Code </a></li>
-<li><a href="#sec-2.2">How it was created </a>
-<ul>
-<li><a href="#sec-2.2.1">Structure and Files </a></li>
-</ul></li>
-</ul>
-</li>
-<li><a href="#sec-3">Lessons learned </a>
-<ul>
-<li><a href="#sec-3.1">Using git for group projects </a></li>
-<li><a href="#sec-3.2">Structural planning end evolution </a></li>
-<li><a href="#sec-3.3">Incremental planning and debugging </a></li>
-<li><a href="#sec-3.4">Using multiple source files and inheritance </a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Background </h2>
-<div id="text-1">
-
-<p>The final project was supposed to put all the things we learned about OpenGL into one big cool project.
-</p>
-</div>
-
-<div id="outline-container-1.1" class="outline-3">
-<h3 id="sec-1.1">The minimum criteria </h3>
-<div id="text-1.1">
-
-<ul>
-<li>
-Animation
-</li>
-<li>
-3-D Hierarchal 
-</li>
-<li>
-Perspective
-</li>
-<li>
-Illumination and Shading
-</li>
-<li>
-Textures
-</li>
-<li>
-Interaction
-</li>
-</ul>
-</div>
-</div>
+<p class=MsoNormal align=center style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;text-align:center'><span lang=EN style='font-family:"Times","serif";
+mso-ansi-language:EN'>Zach Bush - Alex Wardi - Joseph Wright<o:p></o:p></span></p>
 
 </div>
 
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Light Game </h2>
-<div id="text-2">
+<div id=table-of-contents>
 
-<p>For our project we made a first person 3D video game. The player is in maze and the goal of the game is to collect colored teapots and place them into their matching bin. Some features:
-</p><ul>
-<li>
-Levels can be designed and processed through a text file
-<ul>
-<li>
-Placement of walls
-</li>
-<li>
-Placement of teapots
-</li>
-<li>
-Placement of bins
-</li>
-<li>
-Placement of lights
-</li>
-<li>
-Placement of light switches
-</li>
-</ul>
-</li>
-<li>
-Walls can not be passed through
-</li>
-<li>
-Lights can be toggled on and off with switches for visibility 
-</li>
-<li>
-Teapots can be picked up, moved, and dropped
-<ul>
-<li>
-Dropped on the floor or in the correct bin
-</li>
-</ul>
-</li>
-<li>
-Player can move with WASD keys
-</li>
-<li>
-Player can look around with mouse movement
+<h2><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>Table of Contents<o:p></o:p></span></h2>
 
-</li>
+<div id=text-table-of-contents>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list .5in'><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'><a href="#sec-1">Background </a><o:p></o:p></span></li>
+</ul>
+
+<ul type=disc>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l0 level2 lfo1;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'><a href="#sec-1.1">The minimum criteria </a><o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list .5in'><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'><a href="#sec-2">Light Game </a><o:p></o:p></span></li>
+</ul>
+
+<ul type=disc>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l0 level2 lfo1;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'><a href="#sec-2.1">Source Code </a><o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l0 level2 lfo1;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'><a href="#sec-2.2">How it was created </a><o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<ul type=disc>
+ <ul type=circle>
+  <ul type=square>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l0 level3 lfo1;tab-stops:list 1.5in'><span lang=EN
+       style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+       mso-ansi-language:EN'><a href="#sec-2.2.1">Structure and Files </a><o:p></o:p></span></li>
+  </ul>
+ </ul>
+</ul>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list .5in'><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'><a href="#sec-3">Lessons learned </a><o:p></o:p></span></li>
+</ul>
+
+<ul type=disc>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l0 level2 lfo1;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'><a href="#sec-3.1">Using git for group projects </a><o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l0 level2 lfo1;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'><a href="#sec-3.2">Structural planning end
+      evolution </a><o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l0 level2 lfo1;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'><a href="#sec-3.3">Incremental planning and
+      debugging </a><o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l0 level2 lfo1;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'><a href="#sec-3.4">Using multiple source files and
+      inheritance </a><o:p></o:p></span></li>
+ </ul>
 </ul>
 
 </div>
 
-<div id="outline-container-2.1" class="outline-3">
-<h3 id="sec-2.1">Source Code </h3>
-<div id="text-2.1">
+</div>
 
-<p>You can download and browse the source code on github.com at <a href="#twhttps://github.com/joegle/Light-Game">joegle/Light-Game</a>
-Run 'make' or compile:
-</p><pre class="example">
- g++ -lglut -lGLU game.cpp -o game
-</pre>
+<div id=outline-container-1>
+
+<h2><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>Background <o:p></o:p></span></h2>
+
+<div id=text-1>
+
+<p><span lang=EN style='font-family:"Times","serif";mso-ansi-language:EN'>The
+final project was supposed to put all the things we learned about OpenGL into
+one big cool project. <o:p></o:p></span></p>
 
 </div>
 
-</div>
+<div id=outline-container-1.1>
 
-<div id="outline-container-2.2" class="outline-3">
-<h3 id="sec-2.2">How it was created </h3>
-<div id="text-2.2">
+<h3><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>The minimum criteria <o:p></o:p></span></h3>
 
+<div id=text-1.1>
 
-</div>
-
-<div id="outline-container-2.2.1" class="outline-4">
-<h4 id="sec-2.2.1">Structure and Files </h4>
-<div id="text-2.2.1">
-
-<ul>
-<li id="sec-2.2.1.1"><a href="https://github.com/joegle/Light-Game/blob/master/game.cpp">game.cpp</a> <br/>
-This is the core program and has all the typical GLUT functions. The run through looks like this:
-<ol>
-<li>
-#include all the subparts
-</li>
-<li>
-init()
-initializes glut, seed random number, process the level file
-</li>
-<li>
-display()
-Will repeatedly call drawObjects() that will place the player and draw the world
-
-</li>
-</ol>
-</li>
-<li id="sec-2.2.1.2"><a href="https://github.com/joegle/Light-Game/blob/master/globals.h">globals.h</a> <br/>
-This file only instantiates the two important objects: 'world' and 'dude'.
-</li>
-<li id="sec-2.2.1.3"><a href="https://github.com/joegle/Light-Game/blob/master/utils.cpp">utils.cpp</a> <br/>
-Has useful definitions that most files needs:
-<ul>
-<li>
-color struct to hold colors
-</li>
-<li>
-radian to degree function
-</li>
-<li>
-distance function
-</li>
-<li>
-random color generator 
-</li>
-<li>
-random number from a to b
-</li>
-</ul>
-</li>
-<li id="sec-2.2.1.4"><a href="https://github.com/joegle/Light-Game/blob/master/init.h">init.h</a> <br/>
-This holds the 'processfile()' function which will process the 'level.txt' file and fill in the 'world' with the data needed to represent the parts like walls, teapots, switches.
-</li>
-<li id="sec-2.2.1.5"><a href="https://github.com/joegle/Light-Game/blob/master/world.h">world.h</a> <br/>
-This stores the 'world' class and is where most of the action happens. Everything that exists, except for the player, is contained in this object and managed through it. 
-
-<p>
-A world object has a vector for each kind of thing in the world (Teapot, Bin, Switch, Light) and will loop through the vector to draw each thing by call their 'draw()'
-</p>
-<p>
-There are 4 sub objects that all have similar structure (also check the '.h' files):
-</p><ul>
-<li>
-<a href="https://github.com/joegle/Light-Game/blob/master/boxes.h">boxes.cpp</a> (teapots)
-</li>
-<li>
-<a href="https://github.com/joegle/Light-Game/blob/master/bins.cpp">bins.cpp</a>
-</li>
-<li>
-<a href="https://github.com/joegle/Light-Game/blob/master/lights.cpp">lights.cpp</a>
-</li>
-<li>
-<a href="https://github.com/joegle/Light-Game/blob/master/toggles.cpp">toggles.cpp</a> (for switches)
-
-</li>
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo2;tab-stops:list .5in'><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'>Animation <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo2;tab-stops:list .5in'><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'>3-D Hierarchal <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo2;tab-stops:list .5in'><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'>Perspective <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo2;tab-stops:list .5in'><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'>Illumination and Shading <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo2;tab-stops:list .5in'><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'>Textures <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo2;tab-stops:list .5in'><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'>Interaction <o:p></o:p></span></li>
 </ul>
 
-<p>Wall information is stored in a matrix
-</p>
-</li>
-<li id="sec-2.2.1.6"><a href="https://github.com/joegle/Light-Game/blob/master/dude.h">dude.h</a> <br/>
-This represents the player. 
-The player has a pointer into the world instance so that it can access world information.
-The main function is 'look()' which will place and tilt the camera from the player position. It will also draw the held teapots in view.
+</div>
 
-</li>
-<li id="sec-2.2.1.7">controls.h <br/>
-This file only handles the mapping of keys and mouse to movement of the player.
-</li>
+</div>
+
+</div>
+
+<div id=outline-container-2>
+
+<h2><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>Light Game <o:p></o:p></span></h2>
+
+<div id=text-2>
+
+<p><span lang=EN style='font-family:"Times","serif";mso-ansi-language:EN'>For
+our project we made a first person 3D video game. The player is in maze and the
+goal of the game is to collect colored teapots and place them into their
+matching bin. Some features: <o:p></o:p></span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo3;tab-stops:list .5in'><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'>Levels can be designed and processed through a text
+     file <o:p></o:p></span></li>
 </ul>
-</div>
-</div>
-</div>
+
+<ul type=disc>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l3 level2 lfo3;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'>Placement of walls <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l3 level2 lfo3;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'>Placement of teapots <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l3 level2 lfo3;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'>Placement of bins <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l3 level2 lfo3;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'>Placement of lights <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l3 level2 lfo3;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'>Placement of light switches <o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo3;tab-stops:list .5in'><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'>Walls can not be passed through <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo3;tab-stops:list .5in'><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'>Lights can be toggled on and off with switches for
+     visibility <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo3;tab-stops:list .5in'><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'>Teapots can be picked up, moved, and dropped <o:p></o:p></span></li>
+</ul>
+
+<ul type=disc>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l3 level2 lfo3;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'>Dropped on the floor or in the correct bin <o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo3;tab-stops:list .5in'><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'>Player can move with WASD keys <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo3;tab-stops:list .5in'><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'>Player can look around with mouse movement <o:p></o:p></span></li>
+</ul>
 
 </div>
 
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Lessons learned </h2>
-<div id="text-3">
+<div id=outline-container-2.1>
 
+<h3><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>Source Code <o:p></o:p></span></h3>
 
-</div>
+<div id=text-2.1>
 
-<div id="outline-container-3.1" class="outline-3">
-<h3 id="sec-3.1">Using git for group projects </h3>
-<div id="text-3.1">
+<p><span lang=EN style='font-family:"Times","serif";mso-ansi-language:EN'>You
+can download and browse the source code on github.com at <a
+href="#twhttps://github.com/joegle/Light-Game">joegle/Light-Game</a> Run 'make'
+or compile: <o:p></o:p></span></p>
 
-<p>In the begining we decided to use <a href="http://github.com">github.com</a> to host our code. Team members can download the latest version of the code and make changes concurently with the other team members. The version control also lets us have access to every version of the project. The website is interfaced with the <a href="http://git-scm.com/">git</a> program and we learned the concepts needed to use the system. 
-</p>
-<p>
-It turned out to be a nice way to manage our group project and we can foresee ourselve using the system in the future. Their was some confusion sometimes but nothing that online help couldn't help with.
-</p></div>
-
-</div>
-
-<div id="outline-container-3.2" class="outline-3">
-<h3 id="sec-3.2">Structural planning end evolution </h3>
-<div id="text-3.2">
-
-<p>Some thought had to put into how to logically orginize the project. The choice to have a world class and dude class seemed obvious but the internals of those classes had to be giving a loose frame work. At one point the dude and world instance needed to interact and the decision was made to make the dude have a pointer to the world instance.
-</p>
-<p>
-There may be some redundancy in our data model but the extra time it would of taken to make everything perfect would not have been would saving a little bit of memory and efficiency was kept very high.
-</p></div>
+<div style='mso-element:para-border-div;border:solid #AEBDCC 1.0pt;padding:
+5.0pt 5.0pt 5.0pt 5.0pt;background:#F3F5F7'><pre><span lang=EN
+style='mso-ansi-language:EN'><o:p>&nbsp;</o:p></span></pre><pre><span lang=EN
+style='mso-ansi-language:EN'> g++ -lglut -lGLU game.cpp -o game<o:p></o:p></span></pre></div>
 
 </div>
 
-<div id="outline-container-3.3" class="outline-3">
-<h3 id="sec-3.3">Incremental planning and debugging </h3>
-<div id="text-3.3">
+</div>
 
-<p>Programming could get very confusing. Sometimes you could change code and not see any difference or some thing is not showing up at all in the game <i>when it should.</i> With a large project like ours you can't trust that the whole chain of calls has ran smoothly prior to the call of the current function your working on. You must instead some how isolate the testing of your function and incrementally building on single parts you know work.
-</p></div>
+<div id=outline-container-2.2>
+
+<h3><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>How it was created <o:p></o:p></span></h3>
+
+<div id=outline-container-2.2.1>
+
+<h4><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>Structure and Files <o:p></o:p></span></h4>
+
+<div id=text-2.2.1>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo4;tab-stops:list .5in'><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'><a
+     href="https://github.com/joegle/Light-Game/blob/master/game.cpp">game.cpp</a>
+     <br>
+     This is the core program and has all the typical GLUT functions. The run
+     through looks like this: <o:p></o:p></span></li>
+</ul>
+
+<ul type=disc>
+ <ol start=1 type=1>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l2 level2 lfo4;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'>#include all the subparts <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l2 level2 lfo4;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'>init() initializes glut, seed random number,
+      process the level file <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l2 level2 lfo4;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'>display() Will repeatedly call drawObjects() that
+      will place the player and draw the world <o:p></o:p></span></li>
+ </ol>
+</ul>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo4;tab-stops:list .5in' id=sec-2.2.1.2><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'><a
+     href="https://github.com/joegle/Light-Game/blob/master/globals.h">globals.h</a>
+     <br>
+     This file only instantiates the two important objects: 'world' and 'dude'.
+     <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo4;tab-stops:list .5in' id=sec-2.2.1.3><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'><a
+     href="https://github.com/joegle/Light-Game/blob/master/utils.cpp">utils.cpp</a>
+     <br>
+     Has useful definitions that most files needs: <o:p></o:p></span></li>
+</ul>
+
+<ul type=disc>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l2 level2 lfo5;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'>color struct to hold colors <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l2 level2 lfo5;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'>radian to degree function <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l2 level2 lfo5;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'>distance function <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l2 level2 lfo5;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'>random color generator <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l2 level2 lfo5;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'>random number from a to b <o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo5;tab-stops:list .5in' id=sec-2.2.1.4><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'><a
+     href="https://github.com/joegle/Light-Game/blob/master/init.h">init.h</a> <br>
+     This holds the 'processfile()' function which will process the 'level.txt'
+     file and fill in the 'world' with the data needed to represent the parts
+     like walls, teapots, switches. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo5;tab-stops:list .5in' id=sec-2.2.1.5><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'><a
+     href="https://github.com/joegle/Light-Game/blob/master/world.h">world.h</a>
+     <br>
+     This stores the 'world' class and is where most of the action happens.
+     Everything that exists, except for the player, is contained in this object
+     and managed through it. <o:p></o:p></span></li>
+</ul>
+
+<p style='margin-left:.5in'><span lang=EN style='font-family:"Times","serif";
+mso-ansi-language:EN'>A world object has a vector for each kind of thing in the
+world (Teapot, Bin, Switch, Light) and will loop through the vector to draw
+each thing by call their 'draw()' <o:p></o:p></span></p>
+
+<p style='margin-left:.5in'><span lang=EN style='font-family:"Times","serif";
+mso-ansi-language:EN'>There are 4 sub objects that all have similar structure
+(also check the '.h' files): <o:p></o:p></span></p>
+
+<ul type=disc>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l2 level2 lfo5;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'><a
+      href="https://github.com/joegle/Light-Game/blob/master/boxes.h">boxes.cpp</a>
+      (teapots) <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l2 level2 lfo5;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'><a
+      href="https://github.com/joegle/Light-Game/blob/master/bins.cpp">bins.cpp</a>
+      <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l2 level2 lfo5;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'><a
+      href="https://github.com/joegle/Light-Game/blob/master/lights.cpp">lights.cpp</a>
+      <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l2 level2 lfo5;tab-stops:list 1.0in'><span lang=EN
+      style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+      mso-ansi-language:EN'><a
+      href="https://github.com/joegle/Light-Game/blob/master/toggles.cpp">toggles.cpp</a>
+      (for switches) <o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p style='margin-left:.5in'><span lang=EN style='font-family:"Times","serif";
+mso-ansi-language:EN'>Wall information is stored in a matrix <o:p></o:p></span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo5;tab-stops:list .5in' id=sec-2.2.1.6><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'><a
+     href="https://github.com/joegle/Light-Game/blob/master/dude.h">dude.h</a> <br>
+     This represents the player. The player has a pointer into the world
+     instance so that it can access world information. The main function is
+     'look()' which will place and tilt the camera from the player position. It
+     will also draw the held teapots in view. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo5;tab-stops:list .5in' id=sec-2.2.1.7><span lang=EN
+     style='font-family:"Times","serif";mso-fareast-font-family:"Times New Roman";
+     mso-ansi-language:EN'>controls.h <br>
+     This file only handles the mapping of keys and mouse to movement of the
+     player. <o:p></o:p></span></li>
+</ul>
 
 </div>
 
-<div id="outline-container-3.4" class="outline-3">
-<h3 id="sec-3.4">Using multiple source files and inheritance </h3>
-<div id="text-3.4">
-
-<p>Working will huge source files is really annoying and unnecessary but working with a large number of dependent sources was a little like fitting a puzzle together. It took som time to figure out the right include order and this also helped shaped our functional topology. Also, it was found that our first verson would not compile in Windows because g++ is less strict (or smarter) then visual studio, so our headers and source files had to shaped up better.
-</p>
-
-
+</div>
 
 </div>
+
 </div>
+
+<div id=outline-container-3>
+
+<h2><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>Lessons learned <o:p></o:p></span></h2>
+
+<div id=outline-container-3.1>
+
+<h3><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>Using git for group projects <o:p></o:p></span></h3>
+
+<div id=text-3.1>
+
+<p><span lang=EN style='font-family:"Times","serif";mso-ansi-language:EN'>In
+the beginning we decided to use <a href="http://github.com">github.com</a> to
+host our code. Team members can download the latest version of the code and
+make changes concurrently with the other team members. The version control also
+lets us have access to every version of the project. The website is interfaced
+with the <a href="http://git-scm.com/">git</a> program and we learned the
+concepts needed to use the system. <o:p></o:p></span></p>
+
+<p><span lang=EN style='font-family:"Times","serif";mso-ansi-language:EN'>It
+turned out to be a nice way to manage our group project and we can foresee ourselves
+using the system in the future. There was some confusion sometimes but nothing
+that online help couldn't help with. <o:p></o:p></span></p>
+
 </div>
-<div id="postamble"><p class="author"> Author: Zack Bush
-<a href="mailto:jmw5473@psu.edu">&lt;jmw5473@psu.edu&gt;</a>
-</p>
-<p class="date"> Date: 2011-12-05 21:18:03 EST</p>
-<p>HTML generated by org-mode 6.21b in emacs 23</p>
-</div></body>
+
+</div>
+
+<div id=outline-container-3.2>
+
+<h3><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>Structural planning end evolution <o:p></o:p></span></h3>
+
+<div id=text-3.2>
+
+<p><span lang=EN style='font-family:"Times","serif";mso-ansi-language:EN'>Some
+thought had to put into how to logically organize the project. The choice to
+have a world class and dude class seemed obvious but the internals of those
+classes had to be giving a loose frame work. At one point the dude and world
+instance needed to interact and the decision was made to make the dude have a
+pointer to the world instance. <o:p></o:p></span></p>
+
+<p><span lang=EN style='font-family:"Times","serif";mso-ansi-language:EN'>There
+may be some redundancy in our data model but the extra time it would of taken
+to make everything perfect would not have been would saving a little bit of
+memory and efficiency was kept very high. <o:p></o:p></span></p>
+
+</div>
+
+</div>
+
+<div id=outline-container-3.3>
+
+<h3><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>Incremental planning and debugging <o:p></o:p></span></h3>
+
+<div id=text-3.3>
+
+<p><span lang=EN style='font-family:"Times","serif";mso-ansi-language:EN'>Programming
+could get very confusing. Sometimes you could change code and not see any
+difference or some thing is not showing up at all in the game <i>when it
+should.</i> With a large project like ours you can't trust that the whole chain
+of calls has ran smoothly prior to the call of the current function your
+working on. You must instead some how isolate the testing of your function and
+incrementally building on single parts you know work. <o:p></o:p></span></p>
+
+</div>
+
+</div>
+
+<div id=outline-container-3.4>
+
+<h3><span lang=EN style='font-family:"Times","serif";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN'>Using multiple source files and
+inheritance <o:p></o:p></span></h3>
+
+<div id=text-3.4>
+
+<p><span lang=EN style='font-family:"Times","serif";mso-ansi-language:EN'>Working
+will huge source files is really annoying and unnecessary but working with a
+large number of dependent sources was a little like fitting a puzzle together.
+It took some time to figure out the right include order and this also helped
+shaped our functional topology. Also, it was found that our first version would
+not compile in Windows because g++ is less strict (or smarter) then visual
+studio, so our headers and source files had to shaped up better. <o:p></o:p></span></p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
 </html>
