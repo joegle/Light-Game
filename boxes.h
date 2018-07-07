@@ -1,7 +1,7 @@
 #ifndef BOXES
 #define BOXES
 
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include "utils.h"
 
 class box

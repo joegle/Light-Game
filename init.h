@@ -1,7 +1,7 @@
 #ifndef INIT
 #define INIT
 
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include "globals.h"
 #include <fstream>
 

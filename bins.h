@@ -1,7 +1,7 @@
 #ifndef BINS
 #define BINS
 
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include "utils.h"
 
 class bin

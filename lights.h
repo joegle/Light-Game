@@ -1,7 +1,7 @@
 #ifndef LIGHTS
 #define LIGHTS
 
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include <iostream>
 #include <string>
 

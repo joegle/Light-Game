@@ -1,7 +1,7 @@
 #ifndef TOGGLES
 #define TOGGLES
 
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include "utils.h"
 #include "globals.h"
 

@@ -37,7 +37,7 @@ void world::drawFloor()
     glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,floorAmbient);
     glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,floorSpec);
     glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,floorDiff);  
-    glBindTexture(GL_TEXTURE_2D, texture[0]);
+    //    glBindTexture(GL_TEXTURE_2D, texture[0]);
     glBegin(GL_QUADS);
       glTexCoord2f(-1.0, 1.0);   glVertex3f(-1.0f,0, 1.0f);     
       glTexCoord2f( 1.0, 1.0);   glVertex3f( 1.0f,0, 1.0f);     
@@ -130,7 +130,7 @@ void world::drawWall(double x1,double y1, double x2, double y2)
   glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,floorAmbient);
   glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,floorSpec);
   glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,floorDiff);
-  glBindTexture(GL_TEXTURE_2D, texture[2]);
+  //  glBindTexture(GL_TEXTURE_2D, texture[2]);
   glBegin(GL_QUADS);
     glTexCoord2f(0, 0 ); glVertex3f(x1,h,y1); 
 	  glTexCoord2f( 1, 0); glVertex3f(x1,0,y1);
@@ -399,7 +399,7 @@ void world::LoadGLTextures() {
 
 	// Create Texture Name and Bind it as current
 	glGenTextures(1, &texture[0]);
-	glBindTexture(GL_TEXTURE_2D, texture[0]);   // 2d texture (x and y size)
+	//glBindTexture(GL_TEXTURE_2D, texture[0]);   // 2d texture (x and y size)
 
 	//Set Texture Parameters
 	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR); // scale linearly when image bigger than texture
@@ -436,7 +436,7 @@ void world::LoadGLTextures() {
 
 	// Create Texture Name and Bind it as current
 	glGenTextures(1, &texture[1]);
-	glBindTexture(GL_TEXTURE_2D, texture[1]);   // 2d texture (x and y size)
+	//glBindTexture(GL_TEXTURE_2D, texture[1]);   // 2d texture (x and y size)
 
 	//Set Texture Parameters
 	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR); // scale linearly when image bigger than texture
@@ -472,7 +472,7 @@ void world::LoadGLTextures() {
 
 	// Create Texture Name and Bind it as current
 	glGenTextures(1, &texture[2]);
-	glBindTexture(GL_TEXTURE_2D, texture[2]);   // 2d texture (x and y size)
+	//glBindTexture(GL_TEXTURE_2D, texture[2]);   // 2d texture (x and y size)
 
 	//Set Texture Parameters
 	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR); // scale linearly when image bigger than texture

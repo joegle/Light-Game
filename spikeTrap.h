@@ -1,7 +1,7 @@
 #ifndef SPIKETRAP
 #define SPIKETRAP
 
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include "utils.h"
 
 class spikeTrap{

@@ -1,7 +1,7 @@
 #ifndef CONTROLS
 #define CONTROLS
 
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include "globals.h"
 
 void keyboard(unsigned char key, int x, int y) {

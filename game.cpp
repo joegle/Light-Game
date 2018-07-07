@@ -2,7 +2,7 @@
 
 
 #include <cstdlib>         /* For _MAX_PATH definition */
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include <stdio.h>
 #include <cmath>
 #include <iostream>
@@ -237,7 +237,7 @@ int main(int argc, char **argv) {
 
   glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
   
-  glutInitWindowSize(800, 800);       // Set the size of the window here.
+  glutInitWindowSize(400, 400);       // Set the size of the window here.
   glutInitWindowPosition(0, 0);    // Upper left corner of window.
 
   glutCreateWindow("Game"); // Title displayed in window title bar.
